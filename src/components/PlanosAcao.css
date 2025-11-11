@@ -1,0 +1,214 @@
+.planos-acao-container {
+  padding: 0;
+  max-width: 100%;
+  margin: 0;
+  height: 100%;
+}
+
+.planos-acao-card-principal {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.planos-acao-card-principal .p-card-body {
+  padding: 1rem;
+}
+
+.planos-acao-card-content {
+  width: 100%;
+}
+
+.planos-acao-titulo-principal {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.planos-acao-titulo-principal i {
+  font-size: 1.5rem;
+  color: #0277bd;
+}
+
+.planos-acao-titulo-principal h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+.planos-acao-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.planos-acao-cards .minicard {
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+}
+
+.planos-acao-cards .minicard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.planos-acao-cards .minicard-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.planos-acao-cards .minicard .card-linha-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.planos-acao-cards .minicard .card-numero {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.planos-acao-cards .minicard .card-numeros-duplos {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.planos-acao-cards .minicard .card-numeros-duplos .card-numero {
+  font-size: 2.5rem;
+}
+
+.planos-acao-cards .minicard .card-conector {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.planos-acao-cards .minicard .card-titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000;
+  margin: 0 0 0.5rem 0;
+}
+
+.planos-acao-cards .minicard .card-linha-2 {
+  margin-top: auto;
+}
+
+.planos-acao-cards .minicard .card-descricao {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0.25rem 0;
+}
+
+/* Minicard 1 - Planos de Ação (Azul claro com gradiente) */
+.planos-acao-cards .minicard-1 {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+.planos-acao-cards .minicard-1 .card-numero {
+  color: #1976d2;
+}
+
+.planos-acao-cards .minicard-1 .card-descricao {
+  color: #1976d2;
+}
+
+/* Minicard 2 - Mapas de Ação (Verde claro com gradiente) */
+.planos-acao-cards .minicard-2 {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+.planos-acao-cards .minicard-2 .card-numero {
+  color: #388e3c;
+}
+
+.planos-acao-cards .minicard-2 .card-descricao {
+  color: #388e3c;
+}
+
+/* Minicard 3 - Teste de Consistência (Roxo claro com gradiente) */
+.planos-acao-cards .minicard-3 {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+}
+
+.planos-acao-cards .minicard-3 .card-numero {
+  color: #7b1fa2;
+}
+
+.planos-acao-cards .minicard-3 .card-descricao {
+  color: #7b1fa2;
+}
+
+/* Minicard 4 - Matemática (Vermelho claro com gradiente) */
+.planos-acao-cards .minicard-4 {
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+}
+
+.planos-acao-cards .minicard-4 .card-numero {
+  color: #c62828;
+}
+
+.planos-acao-cards .minicard-4 .card-descricao {
+  color: #c62828;
+}
+
+/* Minicard 5 - Língua Portuguesa (Amarelo/Laranja claro com gradiente) */
+.planos-acao-cards .minicard-5 {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+}
+
+.planos-acao-cards .minicard-5 .card-numero {
+  color: #e65100;
+}
+
+.planos-acao-cards .minicard-5 .card-descricao {
+  color: #e65100;
+}
+
+/* Minicard 6 - Problemas e Desafios (Cinza com gradiente) */
+.planos-acao-cards .minicard-6 {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+}
+
+.planos-acao-cards .minicard-6 .card-numero {
+  color: #424242;
+}
+
+.planos-acao-cards .minicard-6 .card-descricao {
+  color: #424242;
+}
+
+/* Minicard 7 - Leitura (Verde claro com gradiente) */
+.planos-acao-cards .minicard-7 {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+.planos-acao-cards .minicard-7 .card-numero {
+  color: #2e7d32;
+}
+
+.planos-acao-cards .minicard-7 .card-descricao {
+  color: #2e7d32;
+}
+

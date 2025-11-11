@@ -1,0 +1,142 @@
+.produtos-container {
+  padding: 0;
+  max-width: 100%;
+  margin: 0;
+  height: 100%;
+}
+
+.produtos-card-principal {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.produtos-card-principal .p-card-body {
+  padding: 1rem;
+}
+
+.produtos-card-content {
+  width: 100%;
+}
+
+.produtos-titulo-principal {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.produtos-titulo-principal i {
+  font-size: 1.5rem;
+  color: #f57c00;
+}
+
+.produtos-titulo-principal h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+.produtos-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.produtos-cards .minicard {
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgb(248, 250, 252);
+  border: 1px solid rgb(229, 231, 235);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.produtos-cards .minicard:hover {
+  transform: translateY(-2px);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.produtos-cards .minicard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.produtos-cards .minicard .card-linha-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.produtos-cards .minicard .card-status {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+.produtos-cards .minicard .card-percentual {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #6b7280;
+  margin: 0;
+}
+
+.produtos-cards .minicard .card-linha-2 {
+  margin: 0.25rem 0 0.1rem 0;
+}
+
+.produtos-cards .minicard .card-linha-3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.produtos-cards .minicard .card-contagem {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #6b7280;
+  margin: 0;
+  display: block;
+}
+
+.produtos-cards .progress-bar-container {
+  width: 100%;
+  height: 6px;
+  background-color: rgb(229, 231, 235);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.produtos-cards .progress-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Minicard 0-25% (Vermelho - baixo progresso) */
+.produtos-cards .minicard-faixa-0-25 .progress-bar {
+  background-color: #dc2626;
+}
+
+/* Minicard 26-50% (Laranja - progresso médio-baixo) */
+.produtos-cards .minicard-faixa-26-50 .progress-bar {
+  background-color: #f57c00;
+}
+
+/* Minicard 51-75% (Amarelo/Laranja - progresso médio-alto) */
+.produtos-cards .minicard-faixa-51-75 .progress-bar {
+  background-color: #ff9800;
+}
+
+/* Minicard 76-100% (Verde - alto progresso) */
+.produtos-cards .minicard-faixa-76-100 .progress-bar {
+  background-color: #16a34a;
+}
+

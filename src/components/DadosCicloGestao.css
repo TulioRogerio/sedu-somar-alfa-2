@@ -1,0 +1,149 @@
+.dados-ciclo-gestao-container {
+  padding: 1rem 0.5rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.dados-ciclo-gestao-card-principal {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.dados-ciclo-gestao-card-principal .p-card-body {
+  padding: 1.5rem;
+}
+
+.dados-ciclo-gestao-card-content {
+  width: 100%;
+}
+
+.dados-ciclo-gestao-titulo-principal {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0 0 1.5rem 0;
+}
+
+.dados-ciclo-gestao-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.dados-ciclo-gestao-cards .p-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  height: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dados-ciclo-gestao-cards .p-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dados-ciclo-gestao-cards .p-card-body {
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Linha 1: Ícone, Título, Ver detalhes */
+.card-linha-1 {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-icon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-titulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+.card-link {
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.card-link:hover {
+  color: #0b5ed7;
+  text-decoration: underline;
+}
+
+.card-link i {
+  font-size: 0.85rem;
+}
+
+/* Linha 2: Descrição/Resumo */
+.card-linha-2 {
+  margin-top: auto;
+}
+
+.card-descricao {
+  font-size: 0.9rem;
+  color: #495057;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Card 1 - Números totais (Azul/Lavanda) */
+.card-numeros-totais {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+.card-numeros-totais .card-icon {
+  color: #1976d2;
+}
+
+/* Card 2 - Escolas e Metas (Verde) */
+.card-escolas-metas {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+.card-escolas-metas .card-icon {
+  color: #388e3c;
+}
+
+/* Card 3 - Alunos por Regional (Laranja) */
+.card-alunos-regional {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+}
+
+.card-alunos-regional .card-icon {
+  color: #f57c00;
+}
+
+/* Card 4 - TCGP's por Regional (Roxo) */
+.card-tcgps-regional {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+}
+
+.card-tcgps-regional .card-icon {
+  color: #7b1fa2;
+}

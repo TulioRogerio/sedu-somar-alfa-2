@@ -1,0 +1,346 @@
+.planos-acao-modal .p-dialog {
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: none;
+  overflow: visible;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.planos-acao-modal .p-dialog .p-dialog-content-wrapper {
+  background-color: #ffffff;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.planos-acao-modal .p-dialog-mask {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.planos-acao-modal .p-dialog-footer {
+  display: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  visibility: hidden !important;
+}
+
+.planos-acao-modal .p-dialog .p-dialog-footer {
+  display: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  visibility: hidden !important;
+}
+
+.planos-acao-modal .p-dialog-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 0.5rem 1rem;
+  min-height: auto;
+}
+
+.modal-header-custom {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.planos-acao-modal .p-dialog-header-icons {
+  margin-left: auto;
+}
+
+.planos-acao-modal .p-dialog-header-icon {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.planos-acao-modal .p-dialog-content {
+  padding: 1.5rem;
+  background-color: #ffffff;
+  overflow-y: auto;
+  overflow-x: auto;
+  border-radius: 0 0 8px 8px;
+  border: none;
+  margin: 0 !important;
+  max-height: calc(90vh - 100px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.planos-acao-modal .p-dialog-content::after,
+.planos-acao-modal .p-dialog-content::before {
+  display: none !important;
+  content: none !important;
+}
+
+.planos-acao-modal .p-dialog .p-dialog-content {
+  padding-bottom: 1.5rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* Estilos para o card do Espírito Santo */
+.modal-card .p-card-body {
+  padding: 0;
+  height: auto;
+  min-height: auto;
+}
+
+.modal-card-content {
+  padding: 0.5rem 1rem;
+  height: auto;
+  min-height: auto;
+  max-height: none;
+  line-height: 1;
+}
+
+.modal-card-titulo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0 0 0.35rem 0;
+  line-height: 1.2;
+}
+
+.modal-tabela-dados {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  align-items: start;
+}
+
+.dado-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  text-align: center;
+  min-height: auto;
+}
+
+.dado-item .dado-valor {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+}
+
+.dado-item .dado-label {
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Condensar largura das colunas */
+.planos-acao-modal .modal-datatable .p-datatable-thead > tr > th {
+  padding: 0.5rem 0.4rem;
+  font-size: 0.75rem;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.planos-acao-modal .modal-datatable .p-datatable-tbody > tr > td {
+  padding: 0.5rem 0.4rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Coluna Regional/Município/Escola */
+.planos-acao-modal .modal-datatable .p-datatable-thead > tr > th:first-child,
+.planos-acao-modal .modal-datatable .p-datatable-tbody > tr > td:first-child {
+  min-width: 100px;
+  max-width: 140px;
+  text-align: left;
+}
+
+/* Planos de Ação e Mapas de Ação */
+.planos-acao-modal .modal-datatable .p-datatable-thead > tr > th:nth-child(2),
+.planos-acao-modal .modal-datatable .p-datatable-tbody > tr > td:nth-child(2),
+.planos-acao-modal .modal-datatable .p-datatable-thead > tr > th:nth-child(3),
+.planos-acao-modal .modal-datatable .p-datatable-tbody > tr > td:nth-child(3) {
+  min-width: 70px;
+  max-width: 90px;
+}
+
+/* Mapas de Língua Portuguesa e Matemática (com quebra de linha) */
+.planos-acao-modal .modal-datatable .p-datatable-thead > tr > th:nth-child(4),
+.planos-acao-modal .modal-datatable .p-datatable-tbody > tr > td:nth-child(4),
+.planos-acao-modal .modal-datatable .p-datatable-thead > tr > th:nth-child(5),
+.planos-acao-modal .modal-datatable .p-datatable-tbody > tr > td:nth-child(5) {
+  min-width: 80px;
+  max-width: 100px;
+}
+
+/* Mapas de Leitura e Outros mapas */
+.planos-acao-modal .modal-datatable .p-datatable-thead > tr > th:nth-child(6),
+.planos-acao-modal .modal-datatable .p-datatable-tbody > tr > td:nth-child(6),
+.planos-acao-modal .modal-datatable .p-datatable-thead > tr > th:nth-child(7),
+.planos-acao-modal .modal-datatable .p-datatable-tbody > tr > td:nth-child(7) {
+  min-width: 70px;
+  max-width: 90px;
+}
+
+/* Validados e Não validados pelo TCGP */
+.planos-acao-modal .modal-datatable .p-datatable-thead > tr > th:nth-child(8),
+.planos-acao-modal .modal-datatable .p-datatable-tbody > tr > td:nth-child(8),
+.planos-acao-modal .modal-datatable .p-datatable-thead > tr > th:nth-child(9),
+.planos-acao-modal .modal-datatable .p-datatable-tbody > tr > td:nth-child(9) {
+  min-width: 80px;
+  max-width: 100px;
+}
+
+.modal-conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  min-height: auto;
+  overflow: visible;
+  position: relative;
+}
+
+.modal-card {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+.modal-card .p-card-body {
+  padding: 1.5rem;
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+.planos-acao-modal .modal-card.p-card {
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+.planos-acao-modal .modal-card.p-card .p-card-body {
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+.modal-card-content {
+  width: 100%;
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+.modal-datatable {
+  margin-top: 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  overflow-x: auto;
+  overflow-y: visible;
+  width: 100%;
+}
+
+.modal-datatable .p-datatable-wrapper {
+  border-radius: 4px;
+  overflow-x: auto;
+  overflow-y: visible;
+  width: 100%;
+}
+
+.modal-datatable .p-datatable-table {
+  width: 100%;
+  table-layout: auto;
+}
+
+.modal-datatable .p-datatable-thead > tr > th {
+  background-color: #f8f9fa;
+  color: #212529;
+  font-weight: 600;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.modal-datatable .p-datatable-tbody > tr > td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 0.875rem;
+  color: #212529;
+  text-align: left;
+}
+
+.modal-datatable .p-datatable-tbody > tr:last-child > td {
+  border-bottom: none;
+}
+
+.modal-datatable .p-datatable-tbody > tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.modal-datatable .p-datatable-tbody > tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+.modal-datatable .p-datatable-tbody > tr:hover {
+  background-color: #e9ecef !important;
+}
+
+.modal-datatable .p-sortable-column {
+  cursor: pointer;
+  user-select: none;
+}
+
+.modal-datatable .p-sortable-column:hover {
+  background-color: #e9ecef;
+}
+
+.modal-datatable .p-sortable-column-icon {
+  margin-left: 0.5rem;
+  color: #6c757d;
+}
+
+.modal-datatable .p-datatable-paginator {
+  background-color: #ffffff;
+  border-top: 1px solid #dee2e6;
+  padding: 0.75rem 1rem;
+  border-radius: 0 0 4px 4px;
+}
+

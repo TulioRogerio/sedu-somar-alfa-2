@@ -1,0 +1,132 @@
+.visitas-tecnicas-container {
+  padding: 0;
+  max-width: 100%;
+  margin: 0;
+  height: 100%;
+}
+
+.visitas-tecnicas-card-principal {
+  background-color: #fef7ff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f3e5f5;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.visitas-tecnicas-card-principal .p-card-body {
+  padding: 1rem;
+}
+
+.visitas-tecnicas-card-content {
+  width: 100%;
+}
+
+.visitas-tecnicas-titulo-principal {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.visitas-tecnicas-titulo-principal i {
+  font-size: 1.5rem;
+  color: #7b1fa2;
+}
+
+.visitas-tecnicas-titulo-principal h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+
+.card-link {
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.card-link:hover {
+  color: #0b5ed7;
+  text-decoration: underline;
+}
+
+.card-link i {
+  font-size: 0.85rem;
+}
+
+.card-ciclos-selecao {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.ciclo-btn {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid #7b1fa2;
+  border-radius: 20px;
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ciclo-btn:hover {
+  background-color: #e1bee7;
+  border-color: #6a1b9a;
+}
+
+.ciclo-btn.ativo {
+  background-color: #7b1fa2;
+  color: #ffffff;
+  border-color: #7b1fa2;
+}
+
+.card-metricas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.metrica-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(243, 229, 245, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.metrica-valor {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7b1fa2;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.metrica-label {
+  font-size: 0.85rem;
+  color: #7b1fa2;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+

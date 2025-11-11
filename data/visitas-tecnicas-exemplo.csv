@@ -1,0 +1,28 @@
+escola_id,ciclo,etapa,numero_visita,tematica,realizada,ata_assinada,data_visita,data_ata
+1,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+1,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+1,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+1,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+1,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+1,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+1,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+1,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+1,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+1,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+1,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+1,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+1,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+2,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+2,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+2,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+2,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+2,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+2,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+2,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+2,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+2,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+2,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+2,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+2,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+2,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+

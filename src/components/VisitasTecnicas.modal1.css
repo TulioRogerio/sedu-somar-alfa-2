@@ -1,0 +1,691 @@
+.visitas-tecnicas-modal .p-dialog {
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: none;
+  overflow: hidden;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* TabView Styles */
+.visitas-tecnicas-tabview {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.visitas-tecnicas-tabview .p-tabview-nav {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin: 0 0 1.5rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.visitas-tecnicas-tabview .p-tabview-nav li {
+  margin-right: 0;
+}
+
+.visitas-tecnicas-tabview .p-tabview-nav li .p-tabview-nav-link {
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #757575;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  position: relative;
+  margin: 0 0.25rem;
+}
+
+.visitas-tecnicas-tabview .p-tabview-nav li .p-tabview-nav-link:hover {
+  background-color: #f5f5f5;
+  color: #616161;
+}
+
+.visitas-tecnicas-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: #f5f5f5;
+  color: #424242;
+  border-bottom-color: #9e9e9e;
+  font-weight: 600;
+}
+
+.visitas-tecnicas-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link::before {
+  display: none;
+}
+
+.tab-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tab-header i {
+  font-size: 1rem;
+}
+
+.visitas-tecnicas-tabview .p-tabview-panels {
+  padding: 0;
+  background: transparent;
+}
+
+.tab-content-wrapper {
+  padding: 0;
+  min-height: 400px;
+  background: transparent;
+}
+
+/* Filters Section */
+.filters-section {
+  background: #f5f5f5;
+  padding: 1.25rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.filter-group {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.filter-item {
+  flex: 0 1 auto;
+  min-width: 180px;
+  max-width: 240px;
+}
+
+.filter-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #616161;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.filter-item label i {
+  font-size: 0.85rem;
+  color: #757575;
+}
+
+/* MultiSelect Styles */
+.visitas-multiselect {
+  width: 100%;
+}
+
+.visitas-multiselect.compact .p-multiselect {
+  width: 100%;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  min-height: 36px;
+}
+
+.visitas-multiselect.compact .p-multiselect:hover {
+  border-color: #bdbdbd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.visitas-multiselect.compact .p-multiselect.p-focus {
+  border-color: #9e9e9e;
+  box-shadow: 0 0 0 2px rgba(158, 158, 158, 0.15);
+}
+
+.visitas-multiselect.compact .p-multiselect-label {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #424242;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.visitas-multiselect.compact .p-multiselect-label-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.visitas-multiselect.compact .p-multiselect-trigger {
+  width: 2.25rem;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visitas-multiselect.compact .p-multiselect-trigger:hover {
+  color: #616161;
+}
+
+.visitas-multiselect.compact .p-multiselect:not(.p-disabled).p-focus .p-multiselect-trigger {
+  color: #424242;
+}
+
+.visitas-multiselect.compact .p-multiselect-close {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 0.5rem;
+  color: #6c757d;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  order: 2;
+}
+
+.visitas-multiselect.compact .p-multiselect-close:hover {
+  background-color: #eeeeee;
+  color: #424242;
+}
+
+.visitas-multiselect.compact .p-multiselect-close-icon {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.visitas-multiselect.compact .p-multiselect-label-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.visitas-multiselect.compact .p-multiselect-label {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Chips dentro do MultiSelect */
+.visitas-multiselect.compact .p-multiselect-token {
+  padding: 0.25rem 0.5rem;
+  margin: 0.125rem;
+  background: #e0e0e0;
+  color: #424242;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.visitas-multiselect.compact .p-multiselect-token-label {
+  font-weight: 500;
+}
+
+.visitas-multiselect.compact .p-multiselect-token-icon {
+  font-size: 0.7rem;
+  margin-left: 0.25rem;
+}
+
+/* Cards Grid para múltiplas seleções */
+.cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.visitas-dropdown-panel {
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  margin-top: 0.25rem;
+}
+
+.visitas-dropdown-panel .p-dropdown-items-wrapper {
+  max-height: 300px;
+}
+
+.visitas-dropdown-panel .p-dropdown-item {
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  margin: 0.25rem;
+}
+
+.visitas-dropdown-panel .p-dropdown-item:hover {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.visitas-dropdown-panel .p-dropdown-item.p-highlight {
+  background-color: #7b1fa2;
+  color: #ffffff;
+}
+
+.visitas-dropdown-panel .p-dropdown-filter-container {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.visitas-dropdown-panel .p-dropdown-filter-container .p-inputtext {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.visitas-dropdown-panel .p-dropdown-filter-container .p-inputtext:focus {
+  border-color: #7b1fa2;
+  box-shadow: 0 0 0 0.2rem rgba(123, 31, 162, 0.25);
+}
+
+.visitas-dropdown .p-dropdown.p-disabled {
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px dashed #d0d0d0;
+  margin-top: 1rem;
+}
+
+.empty-state i {
+  font-size: 2.5rem;
+  color: #bdbdbd;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  color: #757575;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Card Wrapper */
+.card-wrapper {
+  margin-top: 2rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.visitas-tecnicas-modal .p-dialog .p-dialog-content-wrapper {
+  background-color: #ffffff;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.visitas-tecnicas-modal .p-dialog-mask {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.visitas-tecnicas-modal .p-dialog-footer {
+  display: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  visibility: hidden !important;
+}
+
+.visitas-tecnicas-modal .p-dialog .p-dialog-footer {
+  display: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  visibility: hidden !important;
+}
+
+.visitas-tecnicas-modal .p-dialog-header {
+  background-color: #fef7ff;
+  border-bottom: 1px solid #f3e5f5;
+  padding: 0.5rem 1rem;
+  min-height: auto;
+}
+
+.modal-content {
+  padding: 2rem;
+  max-height: calc(90vh - 60px);
+  overflow-y: auto;
+}
+
+.modal-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+  background: none;
+  border: none;
+  color: #7b1fa2;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.breadcrumb-item:hover:not(:disabled) {
+  background-color: #f3e5f5;
+}
+
+.breadcrumb-item:disabled {
+  color: #495057;
+  cursor: default;
+  font-weight: 600;
+}
+
+.breadcrumb-separator {
+  color: #6c757d;
+}
+
+.modal-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.modal-card {
+  margin-bottom: 0;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.modal-card.clickable {
+  cursor: pointer;
+}
+
+.modal-card.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Temas por nível - Regionais (Rosa) */
+.modal-card-regional {
+  border-color: #bdbdbd;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
+}
+
+.modal-card-regional .modal-card-header {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: #bdbdbd;
+}
+
+.modal-card-regional .modal-card-header h3 {
+  color: #424242;
+}
+
+
+.modal-card-regional .grafico-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #bdbdbd;
+}
+
+.modal-card-regional .grafico-container h4 {
+  color: #424242;
+}
+
+/* Temas por nível - Municípios (Verde) */
+.modal-card-municipio {
+  border-color: #bdbdbd;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
+}
+
+.modal-card-municipio .modal-card-header {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: #bdbdbd;
+}
+
+.modal-card-municipio .modal-card-header h3 {
+  color: #424242;
+}
+
+
+.modal-card-municipio .grafico-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #bdbdbd;
+}
+
+.modal-card-municipio .grafico-container h4 {
+  color: #424242;
+}
+
+/* Temas por nível - Escolas (Laranja) */
+.modal-card-escola {
+  border-color: #bdbdbd;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
+}
+
+.modal-card-escola .modal-card-header {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: #bdbdbd;
+}
+
+.modal-card-escola .modal-card-header h3 {
+  color: #424242;
+}
+
+
+.modal-card-escola .grafico-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #bdbdbd;
+}
+
+.modal-card-escola .grafico-container h4 {
+  color: #424242;
+}
+
+.modal-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 8px 8px 0 0;
+}
+
+.modal-card-header h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #424242;
+  margin: 0;
+}
+
+.modal-card-header .pi-chevron-right {
+  color: #757575;
+  font-size: 1rem;
+}
+
+.modal-card-content {
+  padding: 1.5rem;
+  min-height: 400px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.modal-card-espirito-santo {
+  margin-bottom: 2rem;
+  border-color: #90caf9;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
+}
+
+.modal-card-espirito-santo .modal-card-header {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: #bdbdbd;
+}
+
+.modal-card-espirito-santo .modal-card-header h3 {
+  color: #424242;
+}
+
+.modal-card-espirito-santo .grafico-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #bdbdbd;
+}
+
+.modal-card-espirito-santo .grafico-container h4 {
+  color: #424242;
+}
+
+.modal-card-espirito-santo .modal-card-content {
+  min-height: auto;
+}
+
+.modal-content-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.07fr 1.07fr 1.07fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.modal-card-metricas {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.modal-card-espirito-santo .modal-card-metricas {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #bdbdbd;
+}
+
+.modal-card-regional .modal-card-metricas {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #bdbdbd;
+}
+
+.modal-card-municipio .modal-card-metricas {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #bdbdbd;
+}
+
+.modal-card-escola .modal-card-metricas {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #bdbdbd;
+}
+
+.metrica {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.metrica-valor {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.modal-card-espirito-santo .metrica-valor {
+  color: #424242;
+}
+
+.modal-card-regional .metrica-valor {
+  color: #424242;
+}
+
+.modal-card-municipio .metrica-valor {
+  color: #424242;
+}
+
+.modal-card-escola .metrica-valor {
+  color: #424242;
+}
+
+.metrica-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+  text-align: center;
+}
+
+.grafico-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  min-height: 300px;
+}
+
+
+.grafico-container h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.modal-card-espirito-santo .grafico-container h4 {
+  color: #424242;
+}
+
+.modal-card-regional .grafico-container h4 {
+  color: #424242;
+}
+
+.modal-card-municipio .grafico-container h4 {
+  color: #424242;
+}
+
+.modal-card-escola .grafico-container h4 {
+  color: #424242;
+}
+
+.grafico-container > div {
+  height: 200px !important;
+  min-height: 200px;
+  position: relative;
+}
+
+

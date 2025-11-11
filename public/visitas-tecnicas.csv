@@ -1,0 +1,314 @@
+escola_id,ciclo,etapa,numero_visita,tematica,realizada,ata_assinada,data_visita,data_ata
+1,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+1,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+1,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+1,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+1,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+1,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+1,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,false,2025-02-26,
+1,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+1,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+1,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+1,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+1,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+1,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+2,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+2,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+2,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+2,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+2,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+2,1,SAAR I,,SAAR N1,true,false,2025-02-19,
+2,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+2,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+2,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+2,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+2,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+2,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+2,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+3,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+3,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+3,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+3,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+3,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+3,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+3,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+3,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,false,2025-03-05,
+3,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+3,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+3,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+3,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+3,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+4,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+4,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+4,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+4,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+4,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+4,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+4,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+4,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+4,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+4,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+4,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+4,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+4,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+5,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+5,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+5,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+5,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+5,1,Execução I,2,Reflexão sobre a incidência das ações,true,false,2025-02-12,
+5,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+5,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+5,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+5,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+5,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+5,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+5,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+5,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+6,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+6,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+6,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+6,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+6,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+6,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+6,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+6,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+6,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+6,2,SAAR II,,SAAR N1,true,false,2025-03-19,
+6,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+6,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+6,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+7,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+7,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+7,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+7,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+7,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+7,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+7,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+7,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+7,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+7,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+7,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+7,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+7,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+8,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+8,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+8,1,Planejamento,3,Qualificação do Plano de Ação,true,false,2025-01-29,
+8,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+8,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+8,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+8,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+8,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+8,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+8,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+8,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+8,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+8,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+9,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+9,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+9,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+9,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+9,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+9,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+9,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+9,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+9,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+9,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+9,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+9,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+9,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+10,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+10,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+10,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+10,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+10,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+10,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+10,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+10,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+10,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+10,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+10,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+10,3,Execução III,,Reflexão sobre a incidência das ações,true,false,2025-04-02,
+10,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+11,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+11,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+11,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+11,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+11,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+11,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+11,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+11,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+11,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+11,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+11,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+11,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+11,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+12,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+12,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+12,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+12,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+12,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+12,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+12,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,false,2025-02-26,
+12,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+12,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+12,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+12,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+12,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+12,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+13,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+13,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+13,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+13,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+13,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+13,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+13,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+13,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+13,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+13,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+13,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+13,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+13,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+14,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+14,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+14,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+14,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+14,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+14,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+14,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+14,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+14,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+14,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+14,2,Correção de Rotas II,,Revisão do Plano de Ação,true,false,2025-03-26,
+14,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+14,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+15,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+15,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+15,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+15,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+15,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+15,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+15,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+15,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+15,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+15,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+15,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+15,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+15,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+16,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+16,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+16,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+16,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,false,2025-02-05,
+16,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+16,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+16,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+16,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+16,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+16,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+16,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+16,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+16,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+17,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+17,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+17,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+17,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+17,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+17,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+17,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+17,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+17,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+17,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+17,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+17,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+17,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+18,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+18,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+18,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+18,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+18,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+18,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+18,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+18,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+18,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+18,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+18,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+18,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+18,3,Balanço Final,,Balanço Final,true,false,2025-04-09,
+19,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+19,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+19,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+19,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+19,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+19,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+19,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+19,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+19,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+19,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+19,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+19,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+19,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+20,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+20,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+20,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+20,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+20,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+20,1,SAAR I,,SAAR N1,true,false,2025-02-19,
+20,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+20,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+20,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+20,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+20,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+20,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+20,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+21,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+21,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+21,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+21,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+21,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+21,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+21,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+21,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+21,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+21,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+21,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+21,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+21,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+22,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+22,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+22,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+22,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+22,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+22,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+22,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+22,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+22,2,Execução II,2,Reflexão sobre a incidência das ações,true,false,2025-03-12,
+22,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+22,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+22,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+22,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+23,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+23,1,Planejamento,2,Elaboração do Plano de Ação,true,true,2025-01-22,2025-01-23
+23,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+23,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+23,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+23,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+23,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+23,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+23,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+23,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+23,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+23,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+23,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+24,1,Planejamento,1,Diagnóstico e identificação de desafios,true,true,2025-01-15,2025-01-16
+24,1,Planejamento,2,Elaboração do Plano de Ação,true,false,2025-01-22,
+24,1,Planejamento,3,Qualificação do Plano de Ação,true,true,2025-01-29,2025-01-30
+24,1,Execução I,1,Acompanhamento da execução do Plano de Ação,true,true,2025-02-05,2025-02-06
+24,1,Execução I,2,Reflexão sobre a incidência das ações,true,true,2025-02-12,2025-02-13
+24,1,SAAR I,,SAAR N1,true,true,2025-02-19,2025-02-20
+24,1,Correção de Rotas I,,Aprimoramento do Plano de Ação,true,true,2025-02-26,2025-02-27
+24,2,Execução II,1,Acompanhamento da execução do Plano de Ação,true,true,2025-03-05,2025-03-06
+24,2,Execução II,2,Reflexão sobre a incidência das ações,true,true,2025-03-12,2025-03-13
+24,2,SAAR II,,SAAR N1,true,true,2025-03-19,2025-03-20
+24,2,Correção de Rotas II,,Revisão do Plano de Ação,true,true,2025-03-26,2025-03-27
+24,3,Execução III,,Reflexão sobre a incidência das ações,true,true,2025-04-02,2025-04-03
+24,3,Balanço Final,,Balanço Final,true,true,2025-04-09,2025-04-10
+

@@ -1,0 +1,26 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #ffffff;
+}
+
+.cards-grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .cards-grid-2x2 {
+    grid-template-columns: 1fr;
+  }
+}
+

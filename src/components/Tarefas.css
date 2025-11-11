@@ -1,0 +1,217 @@
+.tarefas-container {
+  padding: 0;
+  max-width: 100%;
+  margin: 0;
+  height: 100%;
+}
+
+.tarefas-card-principal {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.tarefas-card-principal .p-card-body {
+  padding: 1rem;
+}
+
+.tarefas-card-content {
+  width: 100%;
+}
+
+.tarefas-titulo-principal {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.tarefas-titulo-principal i {
+  font-size: 1.5rem;
+  color: #388e3c;
+}
+
+.tarefas-titulo-principal h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+.tarefas-progresso-geral {
+  margin-bottom: 1.5rem;
+}
+
+.progresso-geral-card {
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  background: rgb(236, 253, 245);
+  border: 1px solid rgb(187, 247, 208);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progresso-geral-linha-1 {
+  margin-bottom: 0.25rem;
+}
+
+.progresso-geral-titulo {
+  font-size: 0.95rem;
+  color: #212529;
+  font-weight: 600;
+}
+
+.progresso-geral-linha-2 {
+  margin: 0.25rem 0;
+}
+
+.progresso-geral-percentual {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #16a34a;
+  line-height: 1;
+}
+
+.progresso-geral-linha-3 {
+  margin: 0.25rem 0 0.1rem 0;
+}
+
+.progresso-geral-card .progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: rgb(187, 247, 208);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progresso-geral-card .progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  background-color: #16a34a;
+  transition: width 0.3s ease;
+}
+
+.progresso-geral-linha-4 {
+  margin-top: 0;
+}
+
+.progresso-geral-contagem {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.tarefas-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.tarefas-cards .minicard {
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgb(248, 250, 252);
+  border: 1px solid rgb(229, 231, 235);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarefas-cards .minicard:hover {
+  transform: translateY(-2px);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.tarefas-cards .minicard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tarefas-cards .minicard .card-linha-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.tarefas-cards .minicard .card-status {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+.tarefas-cards .minicard .card-percentual {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #6b7280;
+  margin: 0;
+}
+
+.tarefas-cards .minicard .card-linha-2 {
+  margin: 0.25rem 0 0.1rem 0;
+}
+
+.tarefas-cards .minicard .card-linha-3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.tarefas-cards .minicard .card-contagem {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #6b7280;
+  margin: 0;
+  display: block;
+}
+
+.tarefas-cards .progress-bar-container {
+  width: 100%;
+  height: 6px;
+  background-color: rgb(229, 231, 235);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.tarefas-cards .progress-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Minicard Previstas (Roxo) */
+.tarefas-cards .minicard-previstas .progress-bar {
+  background-color: #9333ea;
+}
+
+/* Minicard Não Iniciadas (Cinza escuro) */
+.tarefas-cards .minicard-nao-iniciadas .progress-bar {
+  background-color: #374151;
+}
+
+/* Minicard Em andamento (Azul) */
+.tarefas-cards .minicard-em-andamento .progress-bar {
+  background-color: #2563eb;
+}
+
+/* Minicard Atrasadas (Vermelho) */
+.tarefas-cards .minicard-atrasadas .progress-bar {
+  background-color: #dc2626;
+}
+
+/* Minicard Concluídas (Verde) */
+.tarefas-cards .minicard-concluidas .progress-bar {
+  background-color: #16a34a;
+}
+
+/* Minicard Concluídas com atraso (Amarelo dourado) */
+.tarefas-cards .minicard-concluidas-atraso .progress-bar {
+  background-color: #ca8a04;
+}
+

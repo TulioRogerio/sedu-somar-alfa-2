@@ -1,0 +1,277 @@
+.tarefas-modal .p-dialog {
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: none;
+  overflow: hidden;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.tarefas-modal .p-dialog .p-dialog-content-wrapper {
+  background-color: #ffffff;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.tarefas-modal .p-dialog-mask {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.tarefas-modal .p-dialog-footer {
+  display: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  visibility: hidden !important;
+}
+
+.tarefas-modal .p-dialog .p-dialog-footer {
+  display: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  visibility: hidden !important;
+}
+
+.tarefas-modal .p-dialog-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 0.5rem 1rem;
+  min-height: auto;
+}
+
+.modal-conteudo {
+  padding: 1.5rem;
+  max-height: calc(90vh - 60px);
+  overflow-y: auto;
+}
+
+.modal-card {
+  margin-bottom: 1.5rem;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.modal-card .p-card-body {
+  padding: 0;
+  height: auto;
+  min-height: auto;
+}
+
+.modal-card-content {
+  padding: 0.5rem 1rem;
+  height: auto;
+  min-height: auto;
+  max-height: none;
+  line-height: 1;
+}
+
+.modal-card-titulo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0 0 0.35rem 0;
+  line-height: 1.2;
+}
+
+.modal-tabela-dados-tarefas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  align-items: start;
+}
+
+.dado-item-tarefas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  text-align: center;
+  min-height: auto;
+}
+
+.dado-item-tarefas .dado-valor {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+}
+
+.dado-item-tarefas .dado-label {
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-card-header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.btn-voltar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  color: #495057;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-voltar:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.tabela-container {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.tabela-container.aberta {
+  opacity: 1;
+  max-height: 2000px;
+}
+
+.tabela-container.fechada {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-datatable {
+  margin-top: 1rem;
+}
+
+.tabela-clickable .p-datatable-tbody > tr {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tabela-clickable .p-datatable-tbody > tr:hover {
+  background-color: #f8f9fa;
+}
+
+.graficos-grid-container {
+  margin-top: 1.5rem;
+}
+
+.graficos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.graficos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.grafico-card {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.grafico-card.clickable {
+  cursor: pointer;
+}
+
+.grafico-card.clickable:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  border-color: #2563eb;
+}
+
+.grafico-card-content {
+  padding: 1.5rem;
+}
+
+.grafico-card-titulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0 0 0.5rem 0;
+}
+
+.grafico-card-subtitulo {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin: 0 0 0.5rem 0;
+}
+
+.grafico-info-numeros {
+  font-size: 0.8rem;
+  color: #495057;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.grafico-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+}
+
+/* Condensar largura das colunas */
+.tarefas-modal .modal-datatable .p-datatable-thead > tr > th {
+  padding: 0.5rem 0.4rem;
+  font-size: 0.75rem;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.tarefas-modal .modal-datatable .p-datatable-tbody > tr > td {
+  padding: 0.5rem 0.4rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Coluna Regional/Município/Escola */
+.tarefas-modal .modal-datatable .p-datatable-thead > tr > th:first-child,
+.tarefas-modal .modal-datatable .p-datatable-tbody > tr > td:first-child {
+  min-width: 150px;
+  max-width: 250px;
+  text-align: left;
+}
+
+/* Colunas numéricas */
+.tarefas-modal .modal-datatable .p-datatable-thead > tr > th:not(:first-child),
+.tarefas-modal .modal-datatable .p-datatable-tbody > tr > td:not(:first-child) {
+  min-width: 80px;
+  max-width: 120px;
+}
+
