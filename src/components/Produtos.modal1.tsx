@@ -36,10 +36,6 @@ export default function ProdutosModal({ visible, onHide }: ProdutosModalProps) {
   const [dadosRegionais, setDadosRegionais] = useState<DadosProdutosRegional[]>(
     []
   );
-  const [dadosMunicipios, setDadosMunicipios] = useState<
-    DadosProdutosMunicipio[]
-  >([]);
-  const [dadosEscolas, setDadosEscolas] = useState<DadosProdutosEscola[]>([]);
   const [loading, setLoading] = useState(true);
 
   // Estados para controle de navegação hierárquica
@@ -74,8 +70,6 @@ export default function ProdutosModal({ visible, onHide }: ProdutosModalProps) {
 
       setDadosES(calcularDadosProdutos(cicloData));
       setDadosRegionais(calcularDadosProdutosRegionais(cicloData, escolasData));
-      setDadosMunicipios([]);
-      setDadosEscolas([]);
     } catch (error) {
       console.error("Erro ao carregar dados:", error);
     } finally {

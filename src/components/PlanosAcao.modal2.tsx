@@ -35,12 +35,6 @@ export default function PlanosAcaoModal2({
   const [dadosRegionais, setDadosRegionais] = useState<
     DadosPlanosAcaoRegional[]
   >([]);
-  const [dadosMunicipios, setDadosMunicipios] = useState<
-    DadosPlanosAcaoMunicipio[]
-  >([]);
-  const [dadosEscolas, setDadosEscolas] = useState<DadosPlanosAcaoEscola[]>(
-    []
-  );
   const [loading, setLoading] = useState(true);
 
   // Estados para controle de navegação hierárquica
@@ -77,10 +71,6 @@ export default function PlanosAcaoModal2({
       setDadosRegionais(
         calcularDadosPlanosAcaoRegionais(cicloData, escolasData)
       );
-      // Municípios serão calculados dinamicamente quando uma regional for selecionada
-      setDadosMunicipios([]);
-      // Escolas serão calculadas dinamicamente quando um município for selecionado
-      setDadosEscolas([]);
     } catch (error) {
       console.error("Erro ao carregar dados:", error);
     } finally {

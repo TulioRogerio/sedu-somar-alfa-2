@@ -4,7 +4,6 @@ import { Card } from "primereact/card";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { loadEscolasFromCsv } from "../utils/csvParser";
-import type { Escola } from "../types/Escola";
 import "./PlanosAcao.modal1.css";
 
 interface PlanosAcaoModalProps {
@@ -22,7 +21,6 @@ export default function PlanosAcaoModal({
   visible,
   onHide,
 }: PlanosAcaoModalProps) {
-  const [escolas, setEscolas] = useState<Escola[]>([]);
   const [pendencias, setPendencias] = useState<PendenciaPostagem[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -36,7 +34,6 @@ export default function PlanosAcaoModal({
     setLoading(true);
     try {
       const escolasData = await loadEscolasFromCsv();
-      setEscolas(escolasData);
       
       // Carregar dados do ciclo-gestao.csv
       const cicloGestaoData = await loadCicloGestaoCsv();

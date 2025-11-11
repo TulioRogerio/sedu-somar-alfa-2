@@ -75,7 +75,7 @@ export default function CicloGestao({
             </div>
           )}
         </div>
-      )
+      ) as any
     }))
   }, [])
 
