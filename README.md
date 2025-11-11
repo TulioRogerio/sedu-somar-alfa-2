@@ -53,7 +53,8 @@ O projeto está configurado para fazer deploy automático no GitHub Pages atrav�
    - Em "Source", selecione "GitHub Actions"
 
 3. **Ajustar o base path (se necessário):**
-   - Se o nome do seu repositório for diferente de `03---Somar---Pagina-Inicial`, edite o arquivo `vite.config.ts` e altere o valor do `base` na linha 7 para corresponder ao nome do seu repositório.
+   - O base path está configurado para `/sedu-somar-alfa-2/` no arquivo `vite.config.ts` (linha 7).
+   - Se o nome do repositório mudar, edite o arquivo `vite.config.ts` e altere o valor do `base` para corresponder ao novo nome.
    - O formato deve ser: `/[nome-do-repositorio]/` (com barras e sem espaços)
 
 ### Deploy Automático
