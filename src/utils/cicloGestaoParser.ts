@@ -30,7 +30,7 @@ export async function loadCicloGestaoCsv(): Promise<CicloGestaoRow[]> {
     const text = await response.text();
     const parsedData = parseCSV(text);
     
-    return parsedData as CicloGestaoRow[];
+    return parsedData as unknown as CicloGestaoRow[];
   } catch (error) {
     console.error("Erro ao carregar ciclo-gestao.csv:", error);
     return [];

@@ -14,7 +14,7 @@ export async function loadVisitasTecnicasCsv(): Promise<VisitaTecnicaRow[]> {
     const text = await response.text();
     const parsedData = parseCSV(text);
     
-    return parsedData as VisitaTecnicaRow[];
+    return parsedData as unknown as VisitaTecnicaRow[];
   } catch (error) {
     console.error("Erro ao carregar visitas-tecnicas.csv:", error);
     return [];

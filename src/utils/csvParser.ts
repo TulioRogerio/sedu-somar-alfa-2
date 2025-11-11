@@ -1,4 +1,4 @@
-import { Escola, DadosEspiritoSanto, DadosRegional, DadosMunicipio, DadosPorEscola, TurmaInfo, DadosEscolaPorSerie, DadosMetasEstado, DadosMetasRegional, DadosMetasMunicipio, DadosMetasEscola, DadosTCGPEscola, DadosTCGPDetalhes, EscolaTCGPInfo } from '../types/Escola'
+import { Escola, DadosEspiritoSanto, DadosRegional, DadosMunicipio, DadosPorEscola, TurmaInfo, DadosEscolaPorSerie, DadosMetasEstado, DadosMetasRegional, DadosMetasMunicipio, DadosMetasEscola, DadosTCGPEscola, DadosTCGPDetalhes } from '../types/Escola'
 import { parseCSV } from './csvParserUtils'
 
 function parseValue(value: string): string | number | boolean {
@@ -26,7 +26,7 @@ export function parseEscolasCsv(csvContent: string): Escola[] {
       escola[header] = parseValue(value)
     })
     
-    escolas.push(escola as Escola)
+    escolas.push(escola as unknown as Escola)
   }
   
   return escolas

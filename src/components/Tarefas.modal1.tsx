@@ -36,10 +36,6 @@ export default function TarefasModal({ visible, onHide }: TarefasModalProps) {
   const [dadosRegionais, setDadosRegionais] = useState<DadosTarefasRegional[]>(
     []
   );
-  const [dadosMunicipios, setDadosMunicipios] = useState<
-    DadosTarefasMunicipio[]
-  >([]);
-  const [dadosEscolas, setDadosEscolas] = useState<DadosTarefasEscola[]>([]);
   const [loading, setLoading] = useState(true);
 
   // Estados para controle de navegação hierárquica
@@ -74,8 +70,6 @@ export default function TarefasModal({ visible, onHide }: TarefasModalProps) {
 
       setDadosES(calcularDadosTarefas(cicloData));
       setDadosRegionais(calcularDadosTarefasRegionais(cicloData, escolasData));
-      setDadosMunicipios([]);
-      setDadosEscolas([]);
     } catch (error) {
       console.error("Erro ao carregar dados:", error);
     } finally {
