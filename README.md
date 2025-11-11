@@ -36,6 +36,26 @@ npm run dev
 npm run build
 ```
 
+## Git - Comandos Básicos
+
+### 1. Adicionar arquivos
+
+```bash
+git add .
+```
+
+### 2. Fazer commit
+
+```bash
+git commit -m "Descrição das mudanças"
+```
+
+### 3. Enviar para o GitHub
+
+```bash
+git push origin main
+```
+
 ## Deploy no GitHub Pages
 
 O projeto está configurado para fazer deploy automático no GitHub Pages através do GitHub Actions.

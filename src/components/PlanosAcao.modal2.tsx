@@ -232,12 +232,6 @@ export default function PlanosAcaoModal2({
               </span>
               <span className="dado-label">Não validados pelo TCGP</span>
             </div>
-            <div className="dado-item">
-              <span className="dado-valor">
-                {formatarNumero(dadosES.planosInativos)}
-              </span>
-              <span className="dado-label">Planos Inativos</span>
-            </div>
           </div>
         </div>
       </Card>
@@ -288,20 +282,6 @@ export default function PlanosAcaoModal2({
               header={<span>Não validados<br />pelo TCGP</span>}
               sortable
               body={(rowData) => formatarNumero(rowData.pendentes)}
-            />
-            <Column
-              field="possuiPlanosInativos"
-              header={<span>Possui Planos de<br />Ação Inativos</span>}
-              sortable
-              body={(rowData) => (
-                <span
-                  className={`badge ${
-                    rowData.possuiPlanosInativos ? "badge-sim" : "badge-nao"
-                  }`}
-                >
-                  {rowData.possuiPlanosInativos ? "Sim" : "Não"}
-                </span>
-              )}
             />
           </DataTable>
         </div>
@@ -365,20 +345,6 @@ export default function PlanosAcaoModal2({
               sortable
               body={(rowData) => formatarNumero(rowData.pendentes)}
             />
-            <Column
-              field="possuiPlanosInativos"
-              header={<span>Possui Planos de<br />Ação Inativos</span>}
-              sortable
-              body={(rowData) => (
-                <span
-                  className={`badge ${
-                    rowData.possuiPlanosInativos ? "badge-sim" : "badge-nao"
-                  }`}
-                >
-                  {rowData.possuiPlanosInativos ? "Sim" : "Não"}
-                </span>
-              )}
-            />
           </DataTable>
         </div>
       </Card>
@@ -438,20 +404,6 @@ export default function PlanosAcaoModal2({
               sortable
               body={(rowData) => formatarNumero(rowData.pendentes)}
             />
-            <Column
-              field="possuiPlanosInativos"
-              header={<span>Possui Planos de<br />Ação Inativos</span>}
-              sortable
-              body={(rowData) => (
-                <span
-                  className={`badge ${
-                    rowData.possuiPlanosInativos ? "badge-sim" : "badge-nao"
-                  }`}
-                >
-                  {rowData.possuiPlanosInativos ? "Sim" : "Não"}
-                </span>
-              )}
-            />
           </DataTable>
         </div>
       </Card>
@@ -467,13 +419,13 @@ export default function PlanosAcaoModal2({
             Pendências de Postagem
           </h3>
           <p style={{ margin: "0 0 1rem 0", color: "#495057" }}>
-            Existem escolas que ainda não postaram seus Mapas de Ação:
+            Não postaram seu Plano de Ação:
           </p>
           
           {pendencias.length === 0 ? (
             <div style={{ textAlign: "center", padding: "2rem", color: "#28a745" }}>
               <i className="pi pi-check-circle" style={{ fontSize: "2rem", marginBottom: "0.5rem" }}></i>
-              <p style={{ margin: 0, fontWeight: 500 }}>Nenhuma pendência encontrada. Todas as escolas postaram seus Mapas de Ação.</p>
+              <p style={{ margin: 0, fontWeight: 500 }}>Nenhuma pendência encontrada. Todas as escolas postaram seu Plano de Ação.</p>
             </div>
           ) : (
             <>
