@@ -1,5 +1,6 @@
 import { Escola, DadosEspiritoSanto, DadosRegional, DadosMunicipio, DadosPorEscola, TurmaInfo, DadosEscolaPorSerie, DadosMetasEstado, DadosMetasRegional, DadosMetasMunicipio, DadosMetasEscola, DadosTCGPEscola, DadosTCGPDetalhes } from '../types/Escola'
 import { parseCSV } from './csvParserUtils'
+import { getPublicPath } from './pathUtils'
 
 function parseValue(value: string): string | number | boolean {
   if (value === 'true' || value === 'false') {
@@ -34,7 +35,7 @@ export function parseEscolasCsv(csvContent: string): Escola[] {
 
 export async function loadEscolasFromCsv(): Promise<Escola[]> {
   try {
-    const response = await fetch('/escolas.csv')
+    const response = await fetch(getPublicPath('escolas.csv'))
     
     if (!response.ok) {
       throw new Error(`Erro ao carregar CSV: ${response.status} ${response.statusText}`)

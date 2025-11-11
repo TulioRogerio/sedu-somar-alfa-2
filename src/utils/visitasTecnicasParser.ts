@@ -1,4 +1,5 @@
 import { parseCSV } from "./csvParserUtils";
+import { getPublicPath } from "./pathUtils";
 import type { VisitaTecnicaRow, DadosVisitasTecnicasAgregados, DadosVisitasTecnicasPorCiclo } from "../types/VisitasTecnicas";
 import type { Escola } from "../types/Escola";
 
@@ -7,7 +8,7 @@ import type { Escola } from "../types/Escola";
  */
 export async function loadVisitasTecnicasCsv(): Promise<VisitaTecnicaRow[]> {
   try {
-    const response = await fetch("/visitas-tecnicas.csv");
+    const response = await fetch(getPublicPath("visitas-tecnicas.csv"));
     if (!response.ok) {
       throw new Error(`Erro ao carregar CSV: ${response.status}`);
     }

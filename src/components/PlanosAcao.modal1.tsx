@@ -4,6 +4,7 @@ import { Card } from "primereact/card";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { loadEscolasFromCsv } from "../utils/csvParser";
+import { getPublicPath } from "../utils/pathUtils";
 import "./PlanosAcao.modal1.css";
 
 interface PlanosAcaoModalProps {
@@ -61,7 +62,7 @@ export default function PlanosAcaoModal({
 
   const loadCicloGestaoCsv = async (): Promise<any[]> => {
     try {
-      const response = await fetch("/ciclo-gestao.csv");
+      const response = await fetch(getPublicPath("ciclo-gestao.csv"));
       const text = await response.text();
       const lines = text.trim().split("\n").filter((line) => line.trim());
       

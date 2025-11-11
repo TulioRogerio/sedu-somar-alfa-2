@@ -20,10 +20,11 @@ import type {
 import type { Escola } from "../types/Escola";
 
 import { parseCSV } from "./csvParserUtils";
+import { getPublicPath } from "./pathUtils";
 
 export async function loadCicloGestaoCsv(): Promise<CicloGestaoRow[]> {
   try {
-    const response = await fetch("/ciclo-gestao.csv");
+    const response = await fetch(getPublicPath("ciclo-gestao.csv"));
     if (!response.ok) {
       throw new Error(`Erro ao carregar CSV: ${response.status}`);
     }
