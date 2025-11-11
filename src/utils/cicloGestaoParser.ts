@@ -81,6 +81,20 @@ function calcularDadosPlanosAcao(
     (row) => row.validado_tcgp === "false"
   ).length;
 
+  // Verificar se há escolas sem planos de ação postados (inativos)
+  // Uma escola está inativa se não tem nenhum mapa de ação postado
+  const escolasComMapas = new Set(
+    dadosFiltrados.map((row) => parseInt(row.escola_id))
+  );
+  
+  // Contar quantas escolas filtradas não tem planos postados
+  const planosInativos = escolasFiltradas.filter(
+    (escola) => !escolasComMapas.has(escola.id)
+  ).length;
+  
+  // Verificar se alguma escola filtrada não tem planos postados
+  const possuiPlanosInativos = planosInativos > 0;
+
   return {
     mapasAcao,
     planosAcao,
@@ -90,6 +104,8 @@ function calcularDadosPlanosAcao(
     mapasOutros,
     validados,
     pendentes,
+    possuiPlanosInativos,
+    planosInativos,
   };
 }
 

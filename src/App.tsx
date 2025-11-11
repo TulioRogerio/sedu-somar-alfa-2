@@ -1,6 +1,5 @@
 import Header from './components/Header'
 import CicloGestao from './components/CicloGestao'
-import DadosCicloGestao from './components/DadosCicloGestao'
 import PlanosAcao from './components/PlanosAcao'
 import Tarefas from './components/Tarefas'
 import Produtos from './components/Produtos'
@@ -13,7 +12,6 @@ function App() {
       <Header />
       <main className="main-content">
         <CicloGestao />
-        <DadosCicloGestao />
         <div className="cards-grid-2x2">
           <PlanosAcao />
           <Tarefas />

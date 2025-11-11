@@ -26,13 +26,13 @@
 6. **`prompt-ciclo-gestao.md`**
    - Componente CicloGestao (timeline de etapas)
 
-7. **`prompt-dados-ciclo-gestao.md`**
-   - Componente DadosCicloGestao (4 cards principais)
+7. **`prompt-dados-ciclo-gestao.md`** ⚠️
+   - Componente DadosCicloGestao (obsoleto - cards movidos para PlanosAcao)
+   - Mantido apenas para referência histórica
 
 8. **`prompt-planos-acao.md`**
-   - Componente PlanosAcao (7 minicards com métricas)
-   - Modal 1: Pendências de Postagem (PlanosAcao.modal1)
-   - Modal 2: Panorama Geral (PlanosAcao.modal2)
+   - Componente PlanosAcao (4 cards principais: Escolas e Profissionais, Escolas e Metas, Planos de Ação, TCGP's por Regional e Município)
+   - Modal 2: Panorama Geral (PlanosAcao.modal2) - inclui pendências de postagem
 
 9. **`prompt-tarefas.md`**
    - Componente Tarefas (card de progresso geral + 6 minicards de status)
@@ -66,11 +66,11 @@
 3. **CSV Parser** (`prompt-csv-parser.md`) - Parser de escolas.csv
 4. **Ciclo Gestão Parser** (`prompt-ciclo-gestao-parser.md`) - Parser de ciclo-gestao.csv
 5. **Componentes Básicos**: Header, CicloGestao
-6. **Componente Principal**: DadosCicloGestao
-7. **Componentes Secundários**: PlanosAcao, Tarefas, Produtos, VisitasTecnicas
+6. **Componente Principal**: PlanosAcao (contém os 4 cards principais)
+7. **Componentes Secundários**: Tarefas, Produtos, VisitasTecnicas
 8. **Modais** (`prompt-modais.md`) - Estrutura comum + especificidades
-   - DadosCicloGestao: Modal 1, 2, 3
-   - PlanosAcao: Modal 1 (Pendências de Postagem), Modal 2 (Panorama Geral)
+   - DadosCicloGestao: Modal 1, 2, 3 (usados pelos cards dentro de PlanosAcao)
+   - PlanosAcao: Modal 2 (Panorama Geral - inclui pendências de postagem)
    - VisitasTecnicas: Modal 1 (TabView com 4 abas, MultiSelect, gráficos combinados)
    - Produtos: Modal 1 (Navegação hierárquica com gráficos de rosca)
    - Tarefas: Modal 1 (Navegação hierárquica com gráficos de rosca)

@@ -40,10 +40,11 @@
 │   ├── components/         # Componentes React
 │   │   ├── Header.tsx
 │   │   ├── CicloGestao.tsx
-│   │   ├── DadosCicloGestao.tsx
 │   │   ├── PlanosAcao.tsx
-│   │   ├── PlanosAcao.modal1.tsx
 │   │   ├── PlanosAcao.modal2.tsx
+│   │   ├── DadosCicloGestao.modal1.tsx
+│   │   ├── DadosCicloGestao.modal2.tsx
+│   │   ├── DadosCicloGestao.modal3.tsx
 │   │   ├── Tarefas.tsx
 │   │   ├── Produtos.tsx
 │   │   └── VisitasTecnicas.tsx
@@ -60,9 +61,9 @@
 1. Tipos TypeScript (`prompt-tipos-typescript.md`)
 2. CSV Parser (`prompt-csv-parser.md`)
 3. Componentes básicos (Header, CicloGestao)
-4. Componente principal (DadosCicloGestao)
-5. Componentes secundários (PlanosAcao, Tarefas, Produtos, VisitasTecnicas)
-6. Modais (DadosCicloGestao: Modal 1, 2, 3 | PlanosAcao: Modal 1, 2)
+4. Componente principal (PlanosAcao - contém os 4 cards principais)
+5. Componentes secundários (Tarefas, Produtos, VisitasTecnicas)
+6. Modais (DadosCicloGestao: Modal 1, 2, 3 | PlanosAcao: Modal 2)
 7. CSV ciclo-gestao.csv (dados estruturados do ciclo de gestão)
 
 ## Regras Específicas

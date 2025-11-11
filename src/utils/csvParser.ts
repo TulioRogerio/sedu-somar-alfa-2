@@ -1,4 +1,4 @@
-import { Escola, DadosEspiritoSanto, DadosRegional, DadosMunicipio, DadosPorEscola, TurmaInfo, DadosEscolaPorSerie, DadosMetasEstado, DadosMetasRegional, DadosMetasMunicipio, DadosMetasEscola, DadosTCGPEscola, DadosTCGPDetalhes } from '../types/Escola'
+import { Escola, DadosEspiritoSanto, DadosRegional, DadosMunicipio, TurmaInfo, DadosEscolaPorSerie, DadosMetasEstado, DadosMetasRegional, DadosMetasMunicipio, DadosMetasEscola, DadosTCGPEscola, DadosTCGPDetalhes } from '../types/Escola'
 import { parseCSV } from './csvParserUtils'
 import { getPublicPath } from './pathUtils'
 
@@ -134,37 +134,6 @@ export function calcularDadosMunicipios(escolas: Escola[]): DadosMunicipio[] {
   })
 }
 
-export function calcularDadosPorEscola(escolas: Escola[]): DadosPorEscola[] {
-  const dados: DadosPorEscola[] = []
-
-  escolas.forEach(escola => {
-    const series = [
-      { serie: '1ª Série', alunos: escola.serie1_alunos || 0, turmas: escola.serie1_turmas || 0 },
-      { serie: '2ª Série', alunos: escola.serie2_alunos || 0, turmas: escola.serie2_turmas || 0 },
-      { serie: '3ª Série', alunos: escola.serie3_alunos || 0, turmas: escola.serie3_turmas || 0 },
-      { serie: '4ª Série', alunos: escola.serie4_alunos || 0, turmas: escola.serie4_turmas || 0 },
-      { serie: '5ª Série', alunos: escola.serie5_alunos || 0, turmas: escola.serie5_turmas || 0 }
-    ]
-
-    series.forEach(({ serie, alunos, turmas }) => {
-      if (alunos > 0 || turmas > 0) {
-        dados.push({
-          escola: escola.nome,
-          serie,
-          alunos,
-          turmas
-        })
-      }
-    })
-  })
-
-  return dados.sort((a, b) => {
-    if (a.escola !== b.escola) {
-      return a.escola.localeCompare(b.escola)
-    }
-    return a.serie.localeCompare(b.serie)
-  })
-}
 
 function gerarTurmas(numTurmas: number, totalAlunos: number): TurmaInfo[] {
   if (numTurmas === 0 || totalAlunos === 0) {

@@ -49,6 +49,10 @@
   gap: 1.5rem;
 }
 
+.planos-acao-cards.dados-ciclo-gestao-cards {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .planos-acao-cards .minicard {
   padding: 1.5rem;
   text-align: center;

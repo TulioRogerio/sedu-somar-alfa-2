@@ -192,6 +192,29 @@
   max-width: 90px;
 }
 
+/* Badges para Planos Inativos */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 50px;
+}
+
+.badge-sim {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.badge-nao {
+  background-color: #dcfce7;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
 /* Mapas de Língua Portuguesa e Matemática (com quebra de linha) */
 .planos-acao-modal .modal-datatable .p-datatable-thead > tr > th:nth-child(4),
 .planos-acao-modal .modal-datatable .p-datatable-tbody > tr > td:nth-child(4),
@@ -237,6 +260,11 @@
   overflow: visible !important;
   max-height: none !important;
   height: auto !important;
+}
+
+/* Card de Pendências com degradê amarelo suave */
+.modal-card-pendencias {
+  background: linear-gradient(to bottom, #fffef0 0%, #ffffff 100%) !important;
 }
 
 .modal-card .p-card-body {

@@ -36,6 +36,17 @@ export default function PlanosAcaoModal2({
     DadosPlanosAcaoRegional[]
   >([]);
   const [loading, setLoading] = useState(true);
+  const [pendencias, setPendencias] = useState<{
+    regional: string;
+    municipio: string;
+    escola: string;
+  }[]>([]);
+  const [planosInativos, setPlanosInativos] = useState<{
+    regional: string;
+    municipio: string;
+    escola: string;
+    planoAcaoId: string;
+  }[]>([]);
 
   // Estados para controle de navegação hierárquica
   const [tabelaAtiva, setTabelaAtiva] = useState<
@@ -71,6 +82,63 @@ export default function PlanosAcaoModal2({
       setDadosRegionais(
         calcularDadosPlanosAcaoRegionais(cicloData, escolasData)
       );
+
+      // Calcular pendências
+      const escolasComMapas = new Set(
+        cicloData.map((row) => parseInt(row.escola_id))
+      );
+      const pendenciasList = escolasData
+        .filter((escola) => !escolasComMapas.has(escola.id))
+        .map((escola) => ({
+          regional: escola.regional,
+          municipio: escola.municipio,
+          escola: escola.nome,
+        }));
+      setPendencias(pendenciasList);
+
+      // Calcular planos inativos
+      const planosInativosList: {
+        regional: string;
+        municipio: string;
+        escola: string;
+        planoAcaoId: string;
+      }[] = [];
+      
+      const planosUnicos = new Set(
+        cicloData.map((row) => `${row.escola_id}-${row.plano_acao_id}`)
+      );
+      
+      for (const planoKey of planosUnicos) {
+        const [escolaId, planoId] = planoKey.split('-');
+        const dadosPlano = cicloData.filter(
+          (row) => row.escola_id === escolaId && row.plano_acao_id === planoId
+        );
+        
+        // Verificar se o plano está inativo
+        const temTarefasEmAndamento = dadosPlano.some(
+          (row) => parseInt(row.tarefas_em_andamento || '0') > 0
+        );
+        const temTarefasAtrasadas = dadosPlano.some(
+          (row) => parseInt(row.tarefas_atrasadas || '0') > 0
+        );
+        const temTarefas = dadosPlano.some(
+          (row) => parseInt(row.tarefas_total || '0') > 0
+        );
+        
+        if (temTarefas && !temTarefasEmAndamento && !temTarefasAtrasadas) {
+          const escola = escolasData.find((e) => e.id.toString() === escolaId);
+          if (escola) {
+            planosInativosList.push({
+              regional: escola.regional,
+              municipio: escola.municipio,
+              escola: escola.nome,
+              planoAcaoId: planoId,
+            });
+          }
+        }
+      }
+      
+      setPlanosInativos(planosInativosList);
     } catch (error) {
       console.error("Erro ao carregar dados:", error);
     } finally {
@@ -154,30 +222,6 @@ export default function PlanosAcaoModal2({
             </div>
             <div className="dado-item">
               <span className="dado-valor">
-                {formatarNumero(dadosES.mapasLP)}
-              </span>
-              <span className="dado-label">Mapas de Língua Portuguesa</span>
-            </div>
-            <div className="dado-item">
-              <span className="dado-valor">
-                {formatarNumero(dadosES.mapasMat)}
-              </span>
-              <span className="dado-label">Mapas de Matemática</span>
-            </div>
-            <div className="dado-item">
-              <span className="dado-valor">
-                {formatarNumero(dadosES.mapasLeitura)}
-              </span>
-              <span className="dado-label">Mapas de Leitura</span>
-            </div>
-            <div className="dado-item">
-              <span className="dado-valor">
-                {formatarNumero(dadosES.mapasOutros)}
-              </span>
-              <span className="dado-label">Outros mapas</span>
-            </div>
-            <div className="dado-item">
-              <span className="dado-valor">
                 {formatarNumero(dadosES.validados)}
               </span>
               <span className="dado-label">Validados pelo TCGP</span>
@@ -187,6 +231,12 @@ export default function PlanosAcaoModal2({
                 {formatarNumero(dadosES.pendentes)}
               </span>
               <span className="dado-label">Não validados pelo TCGP</span>
+            </div>
+            <div className="dado-item">
+              <span className="dado-valor">
+                {formatarNumero(dadosES.planosInativos)}
+              </span>
+              <span className="dado-label">Planos Inativos</span>
             </div>
           </div>
         </div>
@@ -228,30 +278,6 @@ export default function PlanosAcaoModal2({
               body={(rowData) => formatarNumero(rowData.mapasAcao)}
             />
             <Column
-              field="mapasLP"
-              header={<span>Mapas de<br />Língua Portuguesa</span>}
-              sortable
-              body={(rowData) => formatarNumero(rowData.mapasLP)}
-            />
-            <Column
-              field="mapasMat"
-              header={<span>Mapas de<br />Matemática</span>}
-              sortable
-              body={(rowData) => formatarNumero(rowData.mapasMat)}
-            />
-            <Column
-              field="mapasLeitura"
-              header="Mapas de Leitura"
-              sortable
-              body={(rowData) => formatarNumero(rowData.mapasLeitura)}
-            />
-            <Column
-              field="mapasOutros"
-              header="Outros mapas"
-              sortable
-              body={(rowData) => formatarNumero(rowData.mapasOutros)}
-            />
-            <Column
               field="validados"
               header={<span>Validados pelo<br />TCGP</span>}
               sortable
@@ -262,6 +288,20 @@ export default function PlanosAcaoModal2({
               header={<span>Não validados<br />pelo TCGP</span>}
               sortable
               body={(rowData) => formatarNumero(rowData.pendentes)}
+            />
+            <Column
+              field="possuiPlanosInativos"
+              header={<span>Possui Planos de<br />Ação Inativos</span>}
+              sortable
+              body={(rowData) => (
+                <span
+                  className={`badge ${
+                    rowData.possuiPlanosInativos ? "badge-sim" : "badge-nao"
+                  }`}
+                >
+                  {rowData.possuiPlanosInativos ? "Sim" : "Não"}
+                </span>
+              )}
             />
           </DataTable>
         </div>
@@ -314,30 +354,6 @@ export default function PlanosAcaoModal2({
               body={(rowData) => formatarNumero(rowData.mapasAcao)}
             />
             <Column
-              field="mapasLP"
-              header={<span>Mapas de<br />Língua Portuguesa</span>}
-              sortable
-              body={(rowData) => formatarNumero(rowData.mapasLP)}
-            />
-            <Column
-              field="mapasMat"
-              header={<span>Mapas de<br />Matemática</span>}
-              sortable
-              body={(rowData) => formatarNumero(rowData.mapasMat)}
-            />
-            <Column
-              field="mapasLeitura"
-              header="Mapas de Leitura"
-              sortable
-              body={(rowData) => formatarNumero(rowData.mapasLeitura)}
-            />
-            <Column
-              field="mapasOutros"
-              header="Outros mapas"
-              sortable
-              body={(rowData) => formatarNumero(rowData.mapasOutros)}
-            />
-            <Column
               field="validados"
               header={<span>Validados pelo<br />TCGP</span>}
               sortable
@@ -348,6 +364,20 @@ export default function PlanosAcaoModal2({
               header={<span>Não validados<br />pelo TCGP</span>}
               sortable
               body={(rowData) => formatarNumero(rowData.pendentes)}
+            />
+            <Column
+              field="possuiPlanosInativos"
+              header={<span>Possui Planos de<br />Ação Inativos</span>}
+              sortable
+              body={(rowData) => (
+                <span
+                  className={`badge ${
+                    rowData.possuiPlanosInativos ? "badge-sim" : "badge-nao"
+                  }`}
+                >
+                  {rowData.possuiPlanosInativos ? "Sim" : "Não"}
+                </span>
+              )}
             />
           </DataTable>
         </div>
@@ -397,30 +427,6 @@ export default function PlanosAcaoModal2({
               body={(rowData) => formatarNumero(rowData.mapasAcao)}
             />
             <Column
-              field="mapasLP"
-              header={<span>Mapas de<br />Língua Portuguesa</span>}
-              sortable
-              body={(rowData) => formatarNumero(rowData.mapasLP)}
-            />
-            <Column
-              field="mapasMat"
-              header={<span>Mapas de<br />Matemática</span>}
-              sortable
-              body={(rowData) => formatarNumero(rowData.mapasMat)}
-            />
-            <Column
-              field="mapasLeitura"
-              header="Mapas de Leitura"
-              sortable
-              body={(rowData) => formatarNumero(rowData.mapasLeitura)}
-            />
-            <Column
-              field="mapasOutros"
-              header="Outros mapas"
-              sortable
-              body={(rowData) => formatarNumero(rowData.mapasOutros)}
-            />
-            <Column
               field="validados"
               header={<span>Validados pelo<br />TCGP</span>}
               sortable
@@ -432,7 +438,138 @@ export default function PlanosAcaoModal2({
               sortable
               body={(rowData) => formatarNumero(rowData.pendentes)}
             />
+            <Column
+              field="possuiPlanosInativos"
+              header={<span>Possui Planos de<br />Ação Inativos</span>}
+              sortable
+              body={(rowData) => (
+                <span
+                  className={`badge ${
+                    rowData.possuiPlanosInativos ? "badge-sim" : "badge-nao"
+                  }`}
+                >
+                  {rowData.possuiPlanosInativos ? "Sim" : "Não"}
+                </span>
+              )}
+            />
           </DataTable>
+        </div>
+      </Card>
+    );
+  };
+
+  const renderCardPendencias = () => {
+    return (
+      <Card className="modal-card modal-card-pendencias">
+        <div className="modal-card-content">
+          <h3 className="modal-card-titulo" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <i className="pi pi-exclamation-triangle" style={{ color: "#f57c00" }}></i>
+            Pendências de Postagem
+          </h3>
+          <p style={{ margin: "0 0 1rem 0", color: "#495057" }}>
+            Existem escolas que ainda não postaram seus Mapas de Ação:
+          </p>
+          
+          {pendencias.length === 0 ? (
+            <div style={{ textAlign: "center", padding: "2rem", color: "#28a745" }}>
+              <i className="pi pi-check-circle" style={{ fontSize: "2rem", marginBottom: "0.5rem" }}></i>
+              <p style={{ margin: 0, fontWeight: 500 }}>Nenhuma pendência encontrada. Todas as escolas postaram seus Mapas de Ação.</p>
+            </div>
+          ) : (
+            <>
+              <DataTable
+                value={pendencias}
+                className="modal-datatable"
+                emptyMessage="Nenhuma pendência encontrada"
+                paginator
+                rows={10}
+                rowsPerPageOptions={[10, 20, 50]}
+              >
+                <Column
+                  field="regional"
+                  header="Regional"
+                  sortable
+                  style={{ minWidth: "200px" }}
+                />
+                <Column
+                  field="municipio"
+                  header="Município"
+                  sortable
+                  style={{ minWidth: "200px" }}
+                />
+                <Column
+                  field="escola"
+                  header="Escola"
+                  sortable
+                  style={{ minWidth: "300px" }}
+                />
+              </DataTable>
+              
+              <div style={{ marginTop: "1.5rem", paddingTop: "1rem", borderTop: "1px solid #dee2e6" }}>
+                <p style={{ margin: 0, fontWeight: 600, color: "#212529", fontSize: "1rem" }}>
+                  Total de pendências: <span style={{ color: "#dc2626" }}>{pendencias.length}</span>
+                </p>
+              </div>
+            </>
+          )}
+        </div>
+      </Card>
+    );
+  };
+
+  const renderCardPlanosInativos = () => {
+    if (planosInativos.length === 0) return null;
+
+    return (
+      <Card className="modal-card">
+        <div className="modal-card-content">
+          <h3 className="modal-card-titulo" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <i className="pi pi-exclamation-circle" style={{ color: "#dc2626" }}></i>
+            Planos de Ação Inativos
+          </h3>
+          <p style={{ margin: "0 0 1rem 0", color: "#495057" }}>
+            Escolas com planos de ação inativos (sem tarefas em andamento e sem tarefas atrasadas):
+          </p>
+          
+          <DataTable
+            value={planosInativos}
+            className="modal-datatable"
+            emptyMessage="Nenhum plano inativo encontrado"
+            paginator
+            rows={10}
+            rowsPerPageOptions={[10, 20, 50]}
+          >
+            <Column
+              field="regional"
+              header="Regional"
+              sortable
+              style={{ minWidth: "200px" }}
+            />
+            <Column
+              field="municipio"
+              header="Município"
+              sortable
+              style={{ minWidth: "200px" }}
+            />
+            <Column
+              field="escola"
+              header="Escola"
+              sortable
+              style={{ minWidth: "300px" }}
+            />
+            <Column
+              field="planoAcaoId"
+              header="ID do Plano"
+              sortable
+              style={{ minWidth: "120px" }}
+            />
+          </DataTable>
+          
+          <div style={{ marginTop: "1.5rem", paddingTop: "1rem", borderTop: "1px solid #dee2e6" }}>
+            <p style={{ margin: 0, fontWeight: 600, color: "#212529", fontSize: "1rem" }}>
+              Total de planos inativos: <span style={{ color: "#dc2626" }}>{planosInativos.length}</span>
+            </p>
+          </div>
         </div>
       </Card>
     );
@@ -458,8 +595,10 @@ export default function PlanosAcaoModal2({
         <>
           {renderCardEspiritoSanto()}
           {renderCardRegionais()}
+          {renderCardPlanosInativos()}
           {renderCardMunicipios()}
           {renderCardEscolas()}
+          {renderCardPendencias()}
         </>
       )}
     </Dialog>

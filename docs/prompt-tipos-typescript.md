@@ -252,10 +252,11 @@ export interface DadosTCGPDetalhes {
 }
 ```
 
-#### 15. `DadosPorEscola` (Legado)
-Interface antiga, mantida para compatibilidade.
+#### 15. `DadosPorEscola` ⚠️ REMOVIDO
+Interface antiga que foi removida do código. Mantida apenas no arquivo de tipos para referência histórica.
 
 ```typescript
+// REMOVIDO - Função calcularDadosPorEscola foi removida
 export interface DadosPorEscola {
   escola: string
   serie: string

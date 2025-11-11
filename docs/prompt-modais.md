@@ -104,59 +104,11 @@ interface ModalProps {
 
 ---
 
-## Modal PlanosAcao - Pendências de Postagem (Modal 1)
-
-**Arquivo:**
-- `src/components/PlanosAcao.modal1.tsx`
-- `src/components/PlanosAcao.modal1.css`
-
-**Props:**
-```typescript
-interface PlanosAcaoModalProps {
-  visible: boolean
-  onHide: () => void
-}
-```
-
-**Funcionalidades:**
-- Carrega dados de `escolas.csv` e `ciclo-gestao.csv`
-- Identifica escolas que não postaram mapas de ação (escolas sem entradas no ciclo-gestao.csv)
-- Exibe tabela com colunas: Regional, Município, Escola
-- Mostra total de pendências no rodapé
-- Mensagem quando não há pendências
-
-**Dependências:**
-- `primereact/dialog`, `primereact/datatable`, `primereact/column`
-- `../utils/csvParser` (loadEscolasFromCsv)
-- Função customizada para carregar ciclo-gestao.csv (loadCicloGestaoCsv)
-
-**Abertura:**
-- Clicar em "Ver detalhes" no título principal (primeiro modal, depois abre o modal 2 automaticamente)
-- Clicar no minicard "Mapas de Ação" (minicard-2) - abre apenas este modal
-
-**Estados:**
-- `escolas`: lista de escolas do CSV
-- `pendencias`: lista de escolas com pendências
-- `loading`: estado de carregamento
-
-**Lógica:**
-1. Carrega todas as escolas de `escolas.csv`
-2. Carrega todos os mapas de ação de `ciclo-gestao.csv`
-3. Identifica escolas que não têm nenhum mapa de ação postado
-4. Exibe essas escolas em uma tabela ordenável e paginável
-
-**Estilo:**
-- Header com fundo vermelho claro (#fef2f2) e ícone de alerta
-- Tabela com linhas alternadas (zebrado)
-- Rodapé com total de pendências
-
----
-
 ## Modal PlanosAcao - Panorama Geral (Modal 2)
 
 **Arquivo:**
 - `src/components/PlanosAcao.modal2.tsx`
-- `src/components/PlanosAcao.modal1.css` (compartilha estilos)
+- `src/components/PlanosAcao.modal1.css` (estilos compartilhados)
 
 **Props:**
 ```typescript
@@ -179,16 +131,15 @@ interface PlanosAcaoModal2Props {
 - `../types/CicloGestao` (DadosPlanosAcao, DadosPlanosAcaoRegional, etc.)
 
 **Abertura:**
-- Clicar no minicard "Planos de Ação" (minicard-1) - abre diretamente
-- Automaticamente após fechar o Modal 1 (se foi aberto via "Ver detalhes")
+- Clicar em "Ver detalhes" no card "Planos de Ação" em PlanosAcao.tsx
 
 **Estados:**
 - `escolas`: lista de escolas do CSV
 - `cicloGestaoData`: dados do ciclo-gestao.csv
 - `dadosES`: dados agregados do Espírito Santo
 - `dadosRegionais`: dados agregados por regional
-- `dadosMunicipios`: calculados dinamicamente quando uma regional é selecionada
-- `dadosEscolas`: calculados dinamicamente quando um município é selecionado
+- `pendencias`: lista de escolas sem planos de ação postados
+- `planosInativos`: lista de planos de ação inativos
 - `tabelaAtiva`: controla qual tabela está visível ("regionais" | "municipios" | "escolas")
 - `regionalSelecionada`: filtro por regional
 - `municipioSelecionado`: filtro por município
@@ -197,17 +148,30 @@ interface PlanosAcaoModal2Props {
 **Card do Espírito Santo:**
 - Layout: Grid responsivo com boxes arredondados
 - Ordem: Número primeiro, legenda depois
-- Métricas: Planos de Ação, Mapas de Ação, Mapas de Língua Portuguesa, Mapas de Matemática, Mapas de Leitura, Outros mapas, Validados pelo TCGP, Não validados pelo TCGP
+- Métricas: Planos de Ação, Mapas de Ação, Validados pelo TCGP, Não validados pelo TCGP, Planos Inativos
 - Estilo: Boxes com `border-radius: 8px`, fundo `#f8f9fa`, borda `#e9ecef`
+- Removidas referências a tipos específicos de mapas (Língua Portuguesa, Matemática, Leitura, Outros)
+
+**Card de Pendências de Postagem:**
+- Sempre exibido no final do modal (mesmo ao navegar por regionais/municípios)
+- Fundo: degradê amarelo suave (`linear-gradient(to bottom, #fffef0 0%, #ffffff 100%)`)
+- Tabela com colunas: Regional, Município, Escola
+- Exibe total de pendências no rodapé
+
+**Tabela de Planos Inativos:**
+- Exibida abaixo das tabelas principais
+- Mostra escolas com planos de ação inativos (sem tarefas em andamento e sem tarefas atrasadas)
+- Colunas: Regional, Município, Escola, ID do Plano
 
 **Tabelas:**
-- **Regionais**: Colunas com quebras de linha nos cabeçalhos longos
-- **Municípios**: Filtrados por regional selecionada
-- **Escolas**: Filtradas por município selecionado
+- **Regionais**: Colunas com quebras de linha nos cabeçalhos longos, inclui "Possui Planos Inativos?" (badge Sim/Não)
+- **Municípios**: Filtrados por regional selecionada, inclui "Possui Planos Inativos?" (badge Sim/Não)
+- **Escolas**: Filtradas por município selecionado, inclui "Possui Planos Inativos?" (badge Sim/Não)
 - Colunas condensadas: larguras entre 70px e 140px
 - Padding reduzido: `0.5rem 0.4rem`
 - Fonte dos cabeçalhos: `0.75rem`
 - Texto centralizado nas colunas numéricas
+- Badge "Sim" (vermelho) e "Não" (verde) para planos inativos
 
 **Navegação:**
 - Clique em regional → abre tabela de municípios

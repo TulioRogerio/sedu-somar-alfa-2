@@ -31,6 +31,8 @@ export interface DadosPlanosAcao {
   mapasOutros: number;
   validados: number;
   pendentes: number;
+  possuiPlanosInativos: boolean;
+  planosInativos: number;
 }
 
 export interface DadosPlanosAcaoRegional extends DadosPlanosAcao {
