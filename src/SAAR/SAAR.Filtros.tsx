@@ -34,7 +34,6 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
     saar: { label: "SAAR I", value: "saar-i" },
   });
 
-  const estados = [{ label: "Espírito Santo", value: "espirito-santo" }];
   const [regionais, setRegionais] = useState<{ label: string; value: string }[]>([]);
   const [municipios, setMunicipios] = useState<{ label: string; value: string }[]>([]);
   const [escolas, setEscolas] = useState<{ label: string; value: string }[]>([]);
