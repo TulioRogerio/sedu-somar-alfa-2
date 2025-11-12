@@ -1,5 +1,6 @@
 import { TabView, TabPanel } from "primereact/tabview";
 import SAARTabViewAulasDadas from "./abas/SAAR.TabView.AulasDadas";
+import SAARTabViewFrequenciaEstudantes from "./abas/SAAR.TabView.FrequenciaEstudantes";
 import "./SAAR.TabView.css";
 
 interface SAARTabViewProps {
@@ -20,7 +21,7 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
           header={
             <span className="saar-tab-header">
               <i className="pi pi-calendar" />
-              Aulas Dadas
+              Dias Lecionados
             </span>
           }
         >
@@ -33,13 +34,12 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
           header={
             <span className="saar-tab-header">
               <i className="pi pi-users" />
-              Frequência dos estudantes
+              Frequência
             </span>
           }
         >
           <div className="saar-tab-content">
-            {/* TODO: Implementar conteúdo da aba Frequência dos estudantes */}
-            <p>Conteúdo da aba Frequência dos estudantes</p>
+            <SAARTabViewFrequenciaEstudantes filtros={filtros} />
           </div>
         </TabPanel>
 

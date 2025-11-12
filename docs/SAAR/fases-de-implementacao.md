@@ -10,6 +10,7 @@ Este documento lista todas as fases e tarefas necessárias para completar a impl
 
 - ✅ **Fase 1**: Estrutura base e componentes criados
 - ✅ **Fase 2**: Navegação e integração (concluída)
+- ✅ **Fase 2.5**: Refatoração e organização do código (concluída)
 - 📋 **Sugestões Futuras**: Fases 3-7 movidas para seção de sugestões futuras
 
 ---
@@ -62,6 +63,35 @@ Este documento lista todas as fases e tarefas necessárias para completar a impl
 - [x] Renderizar componente correto baseado no estado
 - [x] Manter estado do ano selecionado entre páginas
 - [x] Passar props de navegação para componentes filhos
+
+---
+
+## Fase 2.5: Refatoração e Organização do Código ✅
+
+### 2.5.1 Análise e Identificação
+- [x] Identificar arquivos com mais de 300 linhas
+- [x] Identificar código duplicado
+- [x] Identificar console.logs de debug
+- [x] Mapear oportunidades de extração
+
+### 2.5.2 Refatoração do Módulo Aulas Dadas
+- [x] Criar arquivo de tipos (`AulasDadas.types.ts`)
+- [x] Criar arquivo de constantes (`AulasDadas.constants.ts`)
+- [x] Extrair utilitários de parsing (`aulasDadasParser.ts`)
+- [x] Extrair utilitários de cálculo (`aulasDadasCalculations.ts`)
+- [x] Extrair configuração de gráfico (`aulasDadasChartConfig.ts`)
+- [x] Criar hook `useAulasDadasData`
+- [x] Criar hook `useApexChart`
+- [x] Refatorar componente principal (669 → 180 linhas)
+- [x] Remover console.logs de debug (24 → 1)
+
+### 2.5.3 Documentação
+- [x] Criar documentação da refatoração (`refatoracao-aulas-dadas.md`)
+- [x] Atualizar fases de implementação
+
+**Resultado**: Componente principal reduzido de 669 para 180 linhas (-73%), código mais organizado e manutenível.
+
+**Documentação**: Ver `docs/SAAR/refatoracao-aulas-dadas.md`
 
 ---
 
@@ -313,6 +343,7 @@ Use este checklist para validar se o protótipo está pronto para apresentação
 ---
 
 **Última atualização**: 2025-01-12  
-**Status**: Fase 1 e Fase 2 concluídas  
-**Contexto**: Prototipagem para validação
+**Status**: Fase 1, Fase 2 e Fase 2.5 concluídas  
+**Contexto**: Prototipagem para validação  
+**Refatoração**: Módulo Aulas Dadas refatorado e documentado
 
