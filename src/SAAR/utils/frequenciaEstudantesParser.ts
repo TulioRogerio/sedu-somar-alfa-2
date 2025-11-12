@@ -63,8 +63,7 @@ export function aplicarFiltros(
  * Converte uma linha do CSV em um objeto FrequenciaEstudantesRow
  */
 export function parseRowToFrequencia(
-  row: any,
-  headers: string[]
+  row: any
 ): FrequenciaEstudantesRow | null {
   if (Object.keys(row).length === 0) return null;
 

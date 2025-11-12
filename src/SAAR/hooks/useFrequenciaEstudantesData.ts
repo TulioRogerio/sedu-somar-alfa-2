@@ -62,7 +62,7 @@ export function useFrequenciaEstudantesData(
           continue;
         }
 
-        const parsedRow = parseRowToFrequencia(row, headers);
+        const parsedRow = parseRowToFrequencia(row);
         if (parsedRow) {
           dadosParseados.push(parsedRow);
         }

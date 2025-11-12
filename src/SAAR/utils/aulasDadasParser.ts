@@ -60,8 +60,7 @@ export function aplicarFiltros(
  * Converte uma linha do CSV em um objeto AulasDadasRow
  */
 export function parseRowToAulasDadas(
-  row: any,
-  headers: string[]
+  row: any
 ): AulasDadasRow | null {
   if (Object.keys(row).length === 0) return null;
 

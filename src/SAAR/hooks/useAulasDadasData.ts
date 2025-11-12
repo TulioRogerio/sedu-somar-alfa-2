@@ -55,7 +55,7 @@ export function useAulasDadasData(filtros?: AulasDadasProps["filtros"]) {
           continue;
         }
 
-        const parsedRow = parseRowToAulasDadas(row, headers);
+        const parsedRow = parseRowToAulasDadas(row);
         if (parsedRow) {
           dadosParseados.push(parsedRow);
         }

@@ -50,7 +50,7 @@ export function calcularTotalAlunos(
  */
 export function agruparDadosPorData(
   dados: FrequenciaEstudantesRow[],
-  mesInicial: number = 2,
+  _mesInicial: number = 2,
   ano: number = 2025
 ): DadosFrequenciaPorData[] {
   // Obter dias úteis de fevereiro e março de 2025
