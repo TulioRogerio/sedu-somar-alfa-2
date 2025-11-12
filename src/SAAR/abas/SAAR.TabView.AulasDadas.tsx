@@ -50,11 +50,34 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
 
       const csvContent = await response.text();
       const linhas = csvContent.split("\n").filter((l) => l.trim());
-      const headers = linhas[0].split(",");
+      
+      // Função para fazer parse correto de CSV com campos entre aspas
+      const parseCSVLine = (line: string): string[] => {
+        const result: string[] = [];
+        let current = '';
+        let inQuotes = false;
+        
+        for (let i = 0; i < line.length; i++) {
+          const char = line[i];
+          
+          if (char === '"') {
+            inQuotes = !inQuotes;
+          } else if (char === ',' && !inQuotes) {
+            result.push(current.trim());
+            current = '';
+          } else {
+            current += char;
+          }
+        }
+        result.push(current.trim());
+        return result;
+      };
+
+      const headers = parseCSVLine(linhas[0]);
 
       const dadosParseados: AulasDadasRow[] = [];
       for (let i = 1; i < linhas.length; i++) {
-        const valores = linhas[i].split(",");
+        const valores = parseCSVLine(linhas[i]);
         const row: any = {};
         headers.forEach((header, index) => {
           let valor = valores[index]?.trim() || "";
@@ -100,6 +123,8 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
         });
       }
 
+      console.log("Dados carregados:", dadosParseados.length, "registros");
+      console.log("Filtros aplicados:", filtros);
       setDados(dadosParseados);
     } catch (error) {
       console.error("Erro ao carregar dados de aulas dadas:", error);
