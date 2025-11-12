@@ -18,8 +18,8 @@
     "primeicons": "^7.0.0",
     "chart.js": "^4.4.0",
     "chartjs-plugin-datalabels": "^2.2.0",
-    "apexcharts": "^3.44.0",
-    "react-apexcharts": "^1.4.1"
+    "apexcharts": "^4.0.0",
+    "react-apexcharts": "^1.8.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
