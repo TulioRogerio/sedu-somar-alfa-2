@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { MultiSelect } from "primereact/multiselect";
 import { getPublicPath } from "../../utils/pathUtils";
 import "./SAAR.TabView.AulasDadas.css";
 
@@ -32,10 +33,21 @@ interface AulasDadasRow {
   aulas_dadas_Geografia: number;
 }
 
+// Opções de disciplinas
+const DISCIPLINAS = [
+  { label: "Língua Portuguesa", value: "LP" },
+  { label: "Matemática", value: "Mat" },
+  { label: "Ciências", value: "Ciencias" },
+  { label: "História", value: "Historia" },
+  { label: "Geografia", value: "Geografia" },
+];
+
 export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
   const [dados, setDados] = useState<AulasDadasRow[]>([]);
   const [carregando, setCarregando] = useState<boolean>(true);
-  const [turmaSelecionada, setTurmaSelecionada] = useState<string | null>(null);
+  const [disciplinasSelecionadas, setDisciplinasSelecionadas] = useState<string[]>(
+    DISCIPLINAS.map((d) => d.value)
+  );
   const [Chart, setChart] = useState<any>(null);
 
   // Carregar Chart dinamicamente apenas no cliente (evita problemas de SSR no GitHub Pages)
@@ -260,7 +272,7 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
     "7º Ano - I",
   ];
 
-  // Obter todas as turmas disponíveis (para mostrar badges)
+  // Obter todas as turmas disponíveis e criar opções para o MultiSelect
   const todasTurmas = useMemo(() => {
     const turmasSet = new Set<string>();
     dados.forEach((row) => {
@@ -268,6 +280,25 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
     });
     return Array.from(turmasSet);
   }, [dados]);
+
+  // Opções de séries para o MultiSelect
+  const opcoesSeries = useMemo(() => {
+    return todasTurmas.map((turma) => ({
+      label: turma,
+      value: turma,
+    }));
+  }, [todasTurmas]);
+
+  // Estado para séries selecionadas (inicialmente todas)
+  const [seriesSelecionadas, setSeriesSelecionadas] = useState<string[]>([]);
+
+  // Atualizar séries selecionadas quando todasTurmas mudar (apenas na primeira vez)
+  useEffect(() => {
+    if (todasTurmas.length > 0 && seriesSelecionadas.length === 0) {
+      setSeriesSelecionadas([...todasTurmas]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [todasTurmas]);
 
   // Agrupar dados por turma com percentuais
   const dadosPorTurma = useMemo(() => {
@@ -293,9 +324,9 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
       }
     > = {};
 
-    // Filtrar dados por turma selecionada se houver
-    const dadosFiltrados = turmaSelecionada
-      ? dados.filter((row) => row.turma === turmaSelecionada)
+    // Filtrar dados por séries selecionadas
+    const dadosFiltrados = seriesSelecionadas.length > 0
+      ? dados.filter((row) => seriesSelecionadas.includes(row.turma))
       : dados;
 
     dadosFiltrados.forEach((row) => {
@@ -403,11 +434,25 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
     });
 
     return ordenado;
-  }, [dados, turmaSelecionada]);
+  }, [dados, seriesSelecionadas]);
+
+  // Mapeamento de cores por disciplina
+  const coresDisciplinas: Record<string, string> = {
+    LP: "#2196f3", // Azul
+    Mat: "#4caf50", // Verde
+    Ciencias: "#ff9800", // Laranja
+    Historia: "#9c27b0", // Roxo
+    Geografia: "#f44336", // Vermelho
+  };
 
   // Configuração do gráfico
   const opcoesGrafico = useMemo(() => {
     const turmas = Object.keys(dadosPorTurma);
+    
+    // Calcular cores baseado nas disciplinas selecionadas (na ordem correta)
+    const cores = DISCIPLINAS.filter((d) =>
+      disciplinasSelecionadas.includes(d.value)
+    ).map((d) => coresDisciplinas[d.value]);
 
     return {
       chart: {
@@ -461,7 +506,7 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
       fill: {
         opacity: 1,
       },
-      colors: ["#2196f3", "#4caf50", "#ff9800", "#9c27b0", "#f44336"],
+      colors: cores,
       legend: {
         position: "top",
         horizontalAlign: "center",
@@ -475,49 +520,42 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
         },
       },
     };
-  }, [dadosPorTurma]);
+  }, [dadosPorTurma, disciplinasSelecionadas]);
 
   const seriesGrafico = useMemo(() => {
     const turmas = Object.keys(dadosPorTurma);
-    const percentuaisLP = turmas.map(
-      (turma) => dadosPorTurma[turma].percentual_LP
-    );
-    const percentuaisMat = turmas.map(
-      (turma) => dadosPorTurma[turma].percentual_Mat
-    );
-    const percentuaisCiencias = turmas.map(
-      (turma) => dadosPorTurma[turma].percentual_Ciencias
-    );
-    const percentuaisHistoria = turmas.map(
-      (turma) => dadosPorTurma[turma].percentual_Historia
-    );
-    const percentuaisGeografia = turmas.map(
-      (turma) => dadosPorTurma[turma].percentual_Geografia
-    );
+    const series: any[] = [];
 
-    return [
-      {
-        name: "Língua Portuguesa",
-        data: percentuaisLP,
-      },
-      {
-        name: "Matemática",
-        data: percentuaisMat,
-      },
-      {
-        name: "Ciências",
-        data: percentuaisCiencias,
-      },
-      {
-        name: "História",
-        data: percentuaisHistoria,
-      },
-      {
-        name: "Geografia",
-        data: percentuaisGeografia,
-      },
-    ];
-  }, [dadosPorTurma]);
+    // Adicionar séries na ordem definida em DISCIPLINAS para manter consistência com as cores
+    DISCIPLINAS.forEach((disciplina) => {
+      if (disciplinasSelecionadas.includes(disciplina.value)) {
+        let data: number[] = [];
+        switch (disciplina.value) {
+          case "LP":
+            data = turmas.map((turma) => dadosPorTurma[turma].percentual_LP);
+            break;
+          case "Mat":
+            data = turmas.map((turma) => dadosPorTurma[turma].percentual_Mat);
+            break;
+          case "Ciencias":
+            data = turmas.map((turma) => dadosPorTurma[turma].percentual_Ciencias);
+            break;
+          case "Historia":
+            data = turmas.map((turma) => dadosPorTurma[turma].percentual_Historia);
+            break;
+          case "Geografia":
+            data = turmas.map((turma) => dadosPorTurma[turma].percentual_Geografia);
+            break;
+        }
+        series.push({
+          name: disciplina.label,
+          data: data,
+        });
+      }
+    });
+
+    return series;
+  }, [dadosPorTurma, disciplinasSelecionadas]);
 
   if (carregando) {
     return (
@@ -552,25 +590,47 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
           </div>
           <div className="saar-card-content">
             <div className="saar-grafico-header">
-              <div className="saar-grafico-turmas">
-                {todasTurmas.map((turma) => (
-                  <span
-                    key={turma}
-                    className={`saar-turma-badge ${
-                      turmaSelecionada === turma
-                        ? "saar-turma-badge-selected"
-                        : ""
-                    }`}
-                    onClick={() => {
-                      setTurmaSelecionada(
-                        turmaSelecionada === turma ? null : turma
-                      );
-                    }}
-                    style={{ cursor: "pointer" }}
-                  >
-                    {turma}
-                  </span>
-                ))}
+              <div className="saar-filtro-disciplinas">
+                <label htmlFor="disciplinas-select" className="saar-filtro-label">
+                  Disciplinas
+                </label>
+                <MultiSelect
+                  id="disciplinas-select"
+                  value={disciplinasSelecionadas}
+                  options={DISCIPLINAS}
+                  onChange={(e) => {
+                    const valores = e.value || [];
+                    // Garantir que pelo menos uma disciplina esteja selecionada
+                    if (valores.length > 0) {
+                      setDisciplinasSelecionadas(valores);
+                    }
+                  }}
+                  placeholder="Selecione as disciplinas"
+                  display="chip"
+                  className="saar-multiselect"
+                  style={{ width: "100%" }}
+                />
+              </div>
+              <div className="saar-filtro-disciplinas">
+                <label htmlFor="series-select" className="saar-filtro-label">
+                  Séries
+                </label>
+                <MultiSelect
+                  id="series-select"
+                  value={seriesSelecionadas}
+                  options={opcoesSeries}
+                  onChange={(e) => {
+                    const valores = e.value || [];
+                    // Garantir que pelo menos uma série esteja selecionada
+                    if (valores.length > 0) {
+                      setSeriesSelecionadas(valores);
+                    }
+                  }}
+                  placeholder="Selecione as séries"
+                  display="chip"
+                  className="saar-multiselect"
+                  style={{ width: "100%" }}
+                />
               </div>
             </div>
           </div>
