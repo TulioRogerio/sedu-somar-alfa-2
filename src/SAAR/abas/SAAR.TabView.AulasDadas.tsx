@@ -89,12 +89,24 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
         });
 
         // Aplicar filtros
-        if (filtros?.regional && row.regional !== filtros.regional.label)
-          continue;
-        if (filtros?.municipio && row.municipio !== filtros.municipio.label)
-          continue;
-        if (filtros?.escola && row.escola_nome !== filtros.escola.label)
-          continue;
+        if (filtros?.regional) {
+          if (row.regional !== filtros.regional.label) {
+            continue;
+          }
+        }
+        if (filtros?.municipio) {
+          if (row.municipio !== filtros.municipio.label) {
+            continue;
+          }
+        }
+        if (filtros?.escola) {
+          // Comparação case-insensitive e removendo espaços extras
+          const escolaCSV = row.escola_nome?.trim().toLowerCase() || "";
+          const escolaFiltro = filtros.escola.label?.trim().toLowerCase() || "";
+          if (escolaCSV !== escolaFiltro) {
+            continue;
+          }
+        }
 
         dadosParseados.push({
           escola_id: parseInt(row.escola_id),
@@ -123,8 +135,28 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
         });
       }
 
-      console.log("Dados carregados:", dadosParseados.length, "registros");
-      console.log("Filtros aplicados:", filtros);
+      console.log("=== DEBUG AULAS DADAS ===");
+      console.log("Total de linhas no CSV:", linhas.length - 1);
+      console.log("Dados após filtros:", dadosParseados.length, "registros");
+      console.log("Filtros aplicados:", JSON.stringify(filtros, null, 2));
+      if (dadosParseados.length > 0) {
+        console.log("Primeiros 3 registros:", dadosParseados.slice(0, 3));
+        console.log("Exemplo de regional no CSV:", dadosParseados[0].regional);
+        console.log("Exemplo de municipio no CSV:", dadosParseados[0].municipio);
+        console.log("Exemplo de escola no CSV:", dadosParseados[0].escola_nome);
+      } else {
+        console.warn("⚠️ Nenhum dado encontrado após aplicar filtros!");
+        if (filtros?.escola) {
+          console.warn("Filtro de escola ativo:", filtros.escola.label);
+        }
+        if (filtros?.municipio) {
+          console.warn("Filtro de município ativo:", filtros.municipio.label);
+        }
+        if (filtros?.regional) {
+          console.warn("Filtro de regional ativo:", filtros.regional.label);
+        }
+      }
+      console.log("========================");
       setDados(dadosParseados);
     } catch (error) {
       console.error("Erro ao carregar dados de aulas dadas:", error);
