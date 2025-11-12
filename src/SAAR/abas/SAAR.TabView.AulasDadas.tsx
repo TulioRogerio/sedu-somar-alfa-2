@@ -45,11 +45,18 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
   const carregarDados = async () => {
     try {
       setCarregando(true);
+      console.log("Iniciando carregamento do CSV...");
       const response = await fetch("/aulas-dadas.csv");
-      if (!response.ok) throw new Error("Erro ao carregar CSV");
+      console.log("Resposta do fetch:", response.status, response.statusText);
+      if (!response.ok) {
+        console.error("Erro ao carregar CSV:", response.status, response.statusText);
+        throw new Error(`Erro ao carregar CSV: ${response.status} ${response.statusText}`);
+      }
 
       const csvContent = await response.text();
+      console.log("Tamanho do CSV carregado:", csvContent.length, "caracteres");
       const linhas = csvContent.split("\n").filter((l) => l.trim());
+      console.log("Total de linhas após split:", linhas.length);
       
       // Função para fazer parse correto de CSV com campos entre aspas
       const parseCSVLine = (line: string): string[] => {
@@ -74,10 +81,22 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
       };
 
       const headers = parseCSVLine(linhas[0]);
+      console.log("Headers encontrados:", headers);
 
       const dadosParseados: AulasDadasRow[] = [];
+      let linhasProcessadas = 0;
+      let linhasFiltradas = 0;
+      
       for (let i = 1; i < linhas.length; i++) {
+        linhasProcessadas++;
         const valores = parseCSVLine(linhas[i]);
+        
+        // Verificar se a linha tem o número correto de colunas
+        if (valores.length !== headers.length) {
+          console.warn(`Linha ${i} tem ${valores.length} colunas, esperado ${headers.length}. Linha:`, linhas[i].substring(0, 100));
+          continue;
+        }
+        
         const row: any = {};
         headers.forEach((header, index) => {
           let valor = valores[index]?.trim() || "";
@@ -89,23 +108,30 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
         });
 
         // Aplicar filtros
+        let deveIncluir = true;
+        
         if (filtros?.regional) {
           if (row.regional !== filtros.regional.label) {
-            continue;
+            deveIncluir = false;
           }
         }
-        if (filtros?.municipio) {
+        if (deveIncluir && filtros?.municipio) {
           if (row.municipio !== filtros.municipio.label) {
-            continue;
+            deveIncluir = false;
           }
         }
-        if (filtros?.escola) {
+        if (deveIncluir && filtros?.escola) {
           // Comparação case-insensitive e removendo espaços extras
           const escolaCSV = row.escola_nome?.trim().toLowerCase() || "";
           const escolaFiltro = filtros.escola.label?.trim().toLowerCase() || "";
           if (escolaCSV !== escolaFiltro) {
-            continue;
+            deveIncluir = false;
           }
+        }
+        
+        if (!deveIncluir) {
+          linhasFiltradas++;
+          continue;
         }
 
         dadosParseados.push({
@@ -137,6 +163,8 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
 
       console.log("=== DEBUG AULAS DADAS ===");
       console.log("Total de linhas no CSV:", linhas.length - 1);
+      console.log("Linhas processadas:", linhasProcessadas);
+      console.log("Linhas filtradas (excluídas):", linhasFiltradas);
       console.log("Dados após filtros:", dadosParseados.length, "registros");
       console.log("Filtros aplicados:", JSON.stringify(filtros, null, 2));
       if (dadosParseados.length > 0) {
