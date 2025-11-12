@@ -1,0 +1,233 @@
+.saar-filtros-container {
+  background-color: #ffffff;
+  border: 1px solid #2196f3;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.saar-filtros-container.collapsed {
+  padding: 1rem 1.5rem;
+}
+
+.saar-filtros-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.saar-filtros-titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+}
+
+.saar-filtros-toggle {
+  background: none;
+  border: none;
+  color: #2196f3;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.2s;
+}
+
+.saar-filtros-toggle:hover {
+  color: #1976d2;
+}
+
+.saar-filtros-toggle i {
+  font-size: 0.875rem;
+}
+
+.saar-filtros-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.saar-filtros-grid {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  gap: 1rem;
+}
+
+.saar-filtros-categoria {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.saar-filtros-categoria-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.saar-filtros-breadcrumb {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 0.5rem;
+}
+
+.saar-filtros-breadcrumb .p-breadcrumb {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.saar-filtros-breadcrumb .p-breadcrumb .p-breadcrumb-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.saar-filtros-breadcrumb .p-breadcrumb .p-breadcrumb-list li {
+  display: flex;
+  align-items: center;
+}
+
+.saar-filtros-breadcrumb .p-breadcrumb .p-breadcrumb-list li .p-breadcrumb-link {
+  color: #2196f3;
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.saar-filtros-breadcrumb .p-breadcrumb .p-breadcrumb-list li .p-breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.saar-filtros-breadcrumb .p-breadcrumb .p-breadcrumb-list li .p-breadcrumb-separator {
+  color: #6c757d;
+  margin: 0 0.5rem;
+}
+
+
+.saar-filtros-hierarquia .saar-filtros-categoria-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .saar-filtros-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .saar-filtros-hierarquia .saar-filtros-categoria-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .saar-filtros-hierarquia .saar-filtros-categoria-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.saar-filtro-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.saar-filtro-item label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #424242;
+}
+
+.saar-dropdown {
+  width: 100%;
+}
+
+.saar-dropdown .p-dropdown {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.saar-input-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.saar-input {
+  width: 100%;
+  padding-right: 3rem;
+}
+
+.saar-input-wrapper .p-inputtext {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+}
+
+.saar-input-clear {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #757575;
+  font-size: 0.875rem;
+}
+
+.saar-input-clear:hover {
+  color: #424242;
+}
+
+.saar-input-arrow {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #757575;
+  font-size: 0.875rem;
+  pointer-events: none;
+}
+
+.saar-filtros-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.saar-button-limpar {
+  background-color: #ffffff;
+  color: #424242;
+  border: 1px solid #e0e0e0;
+}
+
+.saar-button-limpar:hover {
+  background-color: #f5f5f5;
+  border-color: #bdbdbd;
+}
+
+.saar-button-filtrar {
+  background-color: #2196f3;
+  color: #ffffff;
+  border: 1px solid #2196f3;
+}
+
+.saar-button-filtrar:hover {
+  background-color: #1976d2;
+  border-color: #1976d2;
+}
+

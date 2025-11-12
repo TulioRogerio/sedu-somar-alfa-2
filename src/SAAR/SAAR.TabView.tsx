@@ -1,0 +1,118 @@
+import { TabView, TabPanel } from "primereact/tabview";
+import SAARTabViewAulasDadas from "./abas/SAAR.TabView.AulasDadas";
+import "./SAAR.TabView.css";
+
+interface SAARTabViewProps {
+  filtros?: {
+    estado?: { label: string; value: string };
+    regional?: { label: string; value: string };
+    municipio?: { label: string; value: string };
+    escola?: { label: string; value: string };
+    saar?: { label: string; value: string };
+  };
+}
+
+export default function SAARTabView({ filtros }: SAARTabViewProps) {
+  return (
+    <div className="saar-tabview-container">
+      <TabView className="saar-tabview">
+        <TabPanel
+          header={
+            <span className="saar-tab-header">
+              <i className="pi pi-calendar" />
+              Aulas Dadas
+            </span>
+          }
+        >
+          <div className="saar-tab-content">
+            <SAARTabViewAulasDadas filtros={filtros} />
+          </div>
+        </TabPanel>
+
+        <TabPanel
+          header={
+            <span className="saar-tab-header">
+              <i className="pi pi-users" />
+              Frequência dos estudantes
+            </span>
+          }
+        >
+          <div className="saar-tab-content">
+            {/* TODO: Implementar conteúdo da aba Frequência dos estudantes */}
+            <p>Conteúdo da aba Frequência dos estudantes</p>
+          </div>
+        </TabPanel>
+
+        <TabPanel
+          header={
+            <span className="saar-tab-header">
+              <i className="pi pi-book" />
+              Proficiência em Língua Portuguesa
+            </span>
+          }
+        >
+          <div className="saar-tab-content">
+            {/* TODO: Implementar conteúdo da aba Proficiência em Língua Portuguesa */}
+            <p>Conteúdo da aba Proficiência em Língua Portuguesa</p>
+          </div>
+        </TabPanel>
+
+        <TabPanel
+          header={
+            <span className="saar-tab-header">
+              <i className="pi pi-calculator" />
+              Proficiência em Matemática
+            </span>
+          }
+        >
+          <div className="saar-tab-content">
+            {/* TODO: Implementar conteúdo da aba Proficiência em Matemática */}
+            <p>Conteúdo da aba Proficiência em Matemática</p>
+          </div>
+        </TabPanel>
+
+        <TabPanel
+          header={
+            <span className="saar-tab-header">
+              <i className="pi pi-file-edit" />
+              Leitura
+            </span>
+          }
+        >
+          <div className="saar-tab-content">
+            {/* TODO: Implementar conteúdo da aba Leitura */}
+            <p>Conteúdo da aba Leitura</p>
+          </div>
+        </TabPanel>
+
+        <TabPanel
+          header={
+            <span className="saar-tab-header">
+              <i className="pi pi-check-square" />
+              Tarefas
+            </span>
+          }
+        >
+          <div className="saar-tab-content">
+            {/* TODO: Implementar conteúdo da aba Tarefas */}
+            <p>Conteúdo da aba Tarefas</p>
+          </div>
+        </TabPanel>
+
+        <TabPanel
+          header={
+            <span className="saar-tab-header">
+              <i className="pi pi-box" />
+              Produtos
+            </span>
+          }
+        >
+          <div className="saar-tab-content">
+            {/* TODO: Implementar conteúdo da aba Produtos */}
+            <p>Conteúdo da aba Produtos</p>
+          </div>
+        </TabPanel>
+      </TabView>
+    </div>
+  );
+}

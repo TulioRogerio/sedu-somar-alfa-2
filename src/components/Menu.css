@@ -1,0 +1,67 @@
+.menu-sidebar {
+  width: 280px;
+}
+
+.menu-sidebar .p-sidebar-content {
+  padding: 0;
+}
+
+.menu-content {
+  padding: 1.5rem;
+}
+
+.menu-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #000000;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.menu-list {
+  border: none;
+  background: transparent;
+  width: 100%;
+}
+
+.menu-list .p-menu-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.menu-list .p-menuitem {
+  margin-bottom: 0.5rem;
+}
+
+.menu-list .p-menuitem-link {
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: background-color 0.2s;
+}
+
+.menu-list .p-menuitem-link:hover {
+  background-color: #f8f9fa;
+}
+
+.menu-list .p-menuitem-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.menu-list .p-menuitem-icon {
+  font-size: 1.1rem;
+  color: #495057;
+}
+
+.menu-list .p-menuitem-text {
+  font-size: 1rem;
+  font-weight: 400;
+}
+

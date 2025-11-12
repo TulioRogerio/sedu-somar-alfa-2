@@ -1,0 +1,73 @@
+.saar-tabview-container {
+  background-color: #ffffff;
+  border: 1px solid #2196f3;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.saar-tabview {
+  width: 100%;
+}
+
+.saar-tabview .p-tabview-nav {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem 0;
+  margin: 0;
+}
+
+.saar-tabview .p-tabview-nav li {
+  margin-right: 0.5rem;
+}
+
+.saar-tabview .p-tabview-nav li .p-tabview-nav-link {
+  padding: 0.875rem 1.25rem;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #757575;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: -1px;
+}
+
+.saar-tabview .p-tabview-nav li .p-tabview-nav-link:hover {
+  background-color: #eeeeee;
+  color: #616161;
+}
+
+.saar-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background-color: #ffffff;
+  color: #2196f3;
+  border-bottom-color: #2196f3;
+  font-weight: 600;
+}
+
+.saar-tab-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.saar-tab-header i {
+  font-size: 1rem;
+}
+
+.saar-tabview .p-tabview-panels {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  min-height: 400px;
+}
+
+.saar-tab-content {
+  width: 100%;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #757575;
+}
+

@@ -1,0 +1,16 @@
+.saar-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+.saar-main-content {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
