@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { getPublicPath } from "../../utils/pathUtils";
 import "./SAAR.TabView.AulasDadas.css";
 
 interface AulasDadasProps {
@@ -59,7 +60,7 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
     try {
       setCarregando(true);
       console.log("Iniciando carregamento do CSV...");
-      const response = await fetch("/aulas-dadas.csv");
+      const response = await fetch(getPublicPath("aulas-dadas.csv"));
       console.log("Resposta do fetch:", response.status, response.statusText);
       if (!response.ok) {
         console.error("Erro ao carregar CSV:", response.status, response.statusText);
