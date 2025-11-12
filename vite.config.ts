@@ -10,7 +10,21 @@ export default defineConfig({
     open: true
   },
   optimizeDeps: {
-    include: ['primereact/breadcrumb', 'primereact/button', 'primereact/dropdown', 'primereact/datatable', 'primereact/column', 'primereact/dialog']
+    include: [
+      'primereact/breadcrumb', 
+      'primereact/button', 
+      'primereact/dropdown', 
+      'primereact/datatable', 
+      'primereact/column', 
+      'primereact/dialog',
+      'react-apexcharts',
+      'apexcharts'
+    ]
+  },
+  build: {
+    commonjsOptions: {
+      include: [/react-apexcharts/, /apexcharts/, /node_modules/]
+    }
   }
 })
 

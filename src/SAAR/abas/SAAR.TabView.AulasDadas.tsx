@@ -1,6 +1,4 @@
 import { useState, useEffect, useMemo } from "react";
-// @ts-ignore
-import Chart from "react-apexcharts";
 import "./SAAR.TabView.AulasDadas.css";
 
 interface AulasDadasProps {
@@ -37,6 +35,21 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
   const [dados, setDados] = useState<AulasDadasRow[]>([]);
   const [carregando, setCarregando] = useState<boolean>(true);
   const [turmaSelecionada, setTurmaSelecionada] = useState<string | null>(null);
+  const [Chart, setChart] = useState<any>(null);
+
+  // Carregar Chart dinamicamente apenas no cliente (evita problemas de SSR no GitHub Pages)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      import("react-apexcharts")
+        .then((module) => {
+          // @ts-ignore
+          setChart(() => module.default);
+        })
+        .catch((error) => {
+          console.error("Erro ao carregar react-apexcharts:", error);
+        });
+    }
+  }, []);
 
   useEffect(() => {
     carregarDados();
@@ -566,7 +579,15 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
       <div className="saar-aulas-dadas-right">
         <div className="saar-aulas-dadas-grafico">
           <div className="saar-grafico-container">
-            {Object.keys(dadosPorTurma).length > 0 ? (
+            {carregando ? (
+              <div className="saar-grafico-vazio">
+                <p>Carregando dados...</p>
+              </div>
+            ) : !Chart ? (
+              <div className="saar-grafico-vazio">
+                <p>Carregando gráfico...</p>
+              </div>
+            ) : Object.keys(dadosPorTurma).length > 0 ? (
               <Chart
                 options={opcoesGrafico}
                 series={seriesGrafico}
