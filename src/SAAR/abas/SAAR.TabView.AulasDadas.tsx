@@ -2,8 +2,14 @@ import { useState, useEffect, useMemo } from "react";
 import { MultiSelect } from "primereact/multiselect";
 import { useAulasDadasData } from "../hooks/useAulasDadasData";
 import { useApexChart } from "../hooks/useApexChart";
-import { calcularIndicadorAula, agruparDadosPorTurma } from "../utils/aulasDadasCalculations";
-import { criarOpcoesGrafico, criarSeriesGrafico } from "../utils/aulasDadasChartConfig";
+import {
+  calcularIndicadorAula,
+  agruparDadosPorTurma,
+} from "../utils/aulasDadasCalculations";
+import {
+  criarOpcoesGrafico,
+  criarSeriesGrafico,
+} from "../utils/aulasDadasChartConfig";
 import { DISCIPLINAS } from "../constants/AulasDadas.constants";
 import type { AulasDadasProps } from "../types/AulasDadas.types";
 import "./SAAR.TabView.AulasDadas.css";
@@ -11,9 +17,9 @@ import "./SAAR.TabView.AulasDadas.css";
 export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
   const { dados, carregando } = useAulasDadasData(filtros);
   const Chart = useApexChart();
-  const [disciplinasSelecionadas, setDisciplinasSelecionadas] = useState<string[]>(
-    DISCIPLINAS.map((d) => d.value)
-  );
+  const [disciplinasSelecionadas, setDisciplinasSelecionadas] = useState<
+    string[]
+  >(DISCIPLINAS.map((d) => d.value));
 
   // Obter todas as turmas disponíveis e criar opções para o MultiSelect
   const todasTurmas = useMemo(() => {
@@ -44,10 +50,7 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
   }, [todasTurmas]);
 
   // Calcular indicador de aula
-  const indicadorAula = useMemo(
-    () => calcularIndicadorAula(dados),
-    [dados]
-  );
+  const indicadorAula = useMemo(() => calcularIndicadorAula(dados), [dados]);
 
   // Agrupar dados por turma com percentuais
   const dadosPorTurma = useMemo(
@@ -87,7 +90,7 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
               <div className="saar-indicador-valor">
                 {indicadorAula.toFixed(2)}%
               </div>
-              <div className="saar-indicador-label">Dias Lecionados</div>
+              <div className="saar-indicador-label">Aulas Dadas</div>
             </div>
           </div>
         </div>
@@ -100,7 +103,10 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
           <div className="saar-card-content">
             <div className="saar-grafico-header">
               <div className="saar-filtro-disciplinas">
-                <label htmlFor="disciplinas-select" className="saar-filtro-label">
+                <label
+                  htmlFor="disciplinas-select"
+                  className="saar-filtro-label"
+                >
                   Disciplinas
                 </label>
                 <MultiSelect

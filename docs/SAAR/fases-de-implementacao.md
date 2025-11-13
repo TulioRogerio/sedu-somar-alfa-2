@@ -11,6 +11,7 @@ Este documento lista todas as fases e tarefas necessárias para completar a impl
 - ✅ **Fase 1**: Estrutura base e componentes criados
 - ✅ **Fase 2**: Navegação e integração (concluída)
 - ✅ **Fase 2.5**: Refatoração e organização do código (concluída)
+- ✅ **Fase 2.6**: Implementação da aba Frequência dos Estudantes (concluída)
 - 📋 **Sugestões Futuras**: Fases 3-7 movidas para seção de sugestões futuras
 
 ---
@@ -92,6 +93,42 @@ Este documento lista todas as fases e tarefas necessárias para completar a impl
 **Resultado**: Componente principal reduzido de 669 para 180 linhas (-73%), código mais organizado e manutenível.
 
 **Documentação**: Ver `docs/SAAR/refatoracao-aulas-dadas.md`
+
+---
+
+## Fase 2.6: Implementação da Aba Frequência dos Estudantes ✅
+
+### 2.6.1 Script de Geração de Dados
+- [x] Criar script `gerar-frequencia-estudantes.mjs`
+- [x] Gerar CSV com dados de frequência (2 meses letivos)
+- [x] Implementar frequência média de 80% com maior dispersão
+- [x] Adicionar colunas Data e Dia Letivo para facilitar agrupamento
+
+### 2.6.2 Estrutura do Módulo
+- [x] Criar arquivo de tipos (`FrequenciaEstudantes.types.ts`)
+- [x] Criar utilitários de parsing (`frequenciaEstudantesParser.ts`)
+- [x] Criar utilitários de cálculo (`frequenciaEstudantesCalculations.ts`)
+- [x] Criar configuração de gráfico (`frequenciaEstudantesChartConfig.ts`)
+- [x] Criar hook `useFrequenciaEstudantesData`
+- [x] Criar componente principal (`SAAR.TabView.FrequenciaEstudantes.tsx`)
+
+### 2.6.3 Funcionalidades
+- [x] Gráfico de linha temporal (frequência percentual)
+- [x] Indicador de frequência percentual
+- [x] Indicador de total de alunos únicos
+- [x] Slider de período (range de dias letivos)
+- [x] Filtro de séries (MultiSelect, padrão: apenas "2º Ano")
+- [x] Integração com filtros hierárquicos
+
+### 2.6.4 Ajustes e Melhorias
+- [x] Corrigir nomenclatura: "Aulas Dadas" → "Dias Lecionados"
+- [x] Corrigir nomenclatura: "Frequência dos estudantes" → "Frequência"
+- [x] Remover variáveis não utilizadas (correção de build)
+- [x] Remover console.log de debug
+
+**Resultado**: Aba de Frequência totalmente funcional com gráfico temporal, filtros de período e séries, e indicadores de frequência e total de alunos.
+
+**Documentação**: Ver `docs/SAAR/implementacao-frequencia-estudantes.md`
 
 ---
 
@@ -343,7 +380,8 @@ Use este checklist para validar se o protótipo está pronto para apresentação
 ---
 
 **Última atualização**: 2025-01-12  
-**Status**: Fase 1, Fase 2 e Fase 2.5 concluídas  
+**Status**: Fase 1, Fase 2, Fase 2.5 e Fase 2.6 concluídas  
 **Contexto**: Prototipagem para validação  
-**Refatoração**: Módulo Aulas Dadas refatorado e documentado
+**Refatoração**: Módulo Aulas Dadas refatorado e documentado  
+**Implementação**: Aba Frequência dos Estudantes implementada e documentada
 

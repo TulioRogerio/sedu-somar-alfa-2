@@ -1,0 +1,128 @@
+/**
+ * Configuração do gráfico ApexCharts para Produtos
+ */
+
+import type { DadosProdutos } from "../types/Produtos.types";
+import { CORES_FAIXAS } from "../constants/Produtos.constants";
+
+/**
+ * Cria as opções de configuração do gráfico donut
+ */
+export function criarOpcoesGraficoRosca(dados: DadosProdutos) {
+  const total = dados.total;
+  const valores = [
+    dados.faixa0_25,
+    dados.faixa26_50,
+    dados.faixa51_75,
+    dados.faixa76_100,
+  ];
+
+  const labels = [
+    "0 à 25% concluído",
+    "26 a 50% concluído",
+    "51 a 75% concluído",
+    "76 a 100% concluído",
+  ];
+
+  // Criar labels com percentuais
+  const labelsComPercentuais = labels.map((label, index) => {
+    const value = valores[index];
+    const percentage =
+      total > 0 ? ((value / total) * 100).toFixed(1) : "0.0";
+    return `${label}: ${percentage}%`;
+  });
+
+  return {
+    chart: {
+      type: "donut" as const,
+      toolbar: {
+        show: false,
+      },
+    },
+    labels: labelsComPercentuais,
+    colors: [
+      CORES_FAIXAS["0-25"],
+      CORES_FAIXAS["26-50"],
+      CORES_FAIXAS["51-75"],
+      CORES_FAIXAS["76-100"],
+    ],
+    legend: {
+      position: "bottom" as const,
+      fontSize: "12px",
+      fontFamily: "inherit",
+      labels: {
+        colors: "#495057",
+      },
+      itemMargin: {
+        horizontal: 10,
+        vertical: 5,
+      },
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function (val: number, opts: any) {
+        // Mostrar label apenas se o valor for maior que 5% do total
+        const value = valores[opts.seriesIndex];
+        const percentage = total > 0 ? (value / total) * 100 : 0;
+        if (percentage >= 5) {
+          return `${percentage.toFixed(1)}%`;
+        }
+        return "";
+      },
+      style: {
+        fontSize: "12px",
+        fontWeight: "bold",
+        colors: ["#ffffff"],
+      },
+      dropShadow: {
+        enabled: true,
+        color: "#000",
+        opacity: 0.5,
+        blur: 2,
+      },
+    },
+    tooltip: {
+      y: {
+        formatter: function (val: number, opts: any) {
+          const value = valores[opts.seriesIndex];
+          const percentage =
+            total > 0 ? ((value / total) * 100).toFixed(2) : "0";
+          return `${value} (${percentage}%)`;
+        },
+      },
+    },
+    plotOptions: {
+      pie: {
+        donut: {
+          size: "60%",
+          labels: {
+            show: true,
+            total: {
+              show: true,
+              label: "Total",
+              formatter: function () {
+                return total.toString();
+              },
+              fontSize: "16px",
+              fontWeight: 600,
+              color: "#495057",
+            },
+          },
+        },
+      },
+    },
+  };
+}
+
+/**
+ * Cria as séries do gráfico (valores das faixas)
+ */
+export function criarSeriesGraficoRosca(dados: DadosProdutos): number[] {
+  return [
+    dados.faixa0_25,
+    dados.faixa26_50,
+    dados.faixa51_75,
+    dados.faixa76_100,
+  ];
+}
+

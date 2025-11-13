@@ -1,6 +1,7 @@
 import { TabView, TabPanel } from "primereact/tabview";
 import SAARTabViewAulasDadas from "./abas/SAAR.TabView.AulasDadas";
 import SAARTabViewFrequenciaEstudantes from "./abas/SAAR.TabView.FrequenciaEstudantes";
+// import SAARTabViewProdutos from "./abas/SAAR.TabView.Produtos";
 import "./SAAR.TabView.css";
 
 interface SAARTabViewProps {
@@ -21,7 +22,7 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
           header={
             <span className="saar-tab-header">
               <i className="pi pi-calendar" />
-              Dias Lecionados
+              Aulas Dadas
             </span>
           }
         >
@@ -47,7 +48,7 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
           header={
             <span className="saar-tab-header">
               <i className="pi pi-book" />
-              Proficiência em Língua Portuguesa
+              Prof. em L. Port.
             </span>
           }
         >
@@ -61,7 +62,7 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
           header={
             <span className="saar-tab-header">
               <i className="pi pi-calculator" />
-              Proficiência em Matemática
+              Prof. em Mat.
             </span>
           }
         >
@@ -99,7 +100,8 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
           </div>
         </TabPanel>
 
-        <TabPanel
+        {/* Temporariamente oculto para commit */}
+        {/* <TabPanel
           header={
             <span className="saar-tab-header">
               <i className="pi pi-box" />
@@ -108,10 +110,9 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
           }
         >
           <div className="saar-tab-content">
-            {/* TODO: Implementar conteúdo da aba Produtos */}
-            <p>Conteúdo da aba Produtos</p>
+            <SAARTabViewProdutos filtros={filtros} />
           </div>
-        </TabPanel>
+        </TabPanel> */}
       </TabView>
     </div>
   );

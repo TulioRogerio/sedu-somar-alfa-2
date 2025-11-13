@@ -203,8 +203,7 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
   }, [filtros.saar]);
 
   const handleFiltrar = () => {
-    // TODO: Implementar lógica de filtro
-    console.log("Filtrar:", filtros);
+    // Filtros são aplicados automaticamente através do estado
   };
 
   return (
