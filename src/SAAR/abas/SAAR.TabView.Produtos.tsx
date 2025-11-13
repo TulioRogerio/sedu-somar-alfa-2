@@ -10,7 +10,12 @@ import {
   criarOpcoesGraficoRosca,
   criarSeriesGraficoRosca,
 } from "../utils/produtosChartConfig";
-import type { ProdutosProps } from "../types/Produtos.types";
+import type {
+  ProdutosProps,
+  DadosProdutosRegional,
+  DadosProdutosMunicipio,
+  DadosProdutosEscola,
+} from "../types/Produtos.types";
 import "./SAAR.TabView.Produtos.css";
 
 export default function SAARTabViewProdutos({
@@ -151,10 +156,10 @@ export default function SAARTabViewProdutos({
               const seriesGrafico = criarSeriesGraficoRosca(dado);
               const tituloGrafico =
                 tipoDadoGrid === "regionais"
-                  ? (dado as { regional: string }).regional
+                  ? (dado as unknown as DadosProdutosRegional).regional
                   : tipoDadoGrid === "municipios"
-                  ? (dado as { municipio: string }).municipio
-                  : (dado as { escola: string }).escola;
+                  ? (dado as unknown as DadosProdutosMunicipio).municipio
+                  : (dado as unknown as DadosProdutosEscola).escola;
 
               return (
                 <Card key={index} className="saar-produtos-grafico-card">
