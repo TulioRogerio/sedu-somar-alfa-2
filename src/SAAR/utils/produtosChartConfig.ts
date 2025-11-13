@@ -60,7 +60,7 @@ export function criarOpcoesGraficoRosca(dados: DadosProdutos) {
     },
     dataLabels: {
       enabled: true,
-      formatter: function (val: number, opts: any) {
+      formatter: function (_val: number, opts: any) {
         // Mostrar label apenas se o valor for maior que 5% do total
         const value = valores[opts.seriesIndex];
         const percentage = total > 0 ? (value / total) * 100 : 0;
@@ -83,7 +83,7 @@ export function criarOpcoesGraficoRosca(dados: DadosProdutos) {
     },
     tooltip: {
       y: {
-        formatter: function (val: number, opts: any) {
+        formatter: function (_val: number, opts: any) {
           const value = valores[opts.seriesIndex];
           const percentage =
             total > 0 ? ((value / total) * 100).toFixed(2) : "0";

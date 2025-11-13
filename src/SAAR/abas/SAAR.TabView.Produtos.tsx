@@ -150,11 +150,11 @@ export default function SAARTabViewProdutos({
               const opcoesGrafico = criarOpcoesGraficoRosca(dado);
               const seriesGrafico = criarSeriesGraficoRosca(dado);
               const tituloGrafico =
-                "regional" in dado
-                  ? dado.regional
-                  : "municipio" in dado
-                  ? dado.municipio
-                  : dado.escola;
+                tipoDadoGrid === "regionais"
+                  ? (dado as { regional: string }).regional
+                  : tipoDadoGrid === "municipios"
+                  ? (dado as { municipio: string }).municipio
+                  : (dado as { escola: string }).escola;
 
               return (
                 <Card key={index} className="saar-produtos-grafico-card">
