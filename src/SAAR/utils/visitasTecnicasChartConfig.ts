@@ -31,11 +31,6 @@ function obterCorCiclo(ciclo: number): string {
  * Cria as opções de configuração do gráfico de colunas
  */
 export function criarOpcoesGraficoColunas(dados: DadosVisitasTecnicas) {
-  // valores não usado, mas mantido para referência futura
-  const _valores = [
-    dados.totalEsperadas,
-    dados.totalAtasAssinadas,
-  ];
 
   const labels = [
     "Esperadas",

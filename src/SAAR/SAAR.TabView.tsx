@@ -8,16 +8,11 @@ import SAARTabViewLeitura from "./abas/SAAR.TabView.Leitura";
 import SAARTabViewTarefas from "./abas/SAAR.TabView.Tarefas";
 import SAARTabViewProdutos from "./abas/SAAR.TabView.Produtos";
 import SAARTabViewVisitasTecnicas from "./abas/SAAR.TabView.VisitasTecnicas";
+import type { FiltroContexto } from "./types/shared.types";
 import "./SAAR.TabView.css";
 
 interface SAARTabViewProps {
-  filtros?: {
-    estado?: { label: string; value: string };
-    regional?: { label: string; value: string };
-    municipio?: { label: string; value: string };
-    escola?: { label: string; value: string };
-    saar?: { label: string; value: string };
-  };
+  filtros?: FiltroContexto;
 }
 
 export default function SAARTabView({ filtros }: SAARTabViewProps) {

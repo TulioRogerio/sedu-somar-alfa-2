@@ -122,13 +122,6 @@ export function criarSeriesGraficoRosca(dados: DadosProdutos): number[] {
  */
 export function criarOpcoesGraficoColunas(dados: DadosProdutos) {
   const total = dados.total;
-  // valores não usado, mas mantido para referência futura
-  const _valores = [
-    dados.faixa0_25,
-    dados.faixa26_50,
-    dados.faixa51_75,
-    dados.faixa76_100,
-  ];
 
   const labels = [
     "0 à 25% concluído",

@@ -10,7 +10,7 @@ import type { IndicadorRow } from "../types/Eficacia.types";
 /**
  * Cria as opções de configuração do gráfico radar
  */
-export function criarOpcoesGraficoRadar(indicador: IndicadorRow | null): ApexOptions {
+export function criarOpcoesGraficoRadar(_indicador: IndicadorRow | null): ApexOptions {
   const categorias = [
     "Aulas Dadas",
     "Frequência",

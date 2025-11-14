@@ -10,15 +10,6 @@ import { CORES_STATUS } from "../constants/Tarefas.constants";
  */
 export function criarOpcoesGraficoColunas(dados: DadosTarefas) {
   const total = dados.total;
-  // valores não usado, mas mantido para referência futura
-  const _valores = [
-    dados.previstas,
-    dados.naoIniciadas,
-    dados.emAndamento,
-    dados.atrasadas,
-    dados.concluidas,
-    dados.concluidasAtraso,
-  ];
 
   const labels = [
     "Previstas",

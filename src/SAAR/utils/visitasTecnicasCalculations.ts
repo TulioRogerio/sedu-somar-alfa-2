@@ -97,8 +97,12 @@ export function calcularDadosVisitasTecnicasRegionais(
       escolasData,
       (escola: Escola) => escola.regional === regional
     );
+    const percentualAtasAssinadas = dadosRegional.totalEsperadas > 0
+      ? (dadosRegional.totalAtasAssinadas / dadosRegional.totalEsperadas) * 100
+      : 0;
     dados.push({
       ...dadosRegional,
+      percentualAtasAssinadas,
       regional,
     });
   });
@@ -138,8 +142,12 @@ export function calcularDadosVisitasTecnicasMunicipios(
       escolasData,
       (escola: Escola) => escola.municipio === municipio && escola.regional === reg
     );
+    const percentualAtasAssinadas = dadosMunicipio.totalEsperadas > 0
+      ? (dadosMunicipio.totalAtasAssinadas / dadosMunicipio.totalEsperadas) * 100
+      : 0;
     dados.push({
       ...dadosMunicipio,
+      percentualAtasAssinadas,
       municipio,
       regional: reg,
     });
@@ -169,8 +177,12 @@ export function calcularDadosVisitasTecnicasEscolas(
       escolasData,
       (e: Escola) => e.id === escola.id
     );
+    const percentualAtasAssinadas = dadosEscola.totalEsperadas > 0
+      ? (dadosEscola.totalAtasAssinadas / dadosEscola.totalEsperadas) * 100
+      : 0;
     dados.push({
       ...dadosEscola,
+      percentualAtasAssinadas,
       escola: escola.nome,
       municipio: escola.municipio,
       regional: escola.regional,
