@@ -5,7 +5,7 @@
 import type { DadosFrequenciaPorData } from "../types/FrequenciaEstudantes.types";
 
 /**
- * Cria as opções de configuração do gráfico de linha
+ * Cria as opções de configuração do gráfico de barras verticais
  */
 export function criarOpcoesGrafico(
   dadosPorData: DadosFrequenciaPorData[]
@@ -20,22 +20,19 @@ export function criarOpcoesGrafico(
 
   return {
     chart: {
-      type: "line" as const,
+      type: "bar" as const,
       toolbar: {
         show: false,
       },
-      zoom: {
-        enabled: false,
-      },
     },
-    stroke: {
-      curve: "smooth" as const,
-      width: 3,
-    },
-    markers: {
-      size: 4,
-      hover: {
-        size: 6,
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        borderRadius: 4,
+        dataLabels: {
+          position: "top",
+        },
+        columnWidth: "60%",
       },
     },
     dataLabels: {
@@ -66,15 +63,9 @@ export function criarOpcoesGrafico(
         },
       },
     },
-    colors: ["#2196f3"], // Azul para a linha
+    colors: ["#2196f3"], // Azul para as barras
     fill: {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        opacityFrom: 0.7,
-        opacityTo: 0.3,
-        stops: [0, 90, 100],
-      },
+      opacity: 1,
     },
     tooltip: {
       y: {

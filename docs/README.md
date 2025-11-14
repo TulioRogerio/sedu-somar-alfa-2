@@ -59,6 +59,12 @@
     - **Modal PlanosAcao 1**: Pendências de Postagem
     - **Modal PlanosAcao 2**: Panorama Geral (navegação hierárquica)
 
+15. **`SAAR/`** 📊
+    - **`README.md`**: Visão geral do módulo SAAR
+    - **`arquitetura-componentes.md`**: Arquitetura, componentes reutilizáveis e padrões
+    - **`fases-de-implementacao.md`**: Histórico de implementação
+    - **`prompt-saar.md`**: Documentação original
+
 ## Ordem de Recriação
 
 1. **Orientações Gerais** (`orientacoes-gerais.md`) - Leia primeiro

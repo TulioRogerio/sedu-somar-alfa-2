@@ -1,0 +1,18 @@
+.saar-proficiencia {
+  width: 100%;
+}
+
+.saar-proficiencia-placeholder {
+  padding: 3rem;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 2px dashed #dee2e6;
+}
+
+.saar-proficiencia-placeholder p {
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin: 0;
+}
+

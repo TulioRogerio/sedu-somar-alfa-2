@@ -1,161 +1,203 @@
 .saar-produtos {
-  width: 100%;
-  padding: 0;
-}
-
-/* Card de Indicadores */
-.saar-produtos-card-indicadores {
-  margin-bottom: 1.5rem;
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.saar-produtos-card-indicadores .p-card-body {
-  padding: 0;
-}
-
-.saar-produtos-card-content {
-  padding: 1rem 1.25rem;
-}
-
-.saar-produtos-card-titulo {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #212529;
-  margin: 0 0 1rem 0;
-  line-height: 1.2;
-}
-
-.saar-produtos-tabela-dados {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.75rem;
-  margin: 0;
-  padding: 0;
-  align-items: start;
+  grid-template-columns: 2fr 10fr;
+  gap: 1.5rem;
+  padding: 1rem 0;
 }
 
-.saar-produtos-dado-item {
+.saar-produtos-left {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 0.5rem;
-  background-color: #f8f9fa;
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
-  text-align: center;
-  min-height: 80px;
-}
-
-.saar-produtos-dado-valor {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #212529;
-  line-height: 1.2;
-  margin-bottom: 0.25rem;
-}
-
-.saar-produtos-dado-label {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: #6c757d;
-  line-height: 1.3;
-  text-align: center;
-}
-
-/* Grid de Gráficos */
-.saar-produtos-grid-container {
-  margin-top: 2rem;
-}
-
-.saar-produtos-grid-header {
-  margin-bottom: 1rem;
-}
-
-.saar-produtos-grid-titulo {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #212529;
-  margin: 0;
-}
-
-.saar-produtos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
-.saar-produtos-grafico-card {
-  border: 1px solid #e9ecef;
+.saar-produtos-center {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cards */
+.saar-card-indicador,
+.saar-card-filtros {
+  background-color: #ffffff;
   border-radius: 8px;
+  border: 1px solid #e9ecef;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.2s ease;
+  overflow: hidden;
 }
 
-.saar-produtos-grafico-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.saar-card-header {
+  padding: 1rem 1.25rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  text-align: center;
 }
 
-.saar-produtos-grafico-card .p-card-body {
-  padding: 0;
-}
-
-.saar-produtos-grafico-card-content {
-  padding: 1rem;
-}
-
-.saar-produtos-grafico-card-titulo {
+.saar-card-title {
+  margin: 0;
   font-size: 1rem;
   font-weight: 600;
-  color: #212529;
-  margin: 0 0 0.25rem 0;
+  color: #495057;
+}
+
+.saar-card-content {
+  padding: 1.25rem;
+}
+
+.saar-indicador-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.saar-indicador-valor {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2196f3;
   line-height: 1.2;
 }
 
-.saar-produtos-grafico-card-subtitulo {
+.saar-indicador-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.saar-produtos-indicador-detalhes {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.saar-produtos-indicador-linha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.saar-produtos-indicador-numero {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.saar-produtos-indicador-texto {
+  font-size: 0.8125rem;
+  color: #6c757d;
+}
+
+.saar-card-filtros .saar-card-content {
+  padding: 1rem;
+}
+
+.saar-produtos-filtros-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.saar-produtos-filtro-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.saar-produtos-filtro-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #495057;
+}
+
+.saar-produtos-filtro-valor {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.saar-produtos-grafico {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.saar-grafico-container {
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+  min-height: 400px;
+}
+
+.saar-grafico-content-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.saar-grafico-chart-area {
+  flex: 1;
+}
+
+.saar-produtos-legenda-customizada {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 180px;
+  padding-top: 0.5rem;
+}
+
+.saar-produtos-legenda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.saar-produtos-legenda-marker {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.saar-produtos-legenda-label {
+  font-size: 12px;
+  color: #495057;
+  line-height: 1.4;
+}
+
+.saar-grafico-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.saar-grafico-titulo {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.saar-grafico-subtitulo {
   font-size: 0.875rem;
   color: #6c757d;
-  margin: 0 0 0.75rem 0;
 }
 
-.saar-produtos-grafico-info-numeros {
-  margin-bottom: 0.75rem;
-  font-size: 0.875rem;
-  color: #495057;
-  font-weight: 500;
-}
-
-.saar-produtos-grafico-wrapper {
-  height: 250px;
+.saar-grafico-vazio {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.saar-produtos-grafico-vazio {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  min-height: 400px;
   color: #757575;
 }
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .saar-produtos-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .saar-produtos-tabela-dados {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .saar-produtos-tabela-dados {
-    grid-template-columns: 1fr;
-  }
-}
-

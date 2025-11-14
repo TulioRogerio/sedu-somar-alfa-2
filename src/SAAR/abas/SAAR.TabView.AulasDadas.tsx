@@ -1,5 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
+import { Card } from "primereact/card";
 import { MultiSelect } from "primereact/multiselect";
+import { Skeleton } from "primereact/skeleton";
 import { useAulasDadasData } from "../hooks/useAulasDadasData";
 import { useApexChart } from "../hooks/useApexChart";
 import {
@@ -19,7 +21,11 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
   const Chart = useApexChart();
   const [disciplinasSelecionadas, setDisciplinasSelecionadas] = useState<
     string[]
-  >(DISCIPLINAS.map((d) => d.value));
+  >(() => {
+    // Garantir que apenas as disciplinas disponíveis sejam selecionadas
+    const disciplinasDisponiveis = DISCIPLINAS.map((d) => d.value);
+    return disciplinasDisponiveis;
+  });
 
   // Obter todas as turmas disponíveis e criar opções para o MultiSelect
   const todasTurmas = useMemo(() => {
@@ -40,6 +46,21 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
 
   // Estado para séries selecionadas (inicialmente todas)
   const [seriesSelecionadas, setSeriesSelecionadas] = useState<string[]>([]);
+
+  // Garantir que apenas disciplinas válidas estejam selecionadas
+  useEffect(() => {
+    const disciplinasValidas = DISCIPLINAS.map((d) => d.value);
+    const disciplinasFiltradas = disciplinasSelecionadas.filter((d) =>
+      disciplinasValidas.includes(d)
+    );
+    if (disciplinasFiltradas.length !== disciplinasSelecionadas.length) {
+      setDisciplinasSelecionadas(
+        disciplinasFiltradas.length > 0
+          ? disciplinasFiltradas
+          : disciplinasValidas
+      );
+    }
+  }, [disciplinasSelecionadas]);
 
   // Atualizar séries selecionadas quando todasTurmas mudar (apenas na primeira vez)
   useEffect(() => {
@@ -72,7 +93,12 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
   if (carregando) {
     return (
       <div className="saar-tab-content">
-        <p>Carregando dados...</p>
+        <Card>
+          <div style={{ padding: "2rem", textAlign: "center" }}>
+            <Skeleton width="100%" height="2rem" />
+            <Skeleton width="60%" height="2rem" style={{ marginTop: "1rem" }} />
+          </div>
+        </Card>
       </div>
     );
   }
@@ -81,10 +107,10 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
     <div className="saar-aulas-dadas">
       <div className="saar-aulas-dadas-left">
         {/* Card de Indicadores */}
-        <div className="saar-card-indicador">
-          <div className="saar-card-header">
-            <h3 className="saar-card-title">Indicador</h3>
-          </div>
+        <Card
+          title="Indicador"
+          className="saar-card-indicador"
+        >
           <div className="saar-card-content">
             <div className="saar-indicador-item">
               <div className="saar-indicador-valor">
@@ -93,13 +119,13 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
               <div className="saar-indicador-label">Aulas Dadas</div>
             </div>
           </div>
-        </div>
+        </Card>
 
         {/* Card de Filtros */}
-        <div className="saar-card-filtros">
-          <div className="saar-card-header">
-            <h3 className="saar-card-title">Filtros</h3>
-          </div>
+        <Card
+          title="Filtros"
+          className="saar-card-filtros"
+        >
           <div className="saar-card-content">
             <div className="saar-grafico-header">
               <div className="saar-filtro-disciplinas">
@@ -115,9 +141,14 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
                   options={DISCIPLINAS}
                   onChange={(e) => {
                     const valores = e.value || [];
+                    // Filtrar apenas disciplinas válidas (LP e Mat)
+                    const disciplinasValidas = DISCIPLINAS.map((d) => d.value);
+                    const valoresFiltrados = valores.filter((v: string) =>
+                      disciplinasValidas.includes(v)
+                    );
                     // Garantir que pelo menos uma disciplina esteja selecionada
-                    if (valores.length > 0) {
-                      setDisciplinasSelecionadas(valores);
+                    if (valoresFiltrados.length > 0) {
+                      setDisciplinasSelecionadas(valoresFiltrados);
                     }
                   }}
                   placeholder="Selecione as disciplinas"
@@ -149,19 +180,15 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
               </div>
             </div>
           </div>
-        </div>
+        </Card>
       </div>
 
       <div className="saar-aulas-dadas-right">
         <div className="saar-aulas-dadas-grafico">
-          <div className="saar-grafico-container">
-            {carregando ? (
+          <Card className="saar-grafico-container">
+            {!Chart ? (
               <div className="saar-grafico-vazio">
-                <p>Carregando dados...</p>
-              </div>
-            ) : !Chart ? (
-              <div className="saar-grafico-vazio">
-                <p>Carregando gráfico...</p>
+                <Skeleton width="100%" height="400px" />
               </div>
             ) : Object.keys(dadosPorTurma).length > 0 ? (
               <Chart
@@ -175,7 +202,7 @@ export default function SAARTabViewAulasDadas({ filtros }: AulasDadasProps) {
                 <p>Nenhum dado disponível para os filtros selecionados</p>
               </div>
             )}
-          </div>
+          </Card>
         </div>
       </div>
     </div>

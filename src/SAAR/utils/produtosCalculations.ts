@@ -172,9 +172,9 @@ export function calcularDadosProdutosMunicipios(
     filtros
   );
 
-  // Filtrar escolas pela regional selecionada
-  const escolasFiltradas = escolasData.filter(
-    (e) => e.regional === filtros.regional?.label
+  const filtrosNormalizados = normalizarFiltrosHierarquia(filtros);
+  const escolasFiltradas = escolasData.filter((e) =>
+    escolaCorrespondeFiltros(e, filtrosNormalizados)
   );
 
   const municipiosMap = new Map<
@@ -234,17 +234,10 @@ export function calcularDadosProdutosEscolas(
     filtros
   );
 
-  // Filtrar escolas pelo município selecionado
-  let escolasFiltradas = escolasData.filter(
-    (e) => e.municipio === filtros.municipio?.label
+  const filtrosNormalizados = normalizarFiltrosHierarquia(filtros);
+  const escolasFiltradas = escolasData.filter((e) =>
+    escolaCorrespondeFiltros(e, filtrosNormalizados)
   );
-
-  // Se houver filtro de regional, aplicar também
-  if (filtros?.regional) {
-    escolasFiltradas = escolasFiltradas.filter(
-      (e) => e.regional === filtros.regional?.label
-    );
-  }
 
   const dados: DadosProdutosEscola[] = [];
 

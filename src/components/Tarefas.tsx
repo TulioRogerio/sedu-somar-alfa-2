@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card } from "primereact/card";
+import { ProgressSpinner } from "primereact/progressspinner";
+import { Button } from "primereact/button";
 import { loadCicloGestaoCsv, calcularDadosTarefas } from "../utils/cicloGestaoParser";
 import type { DadosTarefas } from "../types/CicloGestao";
 import TarefasModal from "./Tarefas.modal1";
@@ -46,8 +48,8 @@ export default function Tarefas() {
         <Card className="tarefas-card-principal">
           <div className="tarefas-card-content">
             <div style={{ textAlign: "center", padding: "2rem" }}>
-              <i className="pi pi-spin pi-spinner" style={{ fontSize: "2rem" }}></i>
-              <p>Carregando dados...</p>
+              <ProgressSpinner />
+              <p style={{ marginTop: "1rem" }}>Carregando dados...</p>
             </div>
           </div>
         </Card>
@@ -68,16 +70,14 @@ export default function Tarefas() {
           <div className="tarefas-titulo-principal">
             <i className="pi pi-check-square"></i>
             <h2>Tarefas</h2>
-            <a
-              href="#"
-              className="card-link"
-              onClick={(e) => {
-                e.preventDefault();
-                handleVerDetalhes();
-              }}
-            >
-              Ver detalhes <i className="pi pi-external-link"></i>
-            </a>
+            <Button
+              label="Ver detalhes"
+              icon="pi pi-external-link"
+              iconPos="right"
+              link
+              onClick={handleVerDetalhes}
+              className="card-link-button"
+            />
           </div>
 
           <div className="tarefas-progresso-geral">

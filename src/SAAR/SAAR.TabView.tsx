@@ -1,7 +1,13 @@
 import { TabView, TabPanel } from "primereact/tabview";
+import SAARTabViewEficacia from "./abas/SAAR.TabView.Eficacia";
 import SAARTabViewAulasDadas from "./abas/SAAR.TabView.AulasDadas";
 import SAARTabViewFrequenciaEstudantes from "./abas/SAAR.TabView.FrequenciaEstudantes";
-// import SAARTabViewProdutos from "./abas/SAAR.TabView.Produtos";
+import SAARTabViewProficienciaLP from "./abas/SAAR.TabView.ProficienciaLP";
+import SAARTabViewProficienciaMat from "./abas/SAAR.TabView.ProficienciaMat";
+import SAARTabViewLeitura from "./abas/SAAR.TabView.Leitura";
+import SAARTabViewTarefas from "./abas/SAAR.TabView.Tarefas";
+import SAARTabViewProdutos from "./abas/SAAR.TabView.Produtos";
+import SAARTabViewVisitasTecnicas from "./abas/SAAR.TabView.VisitasTecnicas";
 import "./SAAR.TabView.css";
 
 interface SAARTabViewProps {
@@ -18,6 +24,19 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
   return (
     <div className="saar-tabview-container">
       <TabView className="saar-tabview">
+        <TabPanel
+          header={
+            <span className="saar-tab-header">
+              <i className="pi pi-chart-line" />
+              Eficácia
+            </span>
+          }
+        >
+          <div className="saar-tab-content">
+            <SAARTabViewEficacia filtros={filtros} />
+          </div>
+        </TabPanel>
+
         <TabPanel
           header={
             <span className="saar-tab-header">
@@ -53,8 +72,7 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
           }
         >
           <div className="saar-tab-content">
-            {/* TODO: Implementar conteúdo da aba Proficiência em Língua Portuguesa */}
-            <p>Conteúdo da aba Proficiência em Língua Portuguesa</p>
+            <SAARTabViewProficienciaLP filtros={filtros} />
           </div>
         </TabPanel>
 
@@ -67,8 +85,7 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
           }
         >
           <div className="saar-tab-content">
-            {/* TODO: Implementar conteúdo da aba Proficiência em Matemática */}
-            <p>Conteúdo da aba Proficiência em Matemática</p>
+            <SAARTabViewProficienciaMat filtros={filtros} />
           </div>
         </TabPanel>
 
@@ -81,8 +98,7 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
           }
         >
           <div className="saar-tab-content">
-            {/* TODO: Implementar conteúdo da aba Leitura */}
-            <p>Conteúdo da aba Leitura</p>
+            <SAARTabViewLeitura filtros={filtros} />
           </div>
         </TabPanel>
 
@@ -95,13 +111,11 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
           }
         >
           <div className="saar-tab-content">
-            {/* TODO: Implementar conteúdo da aba Tarefas */}
-            <p>Conteúdo da aba Tarefas</p>
+            <SAARTabViewTarefas filtros={filtros} />
           </div>
         </TabPanel>
 
-        {/* Temporariamente oculto para commit */}
-        {/* <TabPanel
+        <TabPanel
           header={
             <span className="saar-tab-header">
               <i className="pi pi-box" />
@@ -112,7 +126,20 @@ export default function SAARTabView({ filtros }: SAARTabViewProps) {
           <div className="saar-tab-content">
             <SAARTabViewProdutos filtros={filtros} />
           </div>
-        </TabPanel> */}
+        </TabPanel>
+
+        <TabPanel
+          header={
+            <span className="saar-tab-header">
+              <i className="pi pi-briefcase" />
+              Visitas Técnicas
+            </span>
+          }
+        >
+          <div className="saar-tab-content">
+            <SAARTabViewVisitasTecnicas filtros={filtros} />
+          </div>
+        </TabPanel>
       </TabView>
     </div>
   );

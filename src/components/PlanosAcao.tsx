@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Card } from "primereact/card";
+import { Button } from "primereact/button";
+import { Skeleton } from "primereact/skeleton";
 import PlanosAcaoModal2 from "./PlanosAcao.modal2";
 import DadosCicloGestaoModal from "./DadosCicloGestao.modal1";
 import DadosCicloGestaoModal2 from "./DadosCicloGestao.modal2";
@@ -67,20 +69,18 @@ export default function PlanosAcao() {
                     <i className="pi pi-building"></i>
                   </div>
                   <h3 className="card-titulo">Escolas e Profissionais</h3>
-                  <a
-                    href="#"
-                    className="card-link"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleVerDetalhes("numeros-totais");
-                    }}
-                  >
-                    Ver detalhes <i className="pi pi-external-link"></i>
-                  </a>
+                  <Button
+                    label="Ver detalhes"
+                    icon="pi pi-external-link"
+                    iconPos="right"
+                    link
+                    onClick={() => handleVerDetalhes("numeros-totais")}
+                    className="card-link-button"
+                  />
                 </div>
                 <div className="card-linha-2">
                   {loading ? (
-                    <p className="card-descricao">Carregando dados...</p>
+                    <Skeleton width="100%" height="1.5rem" />
                   ) : dadosGerais ? (
                     <p className="card-descricao">
                       {dadosGerais.escolas.toLocaleString("pt-BR")} escolas |{" "}
@@ -105,16 +105,14 @@ export default function PlanosAcao() {
                     <i className="pi pi-map-marker"></i>
                   </div>
                   <h3 className="card-titulo">Escolas e Metas</h3>
-                  <a
-                    href="#"
-                    className="card-link"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setModal3Visible(true);
-                    }}
-                  >
-                    Ver detalhes <i className="pi pi-external-link"></i>
-                  </a>
+                  <Button
+                    label="Ver detalhes"
+                    icon="pi pi-external-link"
+                    iconPos="right"
+                    link
+                    onClick={() => setModal3Visible(true)}
+                    className="card-link-button"
+                  />
                 </div>
                 <div className="card-linha-2">
                   <p className="card-descricao">
@@ -132,16 +130,14 @@ export default function PlanosAcao() {
                     <i className="pi pi-users"></i>
                   </div>
                   <h3 className="card-titulo">Planos de Ação</h3>
-                  <a
-                    href="#"
-                    className="card-link"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setModalDetalhesVisible(true);
-                    }}
-                  >
-                    Ver detalhes <i className="pi pi-external-link"></i>
-                  </a>
+                  <Button
+                    label="Ver detalhes"
+                    icon="pi pi-external-link"
+                    iconPos="right"
+                    link
+                    onClick={() => setModalDetalhesVisible(true)}
+                    className="card-link-button"
+                  />
                 </div>
                 <div className="card-linha-2">
                   <p className="card-descricao">Planos de Ação em 100% das escolas do CdG</p>
@@ -159,16 +155,14 @@ export default function PlanosAcao() {
                   <h3 className="card-titulo">
                     TCGP's por Regional e Município
                   </h3>
-                  <a
-                    href="#"
-                    className="card-link"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setModal2Visible(true);
-                    }}
-                  >
-                    Ver detalhes <i className="pi pi-external-link"></i>
-                  </a>
+                  <Button
+                    label="Ver detalhes"
+                    icon="pi pi-external-link"
+                    iconPos="right"
+                    link
+                    onClick={() => setModal2Visible(true)}
+                    className="card-link-button"
+                  />
                 </div>
                 <div className="card-linha-2">
                   <p className="card-descricao">

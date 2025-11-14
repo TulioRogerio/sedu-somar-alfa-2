@@ -1,0 +1,193 @@
+.saar-visitas-tecnicas {
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.saar-visitas-tecnicas-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.saar-visitas-tecnicas-right {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cards */
+.saar-card-indicador,
+.saar-card-filtros {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.saar-card-header {
+  padding: 1rem 1.25rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  text-align: center;
+}
+
+.saar-card-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.saar-card-content {
+  padding: 1.25rem;
+}
+
+.saar-indicador-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.saar-indicador-valor {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7b1fa2;
+  line-height: 1.2;
+}
+
+.saar-indicador-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.saar-visitas-tecnicas-indicador-detalhes {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.saar-visitas-tecnicas-indicador-linha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.saar-visitas-tecnicas-indicador-numero {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.saar-visitas-tecnicas-indicador-texto {
+  font-size: 0.8125rem;
+  color: #6c757d;
+}
+
+.saar-card-filtros .saar-card-content {
+  padding: 1rem;
+}
+
+.saar-card-filtros .saar-grafico-header {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.saar-filtro-disciplinas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  width: 100%;
+}
+
+.saar-filtro-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 0.25rem;
+}
+
+.saar-multiselect {
+  width: 100%;
+}
+
+.saar-multiselect .p-multiselect-label {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-items: center;
+  line-height: 1.5;
+}
+
+.saar-multiselect .p-multiselect-label-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-items: center;
+  width: 100%;
+}
+
+.saar-multiselect .p-multiselect-token {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.saar-visitas-tecnicas-grafico {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.saar-visitas-tecnicas-graficos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .saar-visitas-tecnicas-graficos {
+    grid-template-columns: 1fr;
+  }
+}
+
+.saar-grafico-container {
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+  min-height: 400px;
+}
+
+.saar-grafico-container .p-card-title {
+  text-align: center;
+}
+
+.saar-grafico-container .p-card-subtitle {
+  text-align: center;
+}
+
+.saar-grafico-vazio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #757575;
+}
+

@@ -1,18 +1,11 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Dropdown } from "primereact/dropdown";
+import { MultiSelect } from "primereact/multiselect";
 import { Button } from "primereact/button";
-import { BreadCrumb } from "primereact/breadcrumb";
-import type { MenuItem } from "primereact/menuitem";
 import { loadEscolasFromCsv } from "../utils/csvParser";
+import type { FiltroContexto } from "../types/shared.types";
+import { ESTADO_PADRAO, SAAR_PADRAO, OPCOES_SAAR } from "./constants/shared.constants";
 import "./SAAR.Filtros.css";
-
-interface FiltroContexto {
-  estado?: { label: string; value: string };
-  regional?: { label: string; value: string };
-  municipio?: { label: string; value: string };
-  escola?: { label: string; value: string };
-  saar?: { label: string; value: string };
-}
 
 interface SAARFiltrosProps {
   onFiltrosChange?: (filtros: FiltroContexto) => void;
@@ -20,18 +13,13 @@ interface SAARFiltrosProps {
 
 export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
   const [filtroVisivel, setFiltroVisivel] = useState<boolean>(true);
-  const opcoesSAAR = [
-    { label: "SAAR I", value: "saar-i" },
-    { label: "SAAR II", value: "saar-ii" },
-    { label: "Balanço Final", value: "balanco-final" },
-  ];
 
   const [filtros, setFiltros] = useState<FiltroContexto>({
-    estado: { label: "Espírito Santo", value: "espirito-santo" },
+    estado: ESTADO_PADRAO,
     regional: undefined,
     municipio: undefined,
     escola: undefined,
-    saar: { label: "SAAR I", value: "saar-i" },
+    saar: SAAR_PADRAO,
   });
 
   const [regionais, setRegionais] = useState<{ label: string; value: string }[]>([]);
@@ -59,11 +47,17 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
           }));
         setRegionais(regionaisList);
 
-        // Filtrar municípios baseado na regional selecionada
-        if (filtros.regional) {
+        // Filtrar municípios baseado nas regionais selecionadas
+        const regionaisSelecionadas = Array.isArray(filtros.regional)
+          ? filtros.regional.map((r) => r.label)
+          : filtros.regional
+          ? [filtros.regional.label]
+          : [];
+
+        if (regionaisSelecionadas.length > 0) {
           const municipiosSet = new Set<string>();
           escolasData
-            .filter((escola) => escola.regional === filtros.regional?.label)
+            .filter((escola) => regionaisSelecionadas.includes(escola.regional || ""))
             .forEach((escola) => {
               if (escola.municipio) {
                 municipiosSet.add(escola.municipio);
@@ -80,13 +74,20 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
           setMunicipios([]);
         }
 
-        // Filtrar escolas baseado no município selecionado
-        if (filtros.municipio) {
+        // Filtrar escolas baseado nos municípios selecionados
+        const municipiosSelecionados = Array.isArray(filtros.municipio)
+          ? filtros.municipio.map((m) => m.label)
+          : filtros.municipio
+          ? [filtros.municipio.label]
+          : [];
+
+        if (municipiosSelecionados.length > 0) {
           const escolasList = escolasData
             .filter(
               (escola) =>
-                escola.municipio === filtros.municipio?.label &&
-                (!filtros.regional || escola.regional === filtros.regional?.label)
+                municipiosSelecionados.includes(escola.municipio || "") &&
+                (regionaisSelecionadas.length === 0 ||
+                  regionaisSelecionadas.includes(escola.regional || ""))
             )
             .map((escola) => ({
               label: escola.nome,
@@ -102,105 +103,22 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
     };
 
     carregarDados();
-  }, [filtros.regional, filtros.municipio]);
+  }, [
+    filtros.regional,
+    filtros.municipio,
+  ]);
 
   const handleLimpar = () => {
     setFiltros({
-      estado: { label: "Espírito Santo", value: "espirito-santo" },
+      estado: ESTADO_PADRAO,
       regional: undefined,
       municipio: undefined,
       escola: undefined,
-      saar: { label: "SAAR I", value: "saar-i" },
+      saar: SAAR_PADRAO,
     });
   };
 
-  const handleBreadcrumbClick = (
-    nivel: "estado" | "regional" | "municipio" | "escola"
-  ) => {
-    switch (nivel) {
-      case "estado":
-        setFiltros({
-          estado: { label: "Espírito Santo", value: "espirito-santo" },
-          regional: undefined,
-          municipio: undefined,
-          escola: undefined,
-          saar: filtros.saar,
-        });
-        break;
-      case "regional":
-        setFiltros({
-          ...filtros,
-          regional: undefined,
-          municipio: undefined,
-          escola: undefined,
-        });
-        break;
-      case "municipio":
-        setFiltros({
-          ...filtros,
-          municipio: undefined,
-          escola: undefined,
-        });
-        break;
-      case "escola":
-        setFiltros({
-          ...filtros,
-          escola: undefined,
-        });
-        break;
-    }
-  };
 
-  const breadcrumbItemsHierarquia: MenuItem[] = useMemo(() => {
-    const items: MenuItem[] = [];
-
-    if (filtros.estado) {
-      items.push({
-        label: filtros.estado.label,
-        command: () => handleBreadcrumbClick("estado"),
-      });
-    }
-
-    if (filtros.regional) {
-      items.push({
-        label: filtros.regional.label,
-        command: () => handleBreadcrumbClick("regional"),
-      });
-    }
-
-    if (filtros.municipio) {
-      items.push({
-        label: filtros.municipio.label,
-        command: () => handleBreadcrumbClick("municipio"),
-      });
-    }
-
-    if (filtros.escola) {
-      items.push({
-        label: filtros.escola.label,
-        command: () => handleBreadcrumbClick("escola"),
-      });
-    }
-
-    return items;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filtros.estado, filtros.regional, filtros.municipio, filtros.escola]);
-
-  const breadcrumbItemsSAAR: MenuItem[] = useMemo(() => {
-    const items: MenuItem[] = [];
-
-    if (filtros.saar) {
-      items.push({
-        label: filtros.saar.label,
-        command: () => {
-          setFiltros({ ...filtros, saar: undefined });
-        },
-      });
-    }
-
-    return items;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filtros.saar]);
 
   const handleFiltrar = () => {
     // Filtros são aplicados automaticamente através do estado
@@ -212,41 +130,29 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
     >
       <div className="saar-filtros-header">
         <h3 className="saar-filtros-titulo">Filtros</h3>
-        <button
-          className="saar-filtros-toggle"
+        <Button
+          label={filtroVisivel ? "Ocultar filtro" : "Mostrar filtro"}
+          icon={filtroVisivel ? "pi pi-chevron-up" : "pi pi-chevron-down"}
           onClick={() => setFiltroVisivel(!filtroVisivel)}
+          className="saar-filtros-toggle"
+          text
           aria-label={filtroVisivel ? "Ocultar filtro" : "Mostrar filtro"}
-        >
-          {filtroVisivel ? (
-            <>
-              Ocultar filtro
-              <i className="pi pi-chevron-up" />
-            </>
-          ) : (
-            <>
-              Mostrar filtro
-              <i className="pi pi-chevron-down" />
-            </>
-          )}
-        </button>
+        />
       </div>
 
       {filtroVisivel && (
         <div className="saar-filtros-content">
           <div className="saar-filtros-grid">
             <div className="saar-filtros-categoria saar-filtros-saar">
-              <div className="saar-filtros-breadcrumb">
-                <BreadCrumb model={breadcrumbItemsSAAR} />
-              </div>
               <div className="saar-filtros-categoria-content">
                 <div className="saar-filtro-item">
                   <label htmlFor="saar-select">SAAR</label>
                   <Dropdown
                     id="saar-select"
                     value={filtros.saar?.value}
-                    options={opcoesSAAR}
+                    options={[...OPCOES_SAAR]}
                     onChange={(e) => {
-                      const selected = opcoesSAAR.find(
+                      const selected = OPCOES_SAAR.find(
                         (opt) => opt.value === e.value
                       );
                       const novosFiltros = { ...filtros, saar: selected };
@@ -264,23 +170,29 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
             </div>
 
             <div className="saar-filtros-categoria saar-filtros-hierarquia">
-              <div className="saar-filtros-breadcrumb">
-                <BreadCrumb model={breadcrumbItemsHierarquia} />
-              </div>
               <div className="saar-filtros-categoria-content">
                 <div className="saar-filtro-item">
                   <label htmlFor="regional-select">Selecionar regional</label>
-                  <Dropdown
+                  <MultiSelect
                     id="regional-select"
-                    value={filtros.regional?.value}
+                    value={
+                      Array.isArray(filtros.regional)
+                        ? filtros.regional.map((r) => r.value)
+                        : filtros.regional
+                        ? [filtros.regional.value]
+                        : []
+                    }
                     options={regionais}
                     onChange={(e) => {
-                      const selected = regionais.find(
-                        (opt) => opt.value === e.value
-                      );
+                      const selectedValues = e.value || [];
+                      const selected = selectedValues
+                        .map((val: string) =>
+                          regionais.find((opt) => opt.value === val)
+                        )
+                        .filter(Boolean) as { label: string; value: string }[];
                       const novosFiltros = {
                         ...filtros,
-                        regional: selected,
+                        regional: selected.length > 0 ? selected : undefined,
                         municipio: undefined,
                         escola: undefined,
                       };
@@ -288,60 +200,94 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
                       onFiltrosChange?.(novosFiltros);
                     }}
                     placeholder="Selecionar regional"
-                    className="saar-dropdown"
-                    showClear
+                    className="saar-multiselect"
+                    display="chip"
                     optionLabel="label"
                     optionValue="value"
+                    showClear
                   />
                 </div>
 
                 <div className="saar-filtro-item">
                   <label htmlFor="municipio-select">Selecionar município</label>
-                  <Dropdown
+                  <MultiSelect
                     id="municipio-select"
-                    value={filtros.municipio?.value}
+                    value={
+                      Array.isArray(filtros.municipio)
+                        ? filtros.municipio.map((m) => m.value)
+                        : filtros.municipio
+                        ? [filtros.municipio.value]
+                        : []
+                    }
                     options={municipios}
                     onChange={(e) => {
-                      const selected = municipios.find(
-                        (opt) => opt.value === e.value
-                      );
+                      const selectedValues = e.value || [];
+                      const selected = selectedValues
+                        .map((val: string) =>
+                          municipios.find((opt) => opt.value === val)
+                        )
+                        .filter(Boolean) as { label: string; value: string }[];
                       const novosFiltros = {
                         ...filtros,
-                        municipio: selected,
+                        municipio: selected.length > 0 ? selected : undefined,
                         escola: undefined,
                       };
                       setFiltros(novosFiltros);
                       onFiltrosChange?.(novosFiltros);
                     }}
                     placeholder="Selecionar município"
-                    className="saar-dropdown"
-                    showClear
-                    disabled={!filtros.regional}
+                    className="saar-multiselect"
+                    display="chip"
                     optionLabel="label"
                     optionValue="value"
+                    showClear
+                    disabled={
+                      !filtros.regional ||
+                      (Array.isArray(filtros.regional)
+                        ? filtros.regional.length === 0
+                        : false)
+                    }
                   />
                 </div>
 
                 <div className="saar-filtro-item">
                   <label htmlFor="escola-select">Selecionar escola</label>
-                  <Dropdown
+                  <MultiSelect
                     id="escola-select"
-                    value={filtros.escola?.value}
+                    value={
+                      Array.isArray(filtros.escola)
+                        ? filtros.escola.map((e) => e.value)
+                        : filtros.escola
+                        ? [filtros.escola.value]
+                        : []
+                    }
                     options={escolas}
                     onChange={(e) => {
-                      const selected = escolas.find(
-                        (opt) => opt.value === e.value
-                      );
-                      const novosFiltros = { ...filtros, escola: selected };
+                      const selectedValues = e.value || [];
+                      const selected = selectedValues
+                        .map((val: string) =>
+                          escolas.find((opt) => opt.value === val)
+                        )
+                        .filter(Boolean) as { label: string; value: string }[];
+                      const novosFiltros = {
+                        ...filtros,
+                        escola: selected.length > 0 ? selected : undefined,
+                      };
                       setFiltros(novosFiltros);
                       onFiltrosChange?.(novosFiltros);
                     }}
                     placeholder="Selecionar escola"
-                    className="saar-dropdown"
-                    showClear
-                    disabled={!filtros.municipio}
+                    className="saar-multiselect"
+                    display="chip"
                     optionLabel="label"
                     optionValue="value"
+                    showClear
+                    disabled={
+                      !filtros.municipio ||
+                      (Array.isArray(filtros.municipio)
+                        ? filtros.municipio.length === 0
+                        : false)
+                    }
                   />
                 </div>
               </div>

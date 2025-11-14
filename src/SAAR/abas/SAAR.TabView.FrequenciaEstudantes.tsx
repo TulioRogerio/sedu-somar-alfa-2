@@ -1,6 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
+import { Card } from "primereact/card";
 import { MultiSelect } from "primereact/multiselect";
 import { Slider } from "primereact/slider";
+import { Skeleton } from "primereact/skeleton";
 import { useFrequenciaEstudantesData } from "../hooks/useFrequenciaEstudantesData";
 import { useApexChart } from "../hooks/useApexChart";
 import {
@@ -190,7 +192,12 @@ export default function SAARTabViewFrequenciaEstudantes({
   if (carregando) {
     return (
       <div className="saar-tab-content">
-        <p>Carregando dados...</p>
+        <Card>
+          <div style={{ padding: "2rem", textAlign: "center" }}>
+            <Skeleton width="100%" height="2rem" />
+            <Skeleton width="60%" height="2rem" style={{ marginTop: "1rem" }} />
+          </div>
+        </Card>
       </div>
     );
   }
@@ -199,10 +206,10 @@ export default function SAARTabViewFrequenciaEstudantes({
     <div className="saar-frequencia-estudantes">
       <div className="saar-frequencia-estudantes-left">
         {/* Card de Indicadores */}
-        <div className="saar-card-indicador">
-          <div className="saar-card-header">
-            <h3 className="saar-card-title">Indicador</h3>
-          </div>
+        <Card
+          title="Indicador"
+          className="saar-card-indicador"
+        >
           <div className="saar-card-content">
             <div className="saar-indicador-item">
               <div className="saar-indicador-valor">
@@ -217,13 +224,13 @@ export default function SAARTabViewFrequenciaEstudantes({
               <div className="saar-indicador-label">Alunos</div>
             </div>
           </div>
-        </div>
+        </Card>
 
         {/* Card de Filtros */}
-        <div className="saar-card-filtros">
-          <div className="saar-card-header">
-            <h3 className="saar-card-title">Filtros</h3>
-          </div>
+        <Card
+          title="Filtros"
+          className="saar-card-filtros"
+        >
           <div className="saar-card-content">
             <div className="saar-grafico-header">
               <div className="saar-filtro-disciplinas">
@@ -263,33 +270,30 @@ export default function SAARTabViewFrequenciaEstudantes({
               </div>
             </div>
           </div>
-        </div>
+        </Card>
       </div>
 
       <div className="saar-frequencia-estudantes-right">
         <div className="saar-frequencia-estudantes-grafico">
-          <div className="saar-grafico-container">
-            {carregando ? (
+          <Card className="saar-grafico-container">
+            {!Chart ? (
               <div className="saar-grafico-vazio">
-                <p>Carregando dados...</p>
-              </div>
-            ) : !Chart ? (
-              <div className="saar-grafico-vazio">
-                <p>Carregando gráfico...</p>
+                <Skeleton width="100%" height="400px" />
               </div>
             ) : dadosPorData.length > 0 ? (
               <Chart
                 options={opcoesGrafico}
                 series={seriesGrafico}
-                type="line"
+                type="bar"
                 height={400}
+                width="100%"
               />
             ) : (
               <div className="saar-grafico-vazio">
                 <p>Nenhum dado disponível para os filtros selecionados</p>
               </div>
             )}
-          </div>
+          </Card>
         </div>
       </div>
     </div>

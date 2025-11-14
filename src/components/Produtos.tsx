@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card } from "primereact/card";
+import { ProgressSpinner } from "primereact/progressspinner";
+import { Button } from "primereact/button";
 import { loadCicloGestaoCsv, calcularDadosProdutos } from "../utils/cicloGestaoParser";
 import type { DadosProdutos } from "../types/CicloGestao";
 import ProdutosModal from "./Produtos.modal1";
@@ -46,8 +48,8 @@ export default function Produtos() {
         <Card className="produtos-card-principal">
           <div className="produtos-card-content">
             <div style={{ textAlign: "center", padding: "2rem" }}>
-              <i className="pi pi-spin pi-spinner" style={{ fontSize: "2rem" }}></i>
-              <p>Carregando dados...</p>
+              <ProgressSpinner />
+              <p style={{ marginTop: "1rem" }}>Carregando dados...</p>
             </div>
           </div>
         </Card>
@@ -67,16 +69,14 @@ export default function Produtos() {
           <div className="produtos-titulo-principal">
             <i className="pi pi-box"></i>
             <h2>Produtos</h2>
-            <a
-              href="#"
-              className="card-link"
-              onClick={(e) => {
-                e.preventDefault();
-                handleVerDetalhes();
-              }}
-            >
-              Ver detalhes <i className="pi pi-external-link"></i>
-            </a>
+            <Button
+              label="Ver detalhes"
+              icon="pi pi-external-link"
+              iconPos="right"
+              link
+              onClick={handleVerDetalhes}
+              className="card-link-button"
+            />
           </div>
 
           <div className="produtos-cards">

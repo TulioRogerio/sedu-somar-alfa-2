@@ -25,7 +25,7 @@ export async function loadVisitasTecnicasCsv(): Promise<VisitaTecnicaRow[]> {
 /**
  * Calcula dados agregados de visitas técnicas
  */
-function calcularDadosVisitasTecnicasFiltrado(
+export function calcularDadosVisitasTecnicasFiltrado(
   visitasData: VisitaTecnicaRow[],
   escolasData: Escola[],
   filtro?: (escola: Escola) => boolean

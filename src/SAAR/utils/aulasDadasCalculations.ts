@@ -12,34 +12,47 @@ import { ORDEM_TURMAS } from "../constants/AulasDadas.constants";
  * Calcula o indicador de aula (percentual de aulas dadas sobre aulas previstas)
  */
 export function calcularIndicadorAula(dados: AulasDadasRow[]): number {
-  if (dados.length === 0) return 0;
+  if (!dados || !Array.isArray(dados) || dados.length === 0) return 0;
 
-  const totalPrevistas = dados.reduce(
-    (sum, row) =>
-      sum +
-      row.aulas_previstas_LP +
-      row.aulas_previstas_Mat +
-      row.aulas_previstas_Ciencias +
-      row.aulas_previstas_Historia +
-      row.aulas_previstas_Geografia,
-    0
-  );
+  try {
+    const totalPrevistas = dados.reduce(
+      (sum, row) => {
+        if (!row) return sum;
+        return (
+          sum +
+          (Number(row.aulas_previstas_LP) || 0) +
+          (Number(row.aulas_previstas_Mat) || 0) +
+          (Number(row.aulas_previstas_Ciencias) || 0) +
+          (Number(row.aulas_previstas_Historia) || 0) +
+          (Number(row.aulas_previstas_Geografia) || 0)
+        );
+      },
+      0
+    );
 
-  const totalDadas = dados.reduce(
-    (sum, row) =>
-      sum +
-      row.aulas_dadas_LP +
-      row.aulas_dadas_Mat +
-      row.aulas_dadas_Ciencias +
-      row.aulas_dadas_Historia +
-      row.aulas_dadas_Geografia,
-    0
-  );
+    const totalDadas = dados.reduce(
+      (sum, row) => {
+        if (!row) return sum;
+        return (
+          sum +
+          (Number(row.aulas_dadas_LP) || 0) +
+          (Number(row.aulas_dadas_Mat) || 0) +
+          (Number(row.aulas_dadas_Ciencias) || 0) +
+          (Number(row.aulas_dadas_Historia) || 0) +
+          (Number(row.aulas_dadas_Geografia) || 0)
+        );
+      },
+      0
+    );
 
-  if (totalPrevistas === 0) return 0;
+    if (totalPrevistas === 0) return 0;
 
-  const percentual = (totalDadas / totalPrevistas) * 100;
-  return Math.min(100, Math.max(0, percentual));
+    const percentual = (totalDadas / totalPrevistas) * 100;
+    return Math.min(100, Math.max(0, percentual));
+  } catch (error) {
+    console.error("Erro ao calcular indicador de aula:", error);
+    return 0;
+  }
 }
 
 /**

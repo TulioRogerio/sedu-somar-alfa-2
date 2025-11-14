@@ -1,201 +1,87 @@
 import { useMemo } from "react";
-import { Card } from "primereact/card";
 import { useProdutosData } from "../hooks/useProdutosData";
-import { useApexChart } from "../hooks/useApexChart";
+import { formatarNumero } from "../utils/produtosCalculations";
+import { obterTituloCard } from "../utils/sharedCalculations";
 import {
-  formatarNumero,
-  obterTituloCard,
-} from "../utils/produtosCalculations";
-import {
-  criarOpcoesGraficoRosca,
-  criarSeriesGraficoRosca,
+  criarOpcoesGraficoColunas,
+  criarSeriesGraficoColunas,
 } from "../utils/produtosChartConfig";
-import type {
-  ProdutosProps,
-  DadosProdutosRegional,
-  DadosProdutosMunicipio,
-  DadosProdutosEscola,
-} from "../types/Produtos.types";
+import { CORES_FAIXAS } from "../constants/Produtos.constants";
+import {
+  SAARCardIndicador,
+  SAARChartContainer,
+  SAARLegend,
+  SAARLoadingState,
+  SAAREmptyState,
+} from "../components";
+import type { ProdutosProps } from "../types/Produtos.types";
 import "./SAAR.TabView.Produtos.css";
 
 export default function SAARTabViewProdutos({
   filtros,
 }: ProdutosProps) {
-  const {
-    dadosAgregados,
-    dadosRegionais,
-    dadosMunicipios,
-    dadosEscolas,
-    nivel,
-    carregando,
-  } = useProdutosData(filtros);
-  const Chart = useApexChart();
+  const { dadosAgregados, nivel, carregando } = useProdutosData(filtros);
 
   const tituloCard = useMemo(() => obterTituloCard(filtros), [filtros]);
 
-  // Determinar quais dados exibir no grid
-  const dadosGrid = useMemo(() => {
-    switch (nivel) {
-      case "estado":
-        return dadosRegionais;
-      case "regional":
-        return dadosMunicipios;
-      case "municipio":
-        return dadosEscolas;
-      case "escola":
-        return [];
-      default:
-        return [];
-    }
-  }, [nivel, dadosRegionais, dadosMunicipios, dadosEscolas]);
+  // Preparar dados para o gráfico principal (dados agregados)
+  const opcoesGrafico = useMemo(() => {
+    if (!dadosAgregados) return null;
+    return criarOpcoesGraficoColunas(dadosAgregados);
+  }, [dadosAgregados]);
 
-  // Determinar tipo de dado para o grid
-  const tipoDadoGrid = useMemo(() => {
-    switch (nivel) {
-      case "estado":
-        return "regionais";
-      case "regional":
-        return "municipios";
-      case "municipio":
-        return "escolas";
-      default:
-        return "";
-    }
-  }, [nivel]);
+  const seriesGrafico = useMemo(() => {
+    if (!dadosAgregados) return [];
+    return criarSeriesGraficoColunas(dadosAgregados);
+  }, [dadosAgregados]);
+
+  // Itens da legenda
+  const legendItems = useMemo(
+    () => [
+      { color: CORES_FAIXAS["0-25"], label: "0 à 25% concluído" },
+      { color: CORES_FAIXAS["26-50"], label: "26 a 50% concluído" },
+      { color: CORES_FAIXAS["51-75"], label: "51 a 75% concluído" },
+      { color: CORES_FAIXAS["76-100"], label: "76 a 100% concluído" },
+    ],
+    []
+  );
 
   if (carregando) {
-    return (
-      <div style={{ width: "100%", textAlign: "center", padding: "2rem" }}>
-        <p>Carregando dados...</p>
-      </div>
-    );
+    return <SAARLoadingState />;
   }
 
   if (!dadosAgregados) {
-    return (
-      <div style={{ width: "100%", textAlign: "center", padding: "2rem" }}>
-        <p>Nenhum dado disponível</p>
-      </div>
-    );
+    return <SAAREmptyState />;
   }
 
   return (
     <div className="saar-produtos">
-      {/* Card de Indicadores Agregados */}
-      <Card className="saar-produtos-card-indicadores">
-        <div className="saar-produtos-card-content">
-          <h3 className="saar-produtos-card-titulo">{tituloCard}</h3>
-          <div className="saar-produtos-tabela-dados">
-            <div className="saar-produtos-dado-item">
-              <span className="saar-produtos-dado-valor">
-                {formatarNumero(dadosAgregados.total)}
-              </span>
-              <span className="saar-produtos-dado-label">
-                Total de Produtos
-              </span>
-            </div>
-            <div className="saar-produtos-dado-item">
-              <span className="saar-produtos-dado-valor">
-                {formatarNumero(dadosAgregados.faixa0_25)}
-              </span>
-              <span className="saar-produtos-dado-label">
-                0 à 25% concluído
-              </span>
-            </div>
-            <div className="saar-produtos-dado-item">
-              <span className="saar-produtos-dado-valor">
-                {formatarNumero(dadosAgregados.faixa26_50)}
-              </span>
-              <span className="saar-produtos-dado-label">
-                26 a 50% concluído
-              </span>
-            </div>
-            <div className="saar-produtos-dado-item">
-              <span className="saar-produtos-dado-valor">
-                {formatarNumero(dadosAgregados.faixa51_75)}
-              </span>
-              <span className="saar-produtos-dado-label">
-                51 a 75% concluído
-              </span>
-            </div>
-            <div className="saar-produtos-dado-item">
-              <span className="saar-produtos-dado-valor">
-                {formatarNumero(dadosAgregados.faixa76_100)}
-              </span>
-              <span className="saar-produtos-dado-label">
-                76 a 100% concluído
-              </span>
-            </div>
-            <div className="saar-produtos-dado-item">
-              <span className="saar-produtos-dado-valor">
-                {Math.round(dadosAgregados.percentualMedio)}%
-              </span>
-              <span className="saar-produtos-dado-label">
-                Percentual Médio
-              </span>
-            </div>
-          </div>
-        </div>
-      </Card>
+      <div className="saar-produtos-left">
+        <SAARCardIndicador
+          valor={`${Math.round(dadosAgregados.percentualMedio)}%`}
+          label="Percentual Médio"
+          detalhes={{
+            numero: formatarNumero(dadosAgregados.total),
+            texto: "Total de Produtos",
+          }}
+        />
+      </div>
 
-      {/* Grid de Gráficos */}
-      {dadosGrid.length > 0 && (
-        <div className="saar-produtos-grid-container">
-          <div className="saar-produtos-grid-header">
-            <h3 className="saar-produtos-grid-titulo">
-              {tipoDadoGrid === "regionais"
-                ? "Regionais"
-                : tipoDadoGrid === "municipios"
-                ? "Municípios"
-                : "Escolas"}
-            </h3>
-          </div>
-          <div className="saar-produtos-grid">
-            {dadosGrid.map((dado, index) => {
-              const opcoesGrafico = criarOpcoesGraficoRosca(dado);
-              const seriesGrafico = criarSeriesGraficoRosca(dado);
-              const tituloGrafico =
-                tipoDadoGrid === "regionais"
-                  ? (dado as unknown as DadosProdutosRegional).regional
-                  : tipoDadoGrid === "municipios"
-                  ? (dado as unknown as DadosProdutosMunicipio).municipio
-                  : (dado as unknown as DadosProdutosEscola).escola;
-
-              return (
-                <Card key={index} className="saar-produtos-grafico-card">
-                  <div className="saar-produtos-grafico-card-content">
-                    <h4 className="saar-produtos-grafico-card-titulo">
-                      {tituloGrafico}
-                    </h4>
-                    <p className="saar-produtos-grafico-card-subtitulo">
-                      Distribuição por Faixas
-                    </p>
-                    <div className="saar-produtos-grafico-info-numeros">
-                      <span>Total: {formatarNumero(dado.total)}</span>
-                    </div>
-                    <div className="saar-produtos-grafico-wrapper">
-                      {Chart ? (
-                        <Chart
-                          options={opcoesGrafico}
-                          series={seriesGrafico}
-                          type="donut"
-                          height={250}
-                          width="100%"
-                        />
-                      ) : (
-                        <div className="saar-produtos-grafico-vazio">
-                          <p>Carregando gráfico...</p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
+      <div className="saar-produtos-center">
+        <div className="saar-produtos-grafico">
+          <SAARChartContainer
+            title={tituloCard}
+            subTitle="Distribuição por Faixas"
+            options={opcoesGrafico}
+            series={seriesGrafico}
+            type="bar"
+            height={400}
+            loading={false}
+          >
+            <SAARLegend items={legendItems} />
+          </SAARChartContainer>
         </div>
-      )}
+      </div>
     </div>
   );
 }
-

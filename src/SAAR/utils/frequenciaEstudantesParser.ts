@@ -6,6 +6,7 @@ import type {
   FrequenciaEstudantesRow,
   FrequenciaEstudantesProps,
 } from "../types/FrequenciaEstudantes.types";
+import { normalizarFiltrosHierarquia } from "./filtrosUtils";
 
 /**
  * Faz parse correto de uma linha CSV, respeitando campos entre aspas
@@ -40,18 +41,21 @@ export function aplicarFiltros(
 ): boolean {
   if (!filtros) return true;
 
-  if (filtros.regional && row.Regional !== filtros.regional.label) {
+  const filtrosNormalizados = normalizarFiltrosHierarquia(filtros);
+  const { regionais, municipios, escolas } = filtrosNormalizados;
+
+  // Aplicar filtros (nota: CSV usa nomes diferentes)
+  if (regionais.length > 0 && !regionais.includes(row.Regional)) {
     return false;
   }
 
-  if (filtros.municipio && row.Município !== filtros.municipio.label) {
+  if (municipios.length > 0 && !municipios.includes(row.Município)) {
     return false;
   }
 
-  if (filtros.escola) {
+  if (escolas.length > 0) {
     const escolaCSV = row.Escola?.trim().toLowerCase() || "";
-    const escolaFiltro = filtros.escola.label?.trim().toLowerCase() || "";
-    if (escolaCSV !== escolaFiltro) {
+    if (!escolas.includes(escolaCSV)) {
       return false;
     }
   }

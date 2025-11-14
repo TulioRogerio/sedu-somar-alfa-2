@@ -1,0 +1,17 @@
+.saar-eficacia {
+  width: 100%;
+}
+
+.saar-eficacia-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .saar-eficacia-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

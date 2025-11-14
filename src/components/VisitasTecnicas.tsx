@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card } from "primereact/card";
+import { ProgressSpinner } from "primereact/progressspinner";
+import { Button } from "primereact/button";
 import { loadVisitasTecnicasCsv, calcularDadosVisitasTecnicas } from "../utils/visitasTecnicasParser";
 import type { DadosVisitasTecnicasAgregados } from "../types/VisitasTecnicas";
 import VisitasTecnicasModal from "./VisitasTecnicas.modal1";
@@ -48,8 +50,8 @@ export default function VisitasTecnicas() {
         <Card className="visitas-tecnicas-card-principal">
           <div className="visitas-tecnicas-card-content">
             <div style={{ textAlign: "center", padding: "2rem" }}>
-              <i className="pi pi-spin pi-spinner" style={{ fontSize: "2rem" }}></i>
-              <p>Carregando dados...</p>
+              <ProgressSpinner />
+              <p style={{ marginTop: "1rem" }}>Carregando dados...</p>
             </div>
           </div>
         </Card>
@@ -74,37 +76,35 @@ export default function VisitasTecnicas() {
           <div className="visitas-tecnicas-titulo-principal">
             <i className="pi pi-briefcase"></i>
             <h2>Visitas Técnicas</h2>
-            <a
-              href="#"
-              className="card-link"
-              onClick={(e) => {
-                e.preventDefault();
-                handleVerMais();
-              }}
-            >
-              Ver detalhes <i className="pi pi-external-link"></i>
-            </a>
+            <Button
+              label="Ver detalhes"
+              icon="pi pi-external-link"
+              iconPos="right"
+              link
+              onClick={handleVerMais}
+              className="card-link-button"
+            />
           </div>
 
           <div className="card-ciclos-selecao">
-            <button
+            <Button
+              label="Ciclo I"
               className={`ciclo-btn ${cicloSelecionado === 1 ? 'ativo' : ''}`}
               onClick={() => setCicloSelecionado(1)}
-            >
-              Ciclo I
-            </button>
-            <button
+              outlined={cicloSelecionado !== 1}
+            />
+            <Button
+              label="Ciclo II"
               className={`ciclo-btn ${cicloSelecionado === 2 ? 'ativo' : ''}`}
               onClick={() => setCicloSelecionado(2)}
-            >
-              Ciclo II
-            </button>
-            <button
+              outlined={cicloSelecionado !== 2}
+            />
+            <Button
+              label="Ciclo III"
               className={`ciclo-btn ${cicloSelecionado === 3 ? 'ativo' : ''}`}
               onClick={() => setCicloSelecionado(3)}
-            >
-              Ciclo III
-            </button>
+              outlined={cicloSelecionado !== 3}
+            />
           </div>
 
           <div className="card-metricas">

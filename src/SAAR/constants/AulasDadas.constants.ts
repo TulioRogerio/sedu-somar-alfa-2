@@ -7,17 +7,11 @@ import type { Disciplina } from "../types/AulasDadas.types";
 export const DISCIPLINAS: Disciplina[] = [
   { label: "Língua Portuguesa", value: "LP" },
   { label: "Matemática", value: "Mat" },
-  { label: "Ciências", value: "Ciencias" },
-  { label: "História", value: "Historia" },
-  { label: "Geografia", value: "Geografia" },
 ];
 
 export const CORES_DISCIPLINAS: Record<string, string> = {
   LP: "#2196f3", // Azul
   Mat: "#4caf50", // Verde
-  Ciencias: "#ff9800", // Laranja
-  Historia: "#9c27b0", // Roxo
-  Geografia: "#f44336", // Vermelho
 };
 
 export const ORDEM_TURMAS = [

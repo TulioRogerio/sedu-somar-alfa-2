@@ -1,0 +1,33 @@
+escola_id,escola_nome,regional,municipio,indicador_aulas_dadas,indicador_frequencia,indicador_tarefas,indicador_produtos,indicador_visitas_tecnicas
+1,"EEEFM José Cupertino","SRE Afonso Cláudio","Afonso Cláudio",93.90,83.65,76.21,50.38,92.31
+2,"EEEFM Ana Monteiro","SRE Afonso Cláudio","Afonso Cláudio",95.87,84.05,80.91,63.00,92.31
+3,"EEEFM Pedro Silva","SRE Afonso Cláudio","Afonso Cláudio",94.66,84.08,31.90,31.50,92.31
+4,"EEEFM Maria Santos","SRE Afonso Cláudio","Afonso Cláudio",94.32,84.72,72.19,63.00,100.00
+5,"EEEFM Carlos Oliveira","SRE Afonso Cláudio","Brejetuba",94.21,84.40,49.29,50.38,92.31
+6,"EEEFM Julia Costa","SRE Afonso Cláudio","Brejetuba",95.47,83.22,42.77,37.83,92.31
+7,"EEEFM Roberto Mendes","SRE Afonso Cláudio","Brejetuba",94.47,82.76,68.89,50.38,100.00
+8,"EEEFM Fernanda Lima","SRE Colatina","Colatina",95.33,83.01,79.52,63.00,92.31
+9,"EEEFM Lucas Pereira","SRE Colatina","Baixo Guandu",95.00,81.99,55.45,50.38,100.00
+10,"EEEFM Beatriz Souza","SRE Colatina","Colatina",94.80,83.16,49.70,37.83,92.31
+11,"EEEFM Rafael Martins","SRE Colatina","Baixo Guandu",95.56,84.28,68.18,50.38,100.00
+12,"EEEFM Camila Rodrigues","SRE Colatina","Colatina",94.15,83.86,78.75,63.00,92.31
+13,"EEEFM Gabriel Silva","SRE Colatina","Baixo Guandu",94.58,82.66,61.45,54.50,100.00
+14,"EEEFM Larissa Costa","SRE Colatina","Colatina",95.76,81.94,67.27,50.38,92.31
+15,"EEEFM Thiago Oliveira","SRE Colatina","Baixo Guandu",94.38,82.50,52.73,37.88,100.00
+16,"EEEFM Marina Santos","SRE Colatina","Colatina",95.52,81.74,78.92,63.00,92.31
+17,"EEEFM Bruno Mendes","SRE Colatina","Colatina",94.59,82.64,62.16,56.63,100.00
+18,"EEEFM Isabella Ferreira","SRE Colatina","Colatina",94.63,82.63,71.55,50.38,92.31
+19,"EEEFM Daniel Alves","SRE Colatina","Colatina",94.54,82.44,49.40,37.83,100.00
+20,"EEEFM Sofia Lima","SRE Colatina","Colatina",94.60,82.07,78.64,63.00,92.31
+22,"EEEFM Santa Rita","SRE Afonso Cláudio","Brejetuba",94.77,83.17,63.33,50.38,92.31
+23,"EEEFM João Batista","SRE Colatina","Colatina",94.93,82.49,0.00,0.00,100.00
+24,"EEEFM Maria da Conceição","SRE Colatina","Colatina",95.11,82.58,0.00,0.00,92.31
+25,"EEEFM Antônio Carlos","SRE Colatina","Colatina",94.05,84.27,0.00,0.00,0.00
+26,"EEEFM Paulo Freire","SRE Colatina","Colatina",95.40,82.22,0.00,0.00,0.00
+,"","SRE Afonso Cláudio","",94.71,83.75,61.65,49.09,94.23
+,"","SRE Colatina","",94.88,82.73,66.40,52.49,95.90
+,"","SRE Afonso Cláudio","Afonso Cláudio",94.69,84.12,66.02,50.39,94.23
+,"","SRE Afonso Cláudio","Brejetuba",94.73,83.37,56.78,47.87,94.23
+,"","SRE Colatina","Colatina",94.88,82.69,69.50,54.59,94.41
+,"","SRE Colatina","Baixo Guandu",94.88,82.86,59.32,47.87,100.00
+,"Espírito Santo","","",94.82,83.06,64.60,51.21,95.51

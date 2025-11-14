@@ -47,16 +47,7 @@ export function criarOpcoesGraficoRosca(dados: DadosProdutos) {
       CORES_FAIXAS["76-100"],
     ],
     legend: {
-      position: "bottom" as const,
-      fontSize: "12px",
-      fontFamily: "inherit",
-      labels: {
-        colors: "#495057",
-      },
-      itemMargin: {
-        horizontal: 10,
-        vertical: 5,
-      },
+      show: false,
     },
     dataLabels: {
       enabled: true,
@@ -123,6 +114,118 @@ export function criarSeriesGraficoRosca(dados: DadosProdutos): number[] {
     dados.faixa26_50,
     dados.faixa51_75,
     dados.faixa76_100,
+  ];
+}
+
+/**
+ * Cria as opções de configuração do gráfico de colunas
+ */
+export function criarOpcoesGraficoColunas(dados: DadosProdutos) {
+  const total = dados.total;
+  const valores = [
+    dados.faixa0_25,
+    dados.faixa26_50,
+    dados.faixa51_75,
+    dados.faixa76_100,
+  ];
+
+  const labels = [
+    "0 à 25% concluído",
+    "26 a 50% concluído",
+    "51 a 75% concluído",
+    "76 a 100% concluído",
+  ];
+
+  const cores = [
+    CORES_FAIXAS["0-25"],
+    CORES_FAIXAS["26-50"],
+    CORES_FAIXAS["51-75"],
+    CORES_FAIXAS["76-100"],
+  ];
+
+  return {
+    chart: {
+      type: "bar" as const,
+      toolbar: {
+        show: false,
+      },
+    },
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        borderRadius: 4,
+        dataLabels: {
+          position: "top",
+        },
+        columnWidth: "50%",
+        distributed: true,
+      },
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: (val: number) => {
+        const valor = typeof val === "number" ? val : parseFloat(val.toString());
+        const percentage = total > 0 ? ((valor / total) * 100).toFixed(1) : "0.0";
+        return `${valor} (${percentage}%)`;
+      },
+      offsetY: -20,
+      style: {
+        fontSize: "11px",
+        colors: ["#333"],
+      },
+    },
+    xaxis: {
+      categories: labels,
+      title: {
+        text: "Faixas de Conclusão",
+      },
+      labels: {
+        style: {
+          fontSize: "11px",
+        },
+        rotate: -45,
+        rotateAlways: false,
+      },
+    },
+    yaxis: {
+      title: {
+        text: "Quantidade",
+      },
+      min: 0,
+    },
+    fill: {
+      opacity: 1,
+    },
+    colors: cores,
+    legend: {
+      show: false,
+    },
+    tooltip: {
+      y: {
+        formatter: (val: number) => {
+          const valor = typeof val === "number" ? val : parseFloat(val.toString());
+          const percentage = total > 0 ? ((valor / total) * 100).toFixed(2) : "0.00";
+          return `${valor} produtos (${percentage}%)`;
+        },
+      },
+    },
+  };
+}
+
+/**
+ * Cria as séries do gráfico de colunas
+ */
+export function criarSeriesGraficoColunas(dados: DadosProdutos) {
+  return [
+    {
+      name: "Produtos",
+      data: [
+        dados.faixa0_25,
+        dados.faixa26_50,
+        dados.faixa51_75,
+        dados.faixa76_100,
+      ],
+    },
   ];
 }
 

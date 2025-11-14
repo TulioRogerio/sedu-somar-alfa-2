@@ -5,6 +5,7 @@
 import type { ProdutosProps } from "../types/Produtos.types";
 import type { CicloGestaoRow } from "../../types/CicloGestao";
 import type { Escola } from "../../types/Escola";
+import { normalizarFiltrosHierarquia, escolaCorrespondeFiltros } from "./filtrosUtils";
 
 /**
  * Aplica filtros do SAAR aos dados
@@ -15,28 +16,14 @@ export function aplicarFiltrosProdutos(
 ): boolean {
   if (!filtros) return true;
 
+  // Assumindo que todas as escolas são do Espírito Santo
+  // Se houver filtro de estado, pode ser aplicado aqui
   if (filtros.estado && escola.regional) {
-    // Assumindo que todas as escolas são do Espírito Santo
-    // Se houver filtro de estado, pode ser aplicado aqui
+    // Estado já está implícito
   }
 
-  if (filtros.regional && escola.regional !== filtros.regional.label) {
-    return false;
-  }
-
-  if (filtros.municipio && escola.municipio !== filtros.municipio.label) {
-    return false;
-  }
-
-  if (filtros.escola) {
-    const escolaCSV = escola.nome?.trim().toLowerCase() || "";
-    const escolaFiltro = filtros.escola.label?.trim().toLowerCase() || "";
-    if (escolaCSV !== escolaFiltro) {
-      return false;
-    }
-  }
-
-  return true;
+  const filtrosNormalizados = normalizarFiltrosHierarquia(filtros);
+  return escolaCorrespondeFiltros(escola, filtrosNormalizados);
 }
 
 /**

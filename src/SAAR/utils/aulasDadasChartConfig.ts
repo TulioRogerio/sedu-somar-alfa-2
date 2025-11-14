@@ -33,7 +33,7 @@ export function criarOpcoesGrafico(
         dataLabels: {
           position: "top",
         },
-        columnWidth: "35%",
+        columnWidth: "60%",
         barHeight: "70%",
       },
     },
@@ -58,6 +58,8 @@ export function criarOpcoesGrafico(
         style: {
           fontSize: "12px",
         },
+        rotate: -45,
+        rotateAlways: false,
       },
       tickAmount: turmas.length,
     },
@@ -77,11 +79,52 @@ export function criarOpcoesGrafico(
       horizontalAlign: "center",
     },
     tooltip: {
-      y: {
-        formatter: (val: number) => {
-          const valor = typeof val === "number" ? val : parseFloat(val);
-          return `${valor.toFixed(1)}%`;
-        },
+      custom: (opts: any) => {
+        const { seriesIndex, dataPointIndex, w } = opts;
+        const turma = turmas[dataPointIndex];
+        const serie = w.globals.seriesNames[seriesIndex];
+        const percentual = w.globals.series[seriesIndex][dataPointIndex];
+        
+        // Identificar qual disciplina baseado no nome da série
+        const disciplina = DISCIPLINAS.find((d) => d.label === serie);
+        if (!disciplina || !dadosPorTurma[turma]) {
+          return "";
+        }
+        
+        const dadosTurma = dadosPorTurma[turma];
+        let previstas = 0;
+        let dadas = 0;
+        
+        switch (disciplina.value) {
+          case "LP":
+            previstas = dadosTurma.previstas_LP;
+            dadas = dadosTurma.dadas_LP;
+            break;
+          case "Mat":
+            previstas = dadosTurma.previstas_Mat;
+            dadas = dadosTurma.dadas_Mat;
+            break;
+        }
+        
+        return `
+          <div style="padding: 10px;">
+            <div style="font-weight: 600; margin-bottom: 8px; font-size: 14px;">
+              ${serie} - ${turma}
+            </div>
+            <div style="margin-bottom: 4px;">
+              <span style="font-weight: 500;">Percentual: </span>
+              <span>${percentual.toFixed(1)}%</span>
+            </div>
+            <div style="margin-bottom: 4px;">
+              <span style="font-weight: 500;">Aulas Previstas: </span>
+              <span>${previstas}</span>
+            </div>
+            <div>
+              <span style="font-weight: 500;">Aulas Dadas: </span>
+              <span>${dadas}</span>
+            </div>
+          </div>
+        `;
       },
     },
   };
@@ -108,20 +151,8 @@ export function criarSeriesGrafico(
         case "Mat":
           data = turmas.map((turma) => dadosPorTurma[turma].percentual_Mat);
           break;
-        case "Ciencias":
-          data = turmas.map(
-            (turma) => dadosPorTurma[turma].percentual_Ciencias
-          );
-          break;
-        case "Historia":
-          data = turmas.map(
-            (turma) => dadosPorTurma[turma].percentual_Historia
-          );
-          break;
-        case "Geografia":
-          data = turmas.map(
-            (turma) => dadosPorTurma[turma].percentual_Geografia
-          );
+        default:
+          data = [];
           break;
       }
       series.push({

@@ -13,16 +13,21 @@ import type {
 export function calcularIndicadorFrequencia(
   dados: FrequenciaEstudantesRow[]
 ): number {
-  if (dados.length === 0) return 0;
+  if (!dados || !Array.isArray(dados) || dados.length === 0) return 0;
 
-  const totalPresencas = dados.filter((row) => row.presenca_falta === "P")
-    .length;
-  const total = dados.length;
+  try {
+    const totalPresencas = dados.filter((row) => row && row.presenca_falta === "P")
+      .length;
+    const total = dados.length;
 
-  if (total === 0) return 0;
+    if (total === 0) return 0;
 
-  const percentual = (totalPresencas / total) * 100;
-  return Math.min(100, Math.max(0, percentual));
+    const percentual = (totalPresencas / total) * 100;
+    return Math.min(100, Math.max(0, percentual));
+  } catch (error) {
+    console.error("Erro ao calcular indicador de frequência:", error);
+    return 0;
+  }
 }
 
 /**

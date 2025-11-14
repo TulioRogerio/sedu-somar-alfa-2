@@ -43,6 +43,22 @@
   margin: 0;
 }
 
+/* Botão "Ver detalhes" mais suave */
+.card-link-button {
+  opacity: 0.7;
+  font-weight: 400 !important;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.card-link-button:hover {
+  opacity: 1;
+  text-decoration: none !important;
+}
+
+.card-link-button .p-button-label {
+  font-weight: 400;
+}
+
 .produtos-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
