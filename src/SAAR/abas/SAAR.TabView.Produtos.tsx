@@ -20,7 +20,7 @@ import "./SAAR.TabView.Produtos.css";
 export default function SAARTabViewProdutos({
   filtros,
 }: ProdutosProps) {
-  const { dadosAgregados, nivel, carregando } = useProdutosData(filtros);
+  const { dadosAgregados, carregando } = useProdutosData(filtros);
 
   const tituloCard = useMemo(() => obterTituloCard(filtros), [filtros]);
 

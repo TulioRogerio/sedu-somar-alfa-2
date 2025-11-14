@@ -2,6 +2,7 @@
  * Configuração do gráfico ApexCharts para Visitas Técnicas
  */
 
+import type { ApexOptions } from "apexcharts";
 import type { DadosVisitasTecnicas, DadosVisitasTecnicasPorCiclo } from "../types/VisitasTecnicas.types";
 import {
   COR_PLANEJAMENTO,
@@ -140,7 +141,7 @@ export function criarSeriesGraficoColunas(dados: DadosVisitasTecnicas) {
  */
 export function criarOpcoesGraficoCombinadoPorCiclo(
   dadosCiclo: DadosVisitasTecnicasPorCiclo
-) {
+): ApexOptions {
   if (!dadosCiclo.porEtapa || dadosCiclo.porEtapa.length === 0) {
     return {
       chart: { type: "line" as const, toolbar: { show: false } },

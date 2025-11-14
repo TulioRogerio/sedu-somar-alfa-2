@@ -49,7 +49,7 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
 
         // Filtrar municípios baseado nas regionais selecionadas
         const regionaisSelecionadas = Array.isArray(filtros.regional)
-          ? filtros.regional.map((r) => r.label)
+          ? filtros.regional.map((r: { label: string; value: string }) => r.label)
           : filtros.regional
           ? [filtros.regional.label]
           : [];
@@ -76,7 +76,7 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
 
         // Filtrar escolas baseado nos municípios selecionados
         const municipiosSelecionados = Array.isArray(filtros.municipio)
-          ? filtros.municipio.map((m) => m.label)
+          ? filtros.municipio.map((m: { label: string; value: string }) => m.label)
           : filtros.municipio
           ? [filtros.municipio.label]
           : [];
@@ -177,7 +177,7 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
                     id="regional-select"
                     value={
                       Array.isArray(filtros.regional)
-                        ? filtros.regional.map((r) => r.value)
+                        ? filtros.regional.map((r: { label: string; value: string }) => r.value)
                         : filtros.regional
                         ? [filtros.regional.value]
                         : []
@@ -214,7 +214,7 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
                     id="municipio-select"
                     value={
                       Array.isArray(filtros.municipio)
-                        ? filtros.municipio.map((m) => m.value)
+                        ? filtros.municipio.map((m: { label: string; value: string }) => m.value)
                         : filtros.municipio
                         ? [filtros.municipio.value]
                         : []
@@ -256,7 +256,7 @@ export default function SAARFiltros({ onFiltrosChange }: SAARFiltrosProps) {
                     id="escola-select"
                     value={
                       Array.isArray(filtros.escola)
-                        ? filtros.escola.map((e) => e.value)
+                        ? filtros.escola.map((e: { label: string; value: string }) => e.value)
                         : filtros.escola
                         ? [filtros.escola.value]
                         : []

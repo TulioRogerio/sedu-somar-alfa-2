@@ -2,6 +2,7 @@
  * Configuração do gráfico ApexCharts Radar para Eficácia
  */
 
+import type { ApexOptions } from "apexcharts";
 import type { IndicadorRow } from "../types/Eficacia.types";
 
 // Exportações
@@ -9,7 +10,7 @@ import type { IndicadorRow } from "../types/Eficacia.types";
 /**
  * Cria as opções de configuração do gráfico radar
  */
-export function criarOpcoesGraficoRadar(indicador: IndicadorRow | null) {
+export function criarOpcoesGraficoRadar(indicador: IndicadorRow | null): ApexOptions {
   const categorias = [
     "Aulas Dadas",
     "Frequência",

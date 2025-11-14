@@ -3,10 +3,12 @@
  * Valores na escala de 0-1000 (proficiência)
  */
 
+import type { ApexOptions } from "apexcharts";
+
 /**
  * Cria as opções de configuração do gráfico radar para proficiência
  */
-export function criarOpcoesGraficoRadarProficiencia() {
+export function criarOpcoesGraficoRadarProficiencia(): ApexOptions {
   const categorias = [
     "Língua Portuguesa",
     "Matemática",

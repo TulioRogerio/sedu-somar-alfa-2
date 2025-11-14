@@ -14,7 +14,6 @@ import {
 import {
   SAARChartContainer,
   SAARLoadingState,
-  SAAREmptyState,
 } from "../components";
 import type { EficaciaProps } from "../types/Eficacia.types";
 import "./SAAR.TabView.Eficacia.css";
