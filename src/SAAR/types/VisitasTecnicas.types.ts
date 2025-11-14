@@ -2,14 +2,10 @@
  * Tipos e interfaces para o módulo de Visitas Técnicas no SAAR
  */
 
+import type { FiltroContexto } from "./shared.types";
+
 export interface VisitasTecnicasProps {
-  filtros?: {
-    estado?: { label: string; value: string };
-    regional?: { label: string; value: string };
-    municipio?: { label: string; value: string };
-    escola?: { label: string; value: string };
-    saar?: { label: string; value: string };
-  };
+  filtros?: FiltroContexto;
 }
 
 export interface DadosVisitasTecnicasPorEtapa {

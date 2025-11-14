@@ -1,3 +1,5 @@
+import type { FiltroContexto } from "./shared.types";
+
 export interface IndicadorRow {
   escola_id: string;
   escola_nome: string;
@@ -17,12 +19,6 @@ export interface IndicadorRow {
 }
 
 export interface EficaciaProps {
-  filtros?: {
-    estado?: { label: string; value: string };
-    regional?: { label: string; value: string };
-    municipio?: { label: string; value: string };
-    escola?: { label: string; value: string };
-    saar?: { label: string; value: string };
-  };
+  filtros?: FiltroContexto;
 }
 

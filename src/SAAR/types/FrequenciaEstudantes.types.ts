@@ -2,14 +2,10 @@
  * Tipos e interfaces para o módulo de Frequência dos Estudantes
  */
 
+import type { FiltroContexto } from "./shared.types";
+
 export interface FrequenciaEstudantesProps {
-  filtros?: {
-    estado?: { label: string; value: string };
-    regional?: { label: string; value: string };
-    municipio?: { label: string; value: string };
-    escola?: { label: string; value: string };
-    saar?: { label: string; value: string };
-  };
+  filtros?: FiltroContexto;
 }
 
 export interface FrequenciaEstudantesRow {

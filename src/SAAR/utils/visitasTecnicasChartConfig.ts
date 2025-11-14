@@ -30,7 +30,7 @@ function obterCorCiclo(ciclo: number): string {
 /**
  * Cria as opções de configuração do gráfico de colunas
  */
-export function criarOpcoesGraficoColunas(dados: DadosVisitasTecnicas) {
+export function criarOpcoesGraficoColunas(_dados: DadosVisitasTecnicas) {
 
   const labels = [
     "Esperadas",
@@ -58,9 +58,6 @@ export function criarOpcoesGraficoColunas(dados: DadosVisitasTecnicas) {
         },
         columnWidth: "50%",
         distributed: true,
-        stroke: {
-          width: 0,
-        },
       },
     },
     dataLabels: {
