@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import SAARFiltros from './SAAR.Filtros'
 import SAARTabView from './SAAR.TabView'
 import type { Pagina } from '../types/Navegacao'
+import type { FiltroContexto } from "./types/shared.types"
 import { ESTADO_PADRAO, SAAR_PADRAO, ANO_PADRAO } from './constants/shared.constants'
 import './SAAR.css'
 
@@ -12,14 +13,6 @@ interface SAARProps {
   anoSelecionado?: number
   onAnoChange?: (ano: number) => void
   onNavegacao?: (pagina: Pagina) => void
-}
-
-interface FiltroContexto {
-  estado?: { label: string; value: string }
-  regional?: { label: string; value: string }
-  municipio?: { label: string; value: string }
-  escola?: { label: string; value: string }
-  saar?: { label: string; value: string }
 }
 
 export default function SAAR({

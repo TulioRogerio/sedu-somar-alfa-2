@@ -6,11 +6,7 @@
 import { Card } from "primereact/card";
 import { Skeleton } from "primereact/skeleton";
 import { useApexChart } from "../hooks/useApexChart";
-import type { 
-  ApexOptions, 
-  ApexAxisChartSeries, 
-  ApexNonAxisChartSeries 
-} from "apexcharts";
+import type { ApexOptions } from "apexcharts";
 import "./SAARChartContainer.css";
 
 export interface SAARChartContainerProps {
@@ -21,7 +17,7 @@ export interface SAARChartContainerProps {
   /** Opções do gráfico ApexCharts */
   options?: ApexOptions | null;
   /** Séries do gráfico */
-  series?: ApexAxisChartSeries | ApexNonAxisChartSeries;
+  series?: any;
   /** Tipo do gráfico */
   type?: "line" | "bar" | "radar" | "pie" | "donut" | "area";
   /** Altura do gráfico */

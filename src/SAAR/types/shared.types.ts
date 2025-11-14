@@ -37,7 +37,5 @@ export type ApexChartOptions = import("apexcharts").ApexOptions;
 /**
  * Séries de gráfico ApexCharts
  */
-export type ApexChartSeries =
-  | import("apexcharts").ApexAxisChartSeries
-  | import("apexcharts").ApexNonAxisChartSeries;
+export type ApexChartSeries = any[];
 

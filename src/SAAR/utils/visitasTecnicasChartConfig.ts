@@ -5,11 +5,6 @@
 import type { ApexOptions } from "apexcharts";
 import type { DadosVisitasTecnicas, DadosVisitasTecnicasPorCiclo } from "../types/VisitasTecnicas.types";
 import {
-  COR_PLANEJAMENTO,
-  COR_EXECUCAO,
-  COR_SAAR,
-  COR_CORRECAO_ROTAS,
-  COR_BALANCO_FINAL,
   COR_LINHA_ESPERADAS,
   COR_CICLO_I,
   COR_CICLO_II,
@@ -36,7 +31,8 @@ function obterCorCiclo(ciclo: number): string {
  * Cria as opções de configuração do gráfico de colunas
  */
 export function criarOpcoesGraficoColunas(dados: DadosVisitasTecnicas) {
-  const valores = [
+  // valores não usado, mas mantido para referência futura
+  const _valores = [
     dados.totalEsperadas,
     dados.totalAtasAssinadas,
   ];
@@ -74,8 +70,8 @@ export function criarOpcoesGraficoColunas(dados: DadosVisitasTecnicas) {
     },
     dataLabels: {
       enabled: true,
-      formatter: (val: number) => {
-        const valor = typeof val === "number" ? val : parseFloat(val.toString());
+      formatter: (val: number | string) => {
+        const valor = typeof val === "number" ? val : parseFloat(String(val));
         return valor.toString();
       },
       offsetY: -20,
@@ -112,8 +108,8 @@ export function criarOpcoesGraficoColunas(dados: DadosVisitasTecnicas) {
     },
     tooltip: {
       y: {
-        formatter: (val: number) => {
-          const valor = typeof val === "number" ? val : parseFloat(val.toString());
+        formatter: (val: number | string) => {
+          const valor = typeof val === "number" ? val : parseFloat(String(val));
           return `${valor} visitas`;
         },
       },
@@ -178,15 +174,12 @@ export function criarOpcoesGraficoCombinadoPorCiclo(
         },
         columnWidth: "50%",
         distributed: false,
-        stroke: {
-          width: 0,
-        },
       },
     },
     dataLabels: {
       enabled: true,
-      formatter: (val: number) => {
-        const valor = typeof val === "number" ? val : parseFloat(val.toString());
+      formatter: (val: number | string) => {
+        const valor = typeof val === "number" ? val : parseFloat(String(val));
         return valor > 0 ? valor.toString() : "";
       },
       offsetY: -20,
@@ -229,8 +222,8 @@ export function criarOpcoesGraficoCombinadoPorCiclo(
     },
     tooltip: {
       y: {
-        formatter: (val: number) => {
-          const valor = typeof val === "number" ? val : parseFloat(val.toString());
+        formatter: (val: number | string) => {
+          const valor = typeof val === "number" ? val : parseFloat(String(val));
           return `${valor} visitas`;
         },
       },

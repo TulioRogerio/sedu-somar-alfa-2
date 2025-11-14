@@ -12,6 +12,7 @@ import type {
 import type { VisitaTecnicaRow } from "../../types/VisitasTecnicas";
 import type { Escola } from "../../types/Escola";
 import { calcularDadosVisitasTecnicasFiltrado as calcularDadosVisitasTecnicasFiltradoParser } from "../../utils/visitasTecnicasParser";
+import { calcularDadosVisitasTecnicasFiltrado } from "../../utils/visitasTecnicasParser";
 import { filtrarDadosVisitasTecnicas } from "./visitasTecnicasParser";
 import { normalizarFiltrosHierarquia, escolaCorrespondeFiltros } from "./filtrosUtils";
 
@@ -85,7 +86,7 @@ export function calcularDadosVisitasTecnicas(
 export function calcularDadosVisitasTecnicasRegionais(
   visitasData: VisitaTecnicaRow[],
   escolasData: Escola[],
-  filtros?: VisitasTecnicasProps["filtros"]
+  _filtros?: VisitasTecnicasProps["filtros"]
 ): DadosVisitasTecnicasRegional[] {
   const regionais = new Set(escolasData.map((e) => e.regional));
   const dados: DadosVisitasTecnicasRegional[] = [];
@@ -94,7 +95,7 @@ export function calcularDadosVisitasTecnicasRegionais(
     const dadosRegional = calcularDadosVisitasTecnicasFiltrado(
       visitasData,
       escolasData,
-      (escola) => escola.regional === regional
+      (escola: Escola) => escola.regional === regional
     );
     dados.push({
       ...dadosRegional,
@@ -135,7 +136,7 @@ export function calcularDadosVisitasTecnicasMunicipios(
     const dadosMunicipio = calcularDadosVisitasTecnicasFiltrado(
       visitasData,
       escolasData,
-      (escola) => escola.municipio === municipio && escola.regional === reg
+      (escola: Escola) => escola.municipio === municipio && escola.regional === reg
     );
     dados.push({
       ...dadosMunicipio,
@@ -166,7 +167,7 @@ export function calcularDadosVisitasTecnicasEscolas(
     const dadosEscola = calcularDadosVisitasTecnicasFiltrado(
       visitasData,
       escolasData,
-      (e) => e.id === escola.id
+      (e: Escola) => e.id === escola.id
     );
     dados.push({
       ...dadosEscola,
