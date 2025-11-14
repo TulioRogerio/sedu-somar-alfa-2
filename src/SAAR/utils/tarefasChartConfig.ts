@@ -10,7 +10,8 @@ import { CORES_STATUS } from "../constants/Tarefas.constants";
  */
 export function criarOpcoesGraficoColunas(dados: DadosTarefas) {
   const total = dados.total;
-  const valores = [
+  // valores não usado, mas mantido para referência futura
+  const _valores = [
     dados.previstas,
     dados.naoIniciadas,
     dados.emAndamento,
@@ -57,8 +58,8 @@ export function criarOpcoesGraficoColunas(dados: DadosTarefas) {
     },
     dataLabels: {
       enabled: true,
-      formatter: (val: number) => {
-        const valor = typeof val === "number" ? val : parseFloat(val.toString());
+      formatter: (val: number | string) => {
+        const valor = typeof val === "number" ? val : parseFloat(String(val));
         const percentage = total > 0 ? ((valor / total) * 100).toFixed(1) : "0.0";
         return `${valor} (${percentage}%)`;
       },
@@ -96,8 +97,8 @@ export function criarOpcoesGraficoColunas(dados: DadosTarefas) {
     },
     tooltip: {
       y: {
-        formatter: (val: number) => {
-          const valor = typeof val === "number" ? val : parseFloat(val.toString());
+        formatter: (val: number | string) => {
+          const valor = typeof val === "number" ? val : parseFloat(String(val));
           const percentage = total > 0 ? ((valor / total) * 100).toFixed(2) : "0.00";
           return `${valor} tarefas (${percentage}%)`;
         },

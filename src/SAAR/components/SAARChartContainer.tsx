@@ -6,7 +6,11 @@
 import { Card } from "primereact/card";
 import { Skeleton } from "primereact/skeleton";
 import { useApexChart } from "../hooks/useApexChart";
-import type { ApexOptions } from "apexcharts";
+import type { 
+  ApexOptions, 
+  ApexAxisChartSeries, 
+  ApexNonAxisChartSeries 
+} from "apexcharts";
 import "./SAARChartContainer.css";
 
 export interface SAARChartContainerProps {

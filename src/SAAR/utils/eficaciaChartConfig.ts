@@ -45,7 +45,7 @@ export function criarOpcoesGraficoRadar(indicador: IndicadorRow | null): ApexOpt
     markers: {
       size: 4,
       colors: ["#fff"],
-      strokeColor: "#2196f3",
+      strokeColors: ["#2196f3"],
       strokeWidth: 2,
     },
     tooltip: {

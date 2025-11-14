@@ -122,7 +122,8 @@ export function criarSeriesGraficoRosca(dados: DadosProdutos): number[] {
  */
 export function criarOpcoesGraficoColunas(dados: DadosProdutos) {
   const total = dados.total;
-  const valores = [
+  // valores não usado, mas mantido para referência futura
+  const _valores = [
     dados.faixa0_25,
     dados.faixa26_50,
     dados.faixa51_75,
@@ -163,8 +164,8 @@ export function criarOpcoesGraficoColunas(dados: DadosProdutos) {
     },
     dataLabels: {
       enabled: true,
-      formatter: (val: number) => {
-        const valor = typeof val === "number" ? val : parseFloat(val.toString());
+      formatter: (val: number | string) => {
+        const valor = typeof val === "number" ? val : parseFloat(String(val));
         const percentage = total > 0 ? ((valor / total) * 100).toFixed(1) : "0.0";
         return `${valor} (${percentage}%)`;
       },
@@ -202,8 +203,8 @@ export function criarOpcoesGraficoColunas(dados: DadosProdutos) {
     },
     tooltip: {
       y: {
-        formatter: (val: number) => {
-          const valor = typeof val === "number" ? val : parseFloat(val.toString());
+        formatter: (val: number | string) => {
+          const valor = typeof val === "number" ? val : parseFloat(String(val));
           const percentage = total > 0 ? ((valor / total) * 100).toFixed(2) : "0.00";
           return `${valor} produtos (${percentage}%)`;
         },

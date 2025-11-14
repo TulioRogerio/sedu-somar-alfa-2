@@ -12,6 +12,7 @@ import type {
 import type { CicloGestaoRow } from "../../types/CicloGestao";
 import type { Escola } from "../../types/Escola";
 import { filtrarDadosCicloGestao } from "./tarefasParser";
+import { normalizarFiltrosHierarquia, escolaCorrespondeFiltros } from "./filtrosUtils";
 
 /**
  * Formata número com separador de milhares (pt-BR)

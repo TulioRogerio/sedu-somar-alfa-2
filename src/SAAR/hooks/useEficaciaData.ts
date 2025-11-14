@@ -97,7 +97,17 @@ export function useEficaciaData(filtros?: EficaciaProps["filtros"]) {
           continue;
         }
 
-        dadosParseados.push(row as IndicadorRow);
+        // Preencher propriedades calculadas a partir dos indicadores
+        const indicadorRow: IndicadorRow = {
+          ...row,
+          aulas_dadas: parseFloat(String(row.indicador_aulas_dadas || 0)),
+          frequencia: parseFloat(String(row.indicador_frequencia || 0)),
+          tarefas: parseFloat(String(row.indicador_tarefas || 0)),
+          produtos: parseFloat(String(row.indicador_produtos || 0)),
+          visitas_tecnicas: parseFloat(String(row.indicador_visitas_tecnicas || 0)),
+        };
+
+        dadosParseados.push(indicadorRow);
       }
 
       setDados(dadosParseados);
@@ -135,11 +145,11 @@ export function useEficaciaData(filtros?: EficaciaProps["filtros"]) {
     };
 
     indicadores.forEach((ind) => {
-      agregado.aulas_dadas += parseFloat(String(ind.aulas_dadas || 0)) / total;
-      agregado.frequencia += parseFloat(String(ind.frequencia || 0)) / total;
-      agregado.tarefas += parseFloat(String(ind.tarefas || 0)) / total;
-      agregado.produtos += parseFloat(String(ind.produtos || 0)) / total;
-      agregado.visitas_tecnicas += parseFloat(String(ind.visitas_tecnicas || 0)) / total;
+      agregado.aulas_dadas! += parseFloat(String(ind.aulas_dadas || ind.indicador_aulas_dadas || 0)) / total;
+      agregado.frequencia! += parseFloat(String(ind.frequencia || ind.indicador_frequencia || 0)) / total;
+      agregado.tarefas! += parseFloat(String(ind.tarefas || ind.indicador_tarefas || 0)) / total;
+      agregado.produtos! += parseFloat(String(ind.produtos || ind.indicador_produtos || 0)) / total;
+      agregado.visitas_tecnicas! += parseFloat(String(ind.visitas_tecnicas || ind.indicador_visitas_tecnicas || 0)) / total;
     });
 
     return agregado;

@@ -3,7 +3,7 @@ import { Dropdown } from "primereact/dropdown";
 import { MultiSelect } from "primereact/multiselect";
 import { Button } from "primereact/button";
 import { loadEscolasFromCsv } from "../utils/csvParser";
-import type { FiltroContexto } from "../types/shared.types";
+import type { FiltroContexto } from "./types/shared.types";
 import { ESTADO_PADRAO, SAAR_PADRAO, OPCOES_SAAR } from "./constants/shared.constants";
 import "./SAAR.Filtros.css";
 

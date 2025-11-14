@@ -13,6 +13,7 @@ import type { VisitaTecnicaRow } from "../../types/VisitasTecnicas";
 import type { Escola } from "../../types/Escola";
 import { calcularDadosVisitasTecnicasFiltrado as calcularDadosVisitasTecnicasFiltradoParser } from "../../utils/visitasTecnicasParser";
 import { filtrarDadosVisitasTecnicas } from "./visitasTecnicasParser";
+import { normalizarFiltrosHierarquia, escolaCorrespondeFiltros } from "./filtrosUtils";
 
 /**
  * Formata número com separador de milhares (pt-BR)

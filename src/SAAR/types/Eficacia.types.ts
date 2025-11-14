@@ -8,6 +8,12 @@ export interface IndicadorRow {
   indicador_tarefas: string;
   indicador_produtos: string;
   indicador_visitas_tecnicas: string;
+  // Propriedades calculadas (usadas internamente)
+  aulas_dadas?: number;
+  frequencia?: number;
+  tarefas?: number;
+  produtos?: number;
+  visitas_tecnicas?: number;
 }
 
 export interface EficaciaProps {
