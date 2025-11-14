@@ -196,12 +196,27 @@ export function obterTituloCard(
   filtros?: TarefasProps["filtros"]
 ): string {
   if (filtros?.escola) {
+    if (Array.isArray(filtros.escola)) {
+      return filtros.escola.length === 1 
+        ? filtros.escola[0].label 
+        : `${filtros.escola.length} Escolas`;
+    }
     return filtros.escola.label;
   }
   if (filtros?.municipio) {
+    if (Array.isArray(filtros.municipio)) {
+      return filtros.municipio.length === 1 
+        ? filtros.municipio[0].label 
+        : `${filtros.municipio.length} Municípios`;
+    }
     return filtros.municipio.label;
   }
   if (filtros?.regional) {
+    if (Array.isArray(filtros.regional)) {
+      return filtros.regional.length === 1 
+        ? filtros.regional[0].label 
+        : `${filtros.regional.length} Regionais`;
+    }
     return filtros.regional.label;
   }
   return "Espírito Santo";
